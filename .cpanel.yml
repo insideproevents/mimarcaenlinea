@@ -1,21 +1,14 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/tu_usuario/public_html/
+    - export REPO_PATH=$(pwd)
+    - export DEPLOYPATH=${CPANEL_HOME:=/home/tu_usuario}/public_html
     - export NODE_ENV=production
-    - npm ci --prefer-offline --no-audit
+    - cd $REPO_PATH
+    - npm install
     - npm run build
-    - find $DEPLOYPATH -maxdepth 1 -type f -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.json" | xargs rm -f
-    - find $DEPLOYPATH -maxdepth 1 -type d ! -name "." ! -name ".." | xargs rm -rf
+    - test -d $DEPLOYPATH && rm -rf $DEPLOYPATH/* || mkdir -p $DEPLOYPATH
     - cp -R dist/* $DEPLOYPATH/
-    - |
-      cat > $DEPLOYPATH/.htaccess << 'EOF'
-      <IfModule mod_rewrite.c>
-        RewriteEngine On
-        RewriteBase /
-        RewriteRule ^index\.html$ - [L]
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule . /index.html [L]
-      </IfModule>
-      EOF
+    - chmod 755 $DEPLOYPATH
+    - find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - cp .htaccess $DEPLOYPATH/ 2>/dev/null || true
