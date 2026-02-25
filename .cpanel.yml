@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - export REPO_PATH=$(pwd)
-    - export DEPLOYPATH=${CPANEL_HOME:=/home/tu_usuario}/public_html
+    - export DEPLOYPATH=${CPANEL_HOME:=/home/mimarcae}/public_html
     - export NODE_ENV=production
     - cd $REPO_PATH
     - npm install
