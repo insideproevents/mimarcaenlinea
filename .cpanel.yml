@@ -5,8 +5,14 @@ deployment:
     - export DEPLOYPATH=${CPANEL_HOME:=/home/mimarcae}/public_html
     - export NODE_ENV=production
     - cd $REPO_PATH
-    - npm install
-    - npm run build
+    - |
+      if [ -d dist ] && [ "$(ls -A dist)" ]; then
+        echo "Using existing dist/ - skipping build"
+      else
+        echo "No dist/ found — installing and building"
+        npm ci --prefer-offline --no-audit
+        npm run build
+      fi
     - test -d $DEPLOYPATH && rm -rf $DEPLOYPATH/* || mkdir -p $DEPLOYPATH
     - cp -R dist/* $DEPLOYPATH/
     - chmod 755 $DEPLOYPATH
