@@ -4,9 +4,23 @@ export function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setIsLoaded(true);
+    
+    // Ensure video plays on mobile
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch(() => {
+        // Autoplay was prevented, try again on user interaction
+        const playOnInteraction = () => {
+          video.play();
+          document.removeEventListener('touchstart', playOnInteraction);
+        };
+        document.addEventListener('touchstart', playOnInteraction);
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -42,11 +56,13 @@ export function Hero() {
       {/* Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
+          ref={videoRef}
           className="w-full h-full object-cover"
           autoPlay
           muted
           loop
           playsInline
+          webkit-playsinline="true"
         >
           <source src="/video1.mp4" type="video/mp4" />
           {/* Fallback content */}
