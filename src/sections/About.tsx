@@ -49,7 +49,7 @@ export function About() {
                 style={{ transitionDelay: '100ms' }}
               >
                 Somos un equipo especializado en{' '}
-                <span className="text-[#0047AB]">diseño y desarrollo web</span>
+                <span className="text-[#0041A8]">diseño y desarrollo web</span>
               </h2>
 
               <div
@@ -60,13 +60,13 @@ export function About() {
                 }`}
                 style={{ transitionDelay: '200ms' }}
               >
-                <p className="text-lg text-white/50 leading-relaxed">
+                <p className="text-lg text-[#d3d3d3] leading-relaxed">
                   Enfocado en crear soluciones digitales modernas, funcionales y
                   orientadas a resultados. Trabajamos con empresas,
                   emprendedores y profesionales que buscan una presencia online
                   sólida, confiable y alineada con sus objetivos comerciales.
                 </p>
-                <p className="text-white/40 leading-relaxed">
+                <p className="text-[#d3d3d3] leading-relaxed">
                   Nuestro enfoque combina creatividad, tecnología de vanguardia
                   y estrategia para entregar proyectos que no solo se ven bien,
                   sino que generan resultados tangibles para tu negocio.
@@ -85,9 +85,9 @@ export function About() {
                 {features.map((feature, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-4 h-4 text-[#0047AB]" strokeWidth={2} />
+                      <CheckCircle className="w-4 h-4 text-[#0041A8]" strokeWidth={2} />
                     </div>
-                    <span className="text-sm text-white/60">{feature}</span>
+                    <span className="text-sm text-[#d3d3d3]">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -105,7 +105,7 @@ export function About() {
               <div className="relative aspect-square max-w-md mx-auto">
                 {/* Main Circle */}
                 <div 
-                  className="absolute inset-0 rounded-full border border-[#0047AB]/20"
+                  className="absolute inset-0 rounded-full border border-[#0041A8]/20"
                   style={{
                     background: 'linear-gradient(135deg, rgba(0,71,171,0.1) 0%, transparent 50%)',
                   }}
@@ -122,15 +122,7 @@ export function About() {
                 {/* Center Content */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-24 h-24 mx-auto mb-6">
-                      <img
-                        src="/logo.png"
-                        alt="Logo"
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    {/* espacio para logotipo + palabra "Agencia" reemplazado por imagen */}
-                    <p className="text-[#0047AB] text-sm uppercase tracking-wider mt-1">
+                    <p className="text-[#0041A8] text-sm uppercase tracking-wider mt-1">
                       Diseño Web
                     </p>
                   </div>
@@ -138,7 +130,7 @@ export function About() {
 
                 {/* Orbiting Elements */}
                 <div className="absolute inset-0 animate-spin" style={{ animationDuration: '25s' }}>
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#0047AB] rounded-full shadow-blue" />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#0041A8] rounded-full shadow-blue" />
                 </div>
                 <div className="absolute inset-0 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }}>
                   <div className="absolute bottom-12 right-12 w-2 h-2 bg-white/30 rounded-full" />

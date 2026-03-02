@@ -74,7 +74,7 @@ export function Portfolio() {
             }`}
             style={{ transitionDelay: '100ms' }}
           >
-            Proyectos y <span className="text-[#0047AB]">colaboraciones</span>
+            Proyectos y <span className="text-[#0041A8]">colaboraciones</span>
           </h2>
           <p
             className={`text-lg text-white/50 max-w-2xl leading-relaxed transition-all duration-600 ease-smooth ${
@@ -99,7 +99,7 @@ export function Portfolio() {
             return (
               <div
                 key={project.title}
-                className={`group relative aspect-[4/3] bg-black overflow-hidden cursor-pointer transition-all duration-700 ease-expo-out ${
+                className={`group relative aspect-[4/3] bg-black overflow-hidden cursor-pointer transition-all duration-700 ease-expo-out hover:bg-[#d3d3d3] ${
                   gridVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
@@ -130,30 +130,30 @@ export function Portfolio() {
                 </div>
 
                 {/* Content */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   {/* Top */}
                   <div className="flex justify-between items-start">
-                    <span className="px-3 py-1 bg-white/5 border border-white/10 text-xs text-white/60 uppercase tracking-wider">
+                    <span className="px-3 py-1 bg-white/5 border border-white/10 text-xs text-white/60 uppercase tracking-wider group-hover:text-gray-800 group-hover:border-gray-400">
                       {project.category}
                     </span>
-                    <div className="w-10 h-10 bg-[#0047AB] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
+                    <div className="w-10 h-10 bg-[#0041A8] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
                       <ArrowUpRight className="w-5 h-5 text-white" />
                     </div>
                   </div>
 
                   {/* Bottom */}
                   <div>
-                    <h3 className="font-display font-semibold text-2xl text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="font-display font-semibold text-2xl text-white mb-2 transform translate-y-16 group-hover:translate-y-0 transition-transform duration-500 group-hover:text-gray-800">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <p className="text-sm text-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 group-hover:text-gray-800">
                       {project.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Hover Border */}
-                <div className="absolute inset-0 border border-transparent group-hover:border-[#0047AB]/40 transition-all duration-300 pointer-events-none" />
+                <div className="absolute inset-0 border border-transparent group-hover:border-[#0041A8]/40 transition-all duration-300 pointer-events-none" />
               </div>
             );
           })}
@@ -174,7 +174,7 @@ export function Portfolio() {
               e.preventDefault();
               document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="inline-flex items-center gap-2 text-[#0047AB] font-medium hover:gap-3 transition-all duration-300"
+            className="inline-flex items-center gap-2 text-[#0041A8] font-medium hover:gap-3 transition-all duration-300"
           >
             ¿Tienes un proyecto en mente? Hablemos
             <ArrowUpRight size={18} />

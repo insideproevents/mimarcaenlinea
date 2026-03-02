@@ -109,10 +109,10 @@ export function Contact() {
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              Hablemos sobre tu <span className="text-[#0047AB]">proyecto</span>
+              Hablemos sobre tu <span className="text-[#0041A8]">proyecto</span>
             </h2>
             <p
-              className={`text-lg text-white/50 leading-relaxed transition-all duration-600 ease-smooth ${
+              className={`text-lg text-[#d3d3d3] leading-relaxed transition-all duration-600 ease-smooth ${
                 headerVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-5'
@@ -136,14 +136,14 @@ export function Contact() {
             >
               <div className="space-y-6">
                 <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 border border-[#0047AB]/30 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#0047AB]/10 group-hover:border-[#0047AB]">
-                    <Mail className="w-5 h-5 text-[#0047AB]" />
+                  <div className="w-12 h-12 border border-[#0041A8]/30 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#0041A8]/10 group-hover:border-[#0041A8]">
+                    <Mail className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
                     <p className="text-sm text-white/40 mb-1 uppercase tracking-wider">Email</p>
                     <a
                       href="mailto:contacto@agencia.com"
-                      className="text-white hover:text-[#0047AB] transition-colors duration-300"
+                      className="text-white hover:text-[#0041A8] transition-colors duration-300"
                     >
                       contacto@agencia.com
                     </a>
@@ -151,14 +151,14 @@ export function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 border border-[#0047AB]/30 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#0047AB]/10 group-hover:border-[#0047AB]">
-                    <Phone className="w-5 h-5 text-[#0047AB]" />
+                  <div className="w-12 h-12 border border-[#0041A8]/30 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#0041A8]/10 group-hover:border-[#0041A8]">
+                    <Phone className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
                     <p className="text-sm text-white/40 mb-1 uppercase tracking-wider">Teléfono</p>
                     <a
                       href="tel:+56912345678"
-                      className="text-white hover:text-[#0047AB] transition-colors duration-300"
+                      className="text-white hover:text-[#0041A8] transition-colors duration-300"
                     >
                       +56 9 1234 5678
                     </a>
@@ -166,8 +166,8 @@ export function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 border border-[#0047AB]/30 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#0047AB]/10 group-hover:border-[#0047AB]">
-                    <MapPin className="w-5 h-5 text-[#0047AB]" />
+                  <div className="w-12 h-12 border border-[#0041A8]/30 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#0041A8]/10 group-hover:border-[#0041A8]">
+                    <MapPin className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
                     <p className="text-sm text-white/40 mb-1 uppercase tracking-wider">Ubicación</p>
@@ -200,7 +200,7 @@ export function Contact() {
                   {/* Nombre */}
                   <div>
                     <label className="block text-sm text-white/60 mb-2 uppercase tracking-wider">
-                      Nombre <span className="text-[#0047AB]">*</span>
+                      Nombre <span className="text-[#0041A8]">*</span>
                     </label>
                     <input
                       type="text"
@@ -309,7 +309,7 @@ export function Contact() {
                 {/* Mensaje */}
                 <div>
                   <label className="block text-sm text-white/60 mb-2 uppercase tracking-wider">
-                    Mensaje <span className="text-[#0047AB]">*</span>
+                    Mensaje <span className="text-[#0041A8]">*</span>
                   </label>
                   <textarea
                     name="mensaje"
@@ -327,10 +327,10 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitted}
-                    className={`w-full md:w-auto px-12 py-4 font-semibold uppercase tracking-wider text-sm transition-all duration-300 flex items-center justify-center gap-2 ${
+                    className={`w-full md:w-auto px-12 py-4 font-semibold uppercase tracking-wider text-sm transition-all duration-300 flex items-center justify-center gap-2 rounded-full ${
                       isSubmitted
                         ? 'bg-green-600 text-white'
-                        : 'bg-[#0047AB] text-white hover:bg-[#0058d1] hover:shadow-blue'
+                        : 'bg-[#0041A8] text-white hover:bg-[#0058d1] hover:shadow-blue'
                     }`}
                   >
                     {isSubmitted ? (

@@ -20,11 +20,11 @@ function StatItem({ stat, index, isVisible }: { stat: typeof stats[0]; index: nu
       }`}
       style={{ transitionDelay: `${index * 150 + 300}ms` }}
     >
-      <div className="font-display font-bold text-5xl lg:text-6xl text-[#0047AB] mb-3">
+      <div className="font-display font-bold text-5xl lg:text-6xl text-[#0041A8] mb-3">
         {count}
         <span className="text-4xl lg:text-5xl">{stat.suffix}</span>
       </div>
-      <div className="text-sm text-white/50 uppercase tracking-wider">
+      <div className="text-sm text-[#d3d3d3] uppercase tracking-wider">
         {stat.label}
       </div>
     </div>

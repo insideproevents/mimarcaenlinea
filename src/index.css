@@ -28,11 +28,11 @@
     --radius: 0.5rem;
     
     /* Custom Colors - Deep Blue */
-    --blue-primary: #0047AB;
-    --blue-deep: #003d99;
-    --blue-darker: #002d73;
-    --blue-light: #0058d1;
-    --blue-lighter: #1a6fd6;
+    --blue-primary: #0041A8;
+    --blue-deep: #003a96;
+    --blue-darker: #002a6b;
+    --blue-light: #004dbe;
+    --blue-lighter: #1a66c2;
     --blue-glow: rgba(0, 71, 171, 0.4);
     --gray-1: #b3b3b3;
     --gray-2: #e6e6e6;
@@ -110,7 +110,7 @@
   }
   
   .btn-primary {
-    @apply px-8 py-4 bg-[#0047AB] text-white font-semibold rounded-none transition-all duration-300;
+    @apply px-8 py-4 bg-[#0041A8] text-white font-semibold rounded-full transition-all duration-300;
   }
   
   .btn-primary:hover {
@@ -120,16 +120,16 @@
   }
   
   .btn-secondary {
-    @apply px-8 py-4 border border-white/30 text-white font-semibold rounded-none transition-all duration-300;
+    @apply px-8 py-4 border border-white/30 text-white font-semibold rounded-full transition-all duration-300;
   }
   
   .btn-secondary:hover {
-    @apply border-[#0047AB] text-[#0047AB];
+    @apply border-[#0041A8] text-[#0041A8];
     transform: translateX(5px);
   }
   
   .section-label {
-    @apply text-xs font-semibold tracking-[0.3em] uppercase text-[#0047AB];
+    @apply text-xs font-semibold tracking-[0.3em] uppercase text-[#0041A8];
   }
   
   .card-hover {
@@ -142,7 +142,7 @@
   }
   
   .input-field {
-    @apply w-full px-4 py-4 bg-transparent border border-white/20 text-white placeholder:text-white/40 transition-all duration-300 focus:outline-none focus:border-[#0047AB];
+    @apply w-full px-4 py-4 bg-transparent border border-white/20 text-white placeholder:text-white/40 transition-all duration-300 focus:outline-none focus:border-[#0041A8];
   }
   
   .input-field:focus {

@@ -50,10 +50,15 @@ export function Navigation() {
               }}
               className="flex items-center gap-3 group"
             >
-              <img
-                src="/assetts/logo.png"
-                alt="Logo"
-                className="w-16 h-16 object-contain transition-all duration-300 group-hover:shadow-blue"
+              <img 
+                src="/mi_logo.png" 
+                alt="MIMARCA" 
+                className="h-[77px] w-auto"
+              />
+              <img 
+                src="/logo_texto.png" 
+                alt="MIMARCA" 
+                className="h-[64px] w-auto hidden sm:block"
               />
             </a>
 
@@ -70,7 +75,7 @@ export function Navigation() {
                   className="relative text-white/70 hover:text-white text-sm font-medium tracking-wide uppercase transition-all duration-300 group"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0047AB] transition-all duration-300 ease-expo-out group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0041A8] transition-all duration-300 ease-expo-out group-hover:w-full" />
                 </a>
               ))}
             </div>
@@ -79,7 +84,7 @@ export function Navigation() {
             <div className="hidden lg:block">
               <button
                 onClick={() => scrollToSection('#contacto')}
-                className="px-8 py-3 bg-[#0047AB] text-white text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[#0058d1] hover:shadow-blue"
+                className="px-8 py-3 bg-[#0041A8] rounded-full text-white text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[#0058d1] hover:shadow-blue"
               >
                 Contacto
               </button>
@@ -126,7 +131,7 @@ export function Navigation() {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className={`py-5 text-xl font-display font-semibold text-white/80 hover:text-[#0047AB] transition-all duration-300 border-b border-white/10 uppercase tracking-wide ${
+                className={`py-5 text-xl font-display font-semibold text-white/80 hover:text-[#0041A8] transition-all duration-300 border-b border-white/10 uppercase tracking-wide ${
                   isMobileMenuOpen
                     ? 'opacity-100 translate-x-0'
                     : 'opacity-0 translate-x-10'
@@ -141,7 +146,7 @@ export function Navigation() {
 
             <button
               onClick={() => scrollToSection('#contacto')}
-              className={`mt-10 px-8 py-4 bg-[#0047AB] text-white font-semibold uppercase tracking-wider transition-all duration-500 ${
+              className={`mt-10 px-8 py-4 bg-[#0041A8] rounded-full text-white font-semibold uppercase tracking-wider transition-all duration-500 ${
                 isMobileMenuOpen
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-10'

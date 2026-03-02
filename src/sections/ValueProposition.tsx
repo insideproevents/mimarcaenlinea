@@ -26,8 +26,7 @@ export function ValueProposition() {
                 : 'opacity-0 translate-y-10'
             }`}
           >
-            Tu presencia digital,{' '}
-            <span className="text-[#0047AB]">bien hecha</span> desde el inicio
+            Construimos tu <span className="text-[#0041A8]">presencia digital</span> con <span className="text-[#0041A8]">visión y estructura</span> desde el comienzo.
           </h2>
 
           {/* Body Text */}
@@ -39,7 +38,7 @@ export function ValueProposition() {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            <p className="text-lg md:text-xl text-white/50 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[#d3d3d3] leading-relaxed max-w-3xl mx-auto">
               No solo diseñamos páginas web. Creamos herramientas digitales
               pensadas para transmitir profesionalismo, atraer clientes y apoyar
               tus objetivos comerciales. Cada proyecto se desarrolla con

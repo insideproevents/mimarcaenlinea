@@ -99,8 +99,8 @@ export function Hero() {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            <span className="text-xs font-semibold tracking-[0.4em] uppercase text-[#0047AB]">
-              Agencia de Diseño Web
+            <span className="text-sm font-semibold tracking-[0.4em] uppercase text-white">
+              Agencia de Diseño Web y Medios Digitales
             </span>
           </div>
 
@@ -124,13 +124,13 @@ export function Hero() {
               }`}
               style={{ transitionDelay: '550ms' }}
             >
-              web <span className="text-[#0047AB]">profesional</span>
+              web <span className="text-[#0041A8]">profesional</span>
             </span>
           </h1>
 
           {/* Description */}
           <p
-            className={`text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-800 ease-smooth ${
+            className={`text-lg md:text-xl text-white max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-800 ease-smooth ${
               isLoaded
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-5'
@@ -152,7 +152,7 @@ export function Hero() {
           >
             <button
               onClick={scrollToContact}
-              className="px-12 py-4 bg-[#0047AB] text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#0058d1] hover:shadow-blue"
+              className="px-12 py-4 bg-[#0041A8] rounded-full text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#0058d1] hover:shadow-blue"
             >
               Contacto
             </button>

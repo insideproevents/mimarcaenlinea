@@ -95,7 +95,7 @@ export function Services() {
             Soluciones web para cada etapa de tu negocio
           </h2>
           <p
-            className={`text-lg text-white/50 max-w-2xl leading-relaxed transition-all duration-600 ease-smooth ${
+            className={`text-lg text-[#d3d3d3] max-w-2xl leading-relaxed transition-all duration-600 ease-smooth ${
               headerVisible
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-5'
@@ -118,7 +118,7 @@ export function Services() {
             return (
               <div
                 key={service.title}
-                className={`group relative p-8 lg:p-10 bg-black transition-all duration-500 ease-expo-out hover:bg-[#0047AB]/5 ${
+                className={`group relative p-8 lg:p-10 bg-black transition-all duration-500 ease-expo-out hover:bg-[#d3d3d3] ${
                   gridVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
@@ -129,27 +129,25 @@ export function Services() {
               >
                 {/* Icon */}
                 <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                  <Icon className="w-8 h-8 text-[#0047AB] transition-all duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                  <Icon className="w-8 h-8 text-[#0041A8] transition-all duration-300 group-hover:scale-110" strokeWidth={1.5} />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display font-semibold text-xl text-white mb-4 transition-all duration-300 group-hover:text-[#0047AB]">
+                <h3 className="font-display font-semibold text-xl text-white mb-4 transition-all duration-300 group-hover:text-gray-800">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-white/40 text-sm leading-relaxed mb-6">
+                <p className="text-[#d3d3d3] text-sm leading-relaxed mb-6 group-hover:text-gray-800">
                   {service.description}
                 </p>
 
                 {/* Link */}
                 <a
-                  href="#contacto"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="inline-flex items-center gap-2 text-[#0047AB] text-sm font-medium transition-all duration-300 group-hover:gap-3"
+                  href="http://wa.me/+56937751673"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#0041A8] text-sm font-medium transition-all duration-300 group-hover:gap-3"
                 >
                   Solicitar info
                   <ArrowRight
@@ -159,7 +157,7 @@ export function Services() {
                 </a>
 
                 {/* Hover Border */}
-                <div className="absolute inset-0 border border-transparent transition-all duration-300 group-hover:border-[#0047AB]/30 pointer-events-none" />
+                <div className="absolute inset-0 border border-transparent transition-all duration-300 group-hover:border-[#0041A8]/30 pointer-events-none" />
               </div>
             );
           })}
