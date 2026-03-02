@@ -7,6 +7,7 @@ import { About } from './sections/About';
 import { Portfolio } from './sections/Portfolio';
 import { Contact } from './sections/Contact';
 import { Footer } from './sections/Footer';
+import { InteractiveRobot } from './components/InteractiveRobot';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Interactive Robot Character */}
+      <InteractiveRobot />
     </div>
   );
 }
