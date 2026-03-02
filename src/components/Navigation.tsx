@@ -50,12 +50,11 @@ export function Navigation() {
               }}
               className="flex items-center gap-3 group"
             >
-              <div className="w-12 h-12 bg-[#0047AB] flex items-center justify-center transition-all duration-300 group-hover:shadow-blue">
-                <span className="text-white font-display font-bold text-2xl">A</span>
-              </div>
-              <span className="text-white font-display font-semibold text-xl hidden sm:block">
-                Agencia
-              </span>
+              <img
+                src="/assetts/logo.png"
+                alt="Logo"
+                className="w-12 h-12 object-contain transition-all duration-300 group-hover:shadow-blue"
+              />
             </a>
 
             {/* Desktop Menu */}
