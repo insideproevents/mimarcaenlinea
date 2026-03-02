@@ -19,7 +19,7 @@ export function InteractiveRobot() {
 
   return (
     <div className="fixed bottom-4 right-4 z-50 cursor-pointer">
-      <div className="relative w-24 h-24 md:w-32 md:h-32 animate-float">
+      <div className="relative w-36 h-36 md:w-48 md:h-48 animate-float">
         {/* Robot Image with white background removed */}
         <img
           src="/robot.png"
