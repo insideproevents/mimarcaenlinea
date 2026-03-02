@@ -65,7 +65,7 @@ export function Contact() {
         body: formData
       });
 
-      const data = await response.json();
+      await response.json();
 
       if (response.ok) {
         setIsSubmitted(true);
