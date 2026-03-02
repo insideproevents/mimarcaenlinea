@@ -32,31 +32,33 @@ export function InteractiveRobot() {
         />
         
         {/* Eyes overlay - positioned over the robot's eyes */}
-        <div className="absolute top-[30%] left-[25%] w-[50%] h-[20%] flex justify-center gap-1">
-          {/* Left Eye */}
+        <div className="absolute top-[35%] left-[20%] w-[60%] h-[25%] flex justify-center gap-8">
+          {/* Left Eye - Eyelid for closing animation */}
           <div
-            className="relative w-4 h-4 md:w-5 md:h-5 bg-cyan-400 rounded-full transition-all duration-100"
-            style={{
-              transform: eyesClosed ? 'scaleY(0.1)' : 'scaleY(1)',
-              transformOrigin: 'center',
-            }}
+            className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-full"
           >
-            {eyesClosed && (
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[2px] bg-gray-800" />
-            )}
+            {/* Eyelid that closes */}
+            <div
+              className="absolute top-0 left-0 w-full bg-gray-300 transition-transform duration-200"
+              style={{
+                height: eyesClosed ? '100%' : '0%',
+                transform: eyesClosed ? 'translateY(0)' : 'translateY(-100%)',
+              }}
+            />
           </div>
           
-          {/* Right Eye */}
+          {/* Right Eye - Eyelid for closing animation */}
           <div
-            className="relative w-4 h-4 md:w-5 md:h-5 bg-cyan-400 rounded-full transition-all duration-100"
-            style={{
-              transform: eyesClosed ? 'scaleY(0.1)' : 'scaleY(1)',
-              transformOrigin: 'center',
-            }}
+            className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-full"
           >
-            {eyesClosed && (
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[2px] bg-gray-800" />
-            )}
+            {/* Eyelid that closes */}
+            <div
+              className="absolute top-0 left-0 w-full bg-gray-300 transition-transform duration-200"
+              style={{
+                height: eyesClosed ? '100%' : '0%',
+                transform: eyesClosed ? 'translateY(0)' : 'translateY(-100%)',
+              }}
+            />
           </div>
         </div>
       </div>
