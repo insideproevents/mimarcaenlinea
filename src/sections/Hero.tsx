@@ -39,6 +39,20 @@ export function Hero() {
       ref={heroRef}
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/video1.mp4" type="video/mp4" />
+          {/* Fallback content */}
+        </video>
+      </div>
+
       {/* Animated Background */}
       <div className="absolute inset-0">
         {/* Gradient Orbs - Deep Blue */}

@@ -66,14 +66,12 @@ export function Footer() {
                 }}
                 className="flex items-center gap-3 mb-6 group"
               >
-                <div className="w-12 h-12 bg-[#0047AB] flex items-center justify-center transition-all duration-300 group-hover:shadow-blue">
-                  <span className="text-white font-display font-bold text-2xl">
-                    A
-                  </span>
-                </div>
-                <span className="text-white font-display font-semibold text-xl">
-                  Agencia
-                </span>
+                <img
+                  src="/logo.png"
+                  alt="Logo"
+                  className="w-12 h-12 object-contain transition-all duration-300 group-hover:shadow-blue"
+                />
+                {/* texto "Agencia" reemplazado por el propio logo */}
               </a>
               <p className="text-white/40 text-sm leading-relaxed">
                 Diseño web profesional que impulsa tu negocio. Creamos

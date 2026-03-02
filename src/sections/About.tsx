@@ -122,15 +122,17 @@ export function About() {
                 {/* Center Content */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-24 h-24 bg-[#0047AB] flex items-center justify-center mx-auto mb-6 shadow-blue">
-                      <span className="text-white font-display font-bold text-4xl">
-                        A
-                      </span>
+                    <div className="w-24 h-24 mx-auto mb-6">
+                      <img
+                        src="/logo.png"
+                        alt="Logo"
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                    <p className="text-white font-display font-semibold text-xl">
-                      Agencia
+                    {/* espacio para logotipo + palabra "Agencia" reemplazado por imagen */}
+                    <p className="text-[#0047AB] text-sm uppercase tracking-wider mt-1">
+                      Diseño Web
                     </p>
-                    <p className="text-[#0047AB] text-sm uppercase tracking-wider mt-1">Diseño Web</p>
                   </div>
                 </div>
 
