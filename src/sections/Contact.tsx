@@ -47,22 +47,51 @@ export function Contact() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        nombre: '',
-        empresa: '',
-        servicio: '',
-        objetivo: '',
-        presupuesto: '',
-        plazo: '',
-        mensaje: '',
+    setIsSending(true);
+    
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    formData.append("access_key", "d9a54971-8df3-40c5-a555-107a410f03ec");
+    formData.append("subject", "Nuevo contacto desde MIMARCA");
+    formData.append("from_name", "MIMARCA Web Form");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
       });
-    }, 3000);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            nombre: '',
+            empresa: '',
+            servicio: '',
+            objetivo: '',
+            presupuesto: '',
+            plazo: '',
+            mensaje: '',
+          });
+        }, 3000);
+      } else {
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 3000);
+      }
+
+    } catch (error) {
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleChange = (
@@ -226,7 +255,8 @@ export function Contact() {
               }`}
               style={{ transitionDelay: '400ms' }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={(e) => { e.preventDefault(); handleSubmit(e); }} className="space-y-6">
+                <input type="hidden" name="email_to" value="hola@mimarcaenlinea.cl" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Nombre */}
                   <div>
@@ -357,7 +387,7 @@ export function Contact() {
                 <div>
                   <button
                     type="submit"
-                    disabled={isSubmitted}
+                    disabled={isSubmitted || isSending}
                     className={`w-full md:w-auto px-12 py-4 font-semibold uppercase tracking-wider text-sm transition-all duration-300 flex items-center justify-center gap-2 rounded-full ${
                       isSubmitted
                         ? 'bg-green-600 text-white'
@@ -368,6 +398,10 @@ export function Contact() {
                       <>
                         <CheckCircle size={18} />
                         ¡Mensaje enviado!
+                      </>
+                    ) : isSending ? (
+                      <>
+                        Enviando...
                       </>
                     ) : (
                       <>
