@@ -54,6 +54,17 @@ export function Navigation() {
                 src="/assetts/logo.png"
                 alt="Logo"
                 className="w-16 h-16 object-contain transition-all duration-300 group-hover:shadow-blue"
+              />
+            </a>
+
+            {/* Desktop Menu */}
+            <div className="hidden lg:flex items-center gap-8">
+              {menuItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
                     scrollToSection(item.href);
                   }}
                   className="relative text-white/70 hover:text-white text-sm font-medium tracking-wide uppercase transition-all duration-300 group"
