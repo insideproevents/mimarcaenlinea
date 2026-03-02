@@ -57,7 +57,7 @@ module.exports = {
       },
       fontSize: {
         'hero': ['clamp(2.5rem, 6vw, 4.5rem)', { lineHeight: '1.1', fontWeight: '700' }],
-        'hero-lg': ['clamp(3rem, 8vw, 6rem)', { lineHeight: '1.05', fontWeight: '700' }],
+        'hero-lg': ['clamp(2.4rem, 6.4vw, 4.8rem)', { lineHeight: '1.05', fontWeight: '700' }],
         'h2': ['clamp(2rem, 4vw, 3.5rem)', { lineHeight: '1.15', fontWeight: '700' }],
         'h3': ['clamp(1.5rem, 3vw, 2.5rem)', { lineHeight: '1.2', fontWeight: '700' }],
         'h4': ['clamp(1.25rem, 2vw, 1.75rem)', { lineHeight: '1.25', fontWeight: '600' }],

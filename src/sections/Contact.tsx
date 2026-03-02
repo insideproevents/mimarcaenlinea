@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle } from 'lucide-react';
 
 const services = [
   'Landing Page Autoadministrable',
@@ -140,12 +140,12 @@ export function Contact() {
                     <Mail className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/40 mb-1 uppercase tracking-wider">Email</p>
+                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">Email</p>
                     <a
-                      href="mailto:contacto@agencia.com"
+                      href="mailto:hola@mimarcaenlinea.cl"
                       className="text-white hover:text-[#0041A8] transition-colors duration-300"
                     >
-                      contacto@agencia.com
+                      hola@mimarcaenlinea.cl
                     </a>
                   </div>
                 </div>
@@ -155,12 +155,43 @@ export function Contact() {
                     <Phone className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/40 mb-1 uppercase tracking-wider">Teléfono</p>
+                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">Teléfono</p>
                     <a
-                      href="tel:+56912345678"
-                      className="text-white hover:text-[#0041A8] transition-colors duration-300"
+                      href="tel:+56986244373"
+                      className="text-white hover:text-[#0041A8] transition-colors duration-300 block"
                     >
-                      +56 9 1234 5678
+                      +569 86244373
+                    </a>
+                    <a
+                      href="http://wa.me/+56989608591"
+                      className="text-white hover:text-[#0041A8] transition-colors duration-300 block"
+                    >
+                      +569 89608591
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 border border-[#0041A8]/30 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#0041A8]/10 group-hover:border-[#0041A8]">
+                    <MessageCircle className="w-5 h-5 text-[#0041A8]" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">WhatsApp</p>
+                    <a
+                      href="http://wa.me/+56937751673"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-[#0041A8] transition-colors duration-300 block"
+                    >
+                      +569 37751673
+                    </a>
+                    <a
+                      href="http://wa.me/+56989608591"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-[#0041A8] transition-colors duration-300 block"
+                    >
+                      +569 89608591
                     </a>
                   </div>
                 </div>
@@ -170,7 +201,7 @@ export function Contact() {
                     <MapPin className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/40 mb-1 uppercase tracking-wider">Ubicación</p>
+                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">Ubicación</p>
                     <p className="text-white">Santiago, Chile</p>
                   </div>
                 </div>
