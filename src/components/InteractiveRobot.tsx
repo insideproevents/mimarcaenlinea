@@ -84,7 +84,7 @@ export function InteractiveRobot() {
     >
       <div className="animate-float">
         <div
-          className={`relative w-36 h-36 md:w-48 md:h-48 cursor-pointer ${
+          className={`relative w-28 h-28 md:w-48 md:h-48 cursor-pointer ${
             isHovered ? 'scale-110' : 'scale-100'
           }`}
           onMouseEnter={() => setIsHovered(true)}
