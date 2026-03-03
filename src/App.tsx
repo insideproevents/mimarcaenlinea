@@ -18,8 +18,8 @@ function App() {
       {/* Main Content */}
       <main>
         <Hero />
-        <ValueProposition />
         <Services />
+        <ValueProposition />
         <Stats />
         <About />
         <Portfolio />
