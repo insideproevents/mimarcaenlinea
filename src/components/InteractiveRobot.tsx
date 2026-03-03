@@ -1,41 +1,82 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
-  const [isOnLeft, setIsOnLeft] = useState(false);
-  const [isSliding, setIsSliding] = useState(false);
+  const [position, setPosition] = useState<'left' | 'right'>('right');
+  const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [translateX, setTranslateX] = useState(0);
+  const animationRef = useRef<number | null>(null);
+  const startTimeRef = useRef<number>(0);
+  const startXRef = useRef<number>(0);
+  const targetXRef = useRef<number>(0);
+  const currentXRef = useRef<number>(0);
+
+  const DURATION = 1500; // 1.5 seconds for smooth animation
+
+  useEffect(() => {
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
+
+  const animateSlide = (fromX: number, toX: number) => {
+    startXRef.current = fromX;
+    targetXRef.current = toX;
+    currentXRef.current = fromX;
+    startTimeRef.current = performance.now();
+    setIsAnimating(true);
+
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTimeRef.current;
+      const progress = Math.min(elapsed / DURATION, 1);
+      
+      // Ease-in-out function for smoother motion
+      const easedProgress = progress < 0.5
+        ? 2 * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+      
+      currentXRef.current = startXRef.current + (targetXRef.current - startXRef.current) * easedProgress;
+      
+      const container = containerRef.current;
+      if (container) {
+        container.style.transform = `translateX(${currentXRef.current}px)`;
+      }
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      } else {
+        setIsAnimating(false);
+        currentXRef.current = targetXRef.current;
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+  };
 
   const handleClick = () => {
-    if (isSliding) return;
-    
-    setIsSliding(true);
-    
-    // Calculate the width of the screen to slide across
+    if (isAnimating) return;
+
     const screenWidth = window.innerWidth;
     const robotWidth = containerRef.current?.offsetWidth || 144;
-    const distance = screenWidth - robotWidth - 32; // 32px for margins
-    
-    // Slide to the opposite side
-    const newIsOnLeft = !isOnLeft;
-    setIsOnLeft(newIsOnLeft);
-    setTranslateX(newIsOnLeft ? distance : -distance);
-    
-    // Reset sliding state after animation completes, but keep position
-    setTimeout(() => {
-      setIsSliding(false);
-    }, 1500);
+    const distance = screenWidth - robotWidth - 32;
+
+    if (position === 'right') {
+      // Slide from right (0) to left (-distance)
+      animateSlide(0, -distance);
+      setPosition('left');
+    } else {
+      // Slide from left (-distance) to right (distance)
+      animateSlide(-distance, distance);
+      setPosition('right');
+    }
   };
 
   return (
     <div 
       ref={containerRef}
-      className={`fixed bottom-4 z-50 ${isOnLeft ? 'left-4' : 'right-4'}`}
-      style={{
-        transform: isSliding ? `translateX(${translateX}px)` : 'none',
-        transition: isSliding ? 'transform 1500ms ease-in-out' : 'none',
-      }}
+      className="fixed bottom-4 right-4 z-50"
     >
       <div
         className={`relative w-36 h-36 md:w-48 md:h-48 cursor-pointer ${
@@ -50,7 +91,7 @@ export function InteractiveRobot() {
           src="/robot.png"
           alt="Robot"
           className={`w-full h-full object-contain ${
-            isOnLeft ? 'scale-x-[-1]' : 'scale-x-100'
+            position === 'left' ? 'scale-x-[-1]' : 'scale-x-100'
           }`}
           style={{
             background: 'transparent',
