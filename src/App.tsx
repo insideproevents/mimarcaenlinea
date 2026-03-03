@@ -19,10 +19,10 @@ function App() {
       <main>
         <Hero />
         <Services />
+        <Portfolio />
         <ValueProposition />
         <Stats />
         <About />
-        <Portfolio />
         <Contact />
       </main>
 
