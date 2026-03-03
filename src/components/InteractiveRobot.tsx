@@ -1,18 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
   const [isJumping, setIsJumping] = useState(false);
   const [isOnLeft, setIsOnLeft] = useState(false);
+  const [isSliding, setIsSliding] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [translateX, setTranslateX] = useState(0);
 
   const handleClick = () => {
+    if (isSliding) return;
+    
+    setIsSliding(true);
     setIsJumping(true);
-    setIsOnLeft(!isOnLeft);
-    setTimeout(() => setIsJumping(false), 500);
+    
+    // Calculate the width of the screen to slide across
+    const screenWidth = window.innerWidth;
+    const robotWidth = containerRef.current?.offsetWidth || 144;
+    const distance = screenWidth - robotWidth - 32; // 32px for margins
+    
+    // Toggle position and set translateX accordingly
+    const newIsOnLeft = !isOnLeft;
+    setIsOnLeft(newIsOnLeft);
+    setTranslateX(newIsOnLeft ? distance : -distance);
+    
+    setTimeout(() => {
+      setIsJumping(false);
+      setIsSliding(false);
+      setTranslateX(0);
+    }, 600);
   };
 
   return (
-    <div className={`fixed bottom-4 z-50 transition-all duration-500 ${isOnLeft ? 'left-4' : 'right-4'}`}>
+    <div 
+      ref={containerRef}
+      className={`fixed bottom-4 z-50 ${isOnLeft ? 'left-4' : 'right-4'}`}
+    >
       <div
         className={`relative w-36 h-36 md:w-48 md:h-48 cursor-pointer transition-transform duration-300 ${
           isHovered ? 'scale-110' : 'scale-100'
@@ -20,6 +43,10 @@ export function InteractiveRobot() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleClick}
+        style={{
+          transform: isSliding ? `translateX(${translateX}px)` : undefined,
+          transition: isSliding ? 'transform 600ms linear' : undefined,
+        }}
       >
         {/* Robot Image with white background removed */}
         <img
