@@ -81,13 +81,30 @@ export function Hero() {
       });
     };
 
-    // Try to start immediately
+    // iOS requires user interaction to play video
+    const handleUserInteraction = () => {
+      if (!hasStarted.current) {
+        startAnimation();
+      }
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('touchstart', handleUserInteraction);
+    };
+
+    // Try to start immediately (works on some devices)
     startAnimation();
+
+    // If still not playing, wait for user interaction (iOS requirement)
+    if (!hasStarted.current) {
+      document.addEventListener('click', handleUserInteraction);
+      document.addEventListener('touchstart', handleUserInteraction);
+    }
 
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('touchstart', handleUserInteraction);
     };
   }, []);
 
