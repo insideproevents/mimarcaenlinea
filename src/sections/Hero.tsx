@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 export function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [videoOpacity, setVideoOpacity] = useState(1);
   const heroRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -9,6 +10,7 @@ export function Hero() {
   const isReversing = useRef(false);
   const lastTimeRef = useRef<number>(0);
   const hasStarted = useRef(false);
+  const isFading = useRef(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -37,6 +39,37 @@ export function Hero() {
 
         const deltaTime = currentTime - lastTimeRef.current;
         lastTimeRef.current = currentTime;
+
+        // Check if video is near the end for fadeout effect
+        if (!isReversing.current && !isFading.current && video.duration - video.currentTime < 0.5) {
+          isFading.current = true;
+          // Fade out
+          const fadeOut = () => {
+            const videoContainer = document.querySelector('#video-container');
+            if (videoContainer) {
+              let opacity = 1;
+              const fadeOutInterval = setInterval(() => {
+                opacity -= 0.1;
+                if (opacity <= 0) {
+                  clearInterval(fadeOutInterval);
+                  // Reset and fade in
+                  video.currentTime = 0;
+                  const fadeInInterval = setInterval(() => {
+                    opacity += 0.1;
+                    setVideoOpacity(opacity);
+                    if (opacity >= 1) {
+                      clearInterval(fadeInInterval);
+                      isFading.current = false;
+                    }
+                  }, 30);
+                } else {
+                  setVideoOpacity(opacity);
+                }
+              }, 30);
+            }
+          };
+          fadeOut();
+        }
 
         if (isReversing.current) {
           // When reversing, manually decrease currentTime
@@ -139,7 +172,7 @@ export function Hero() {
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
       {/* Video Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <div id="video-container" className="absolute inset-0 z-0 overflow-hidden" style={{ opacity: videoOpacity }}>
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
