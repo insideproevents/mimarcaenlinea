@@ -19,7 +19,7 @@ export function InteractiveRobot() {
     };
   }, []);
 
-  const animateSlide = (fromX: number, toX: number) => {
+  const animateSlide = (fromX: number, toX: number, newPosition: 'left' | 'right') => {
     const startX = fromX;
     const targetX = toX;
     const startTime = performance.now();
@@ -47,6 +47,8 @@ export function InteractiveRobot() {
       } else {
         setIsAnimating(false);
         currentTranslateX.current = targetX;
+        // Flip after arriving at destination
+        setPosition(newPosition);
       }
     };
 
@@ -66,14 +68,12 @@ export function InteractiveRobot() {
       // Calculate actual current position and animate to left
       const currentX = currentTranslateX.current;
       const targetX = currentX - maxDistance;
-      animateSlide(currentX, targetX);
-      setPosition('left');
+      animateSlide(currentX, targetX, 'left');
     } else {
       // Calculate actual current position and animate to right
       const currentX = currentTranslateX.current;
       const targetX = currentX + maxDistance;
-      animateSlide(currentX, targetX);
-      setPosition('right');
+      animateSlide(currentX, targetX, 'right');
     }
   };
 
