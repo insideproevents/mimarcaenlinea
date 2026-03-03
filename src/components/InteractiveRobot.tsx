@@ -65,11 +65,13 @@ export function InteractiveRobot() {
     if (position === 'right') {
       // Slide from right (0) to left (-distance)
       animateSlide(0, -distance);
-      setPosition('left');
+      // Delay the direction change until after animation starts
+      setTimeout(() => setPosition('left'), 50);
     } else {
       // Slide from left (-distance) to right (distance)
       animateSlide(-distance, distance);
-      setPosition('right');
+      // Delay the direction change until after animation starts
+      setTimeout(() => setPosition('right'), 50);
     }
   };
 
