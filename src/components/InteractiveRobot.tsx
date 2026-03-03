@@ -3,14 +3,16 @@ import { useState } from 'react';
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
   const [isJumping, setIsJumping] = useState(false);
+  const [isOnLeft, setIsOnLeft] = useState(false);
 
   const handleClick = () => {
     setIsJumping(true);
+    setIsOnLeft(!isOnLeft);
     setTimeout(() => setIsJumping(false), 500);
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className={`fixed bottom-4 z-50 transition-all duration-500 ${isOnLeft ? 'left-4' : 'right-4'}`}>
       <div
         className={`relative w-36 h-36 md:w-48 md:h-48 cursor-pointer transition-transform duration-300 ${
           isHovered ? 'scale-110' : 'scale-100'
@@ -25,7 +27,7 @@ export function InteractiveRobot() {
           alt="Robot"
           className={`w-full h-full object-contain transition-transform duration-300 ${
             isHovered ? 'rotate-3' : 'rotate-0'
-          }`}
+          } ${isOnLeft ? 'scale-x-[-1]' : 'scale-x-100'}`}
           style={{
             background: 'transparent',
             filter: isHovered 
@@ -70,6 +72,18 @@ export function InteractiveRobot() {
           }
           100% {
             transform: translateY(0px) scale(1);
+          }
+        }
+
+        @keyframes slide {
+          0% {
+            transform: translateX(0px);
+          }
+          50% {
+            transform: translateX(-20px);
+          }
+          100% {
+            transform: translateX(0px);
           }
         }
         
