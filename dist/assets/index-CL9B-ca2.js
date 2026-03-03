@@ -12,7 +12,7 @@ Error generating stack: `+a.message+`
             transform: translateY(0px);
           }
           50% {
-            transform: translateY(-8px);
+            transform: translateY(-15px);
           }
         }
         
