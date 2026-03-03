@@ -117,64 +117,88 @@ export function InteractiveRobot() {
 
           {/* Orbiting particles */}
           <div className="absolute inset-0 pointer-events-none">
-            {/* Particle 1 - Large, outer orbit */}
+            {/* Particle 1 - Outer orbit */}
             <div 
-              className="absolute w-1.5 h-1.5 bg-cyan-300 rounded-full animate-orbit-1"
+              className="absolute w-1.5 h-1.5 bg-cyan-300 rounded-full animate-orbit"
               style={{ 
                 opacity: 0.8,
                 filter: 'blur(0.5px)',
                 animationDuration: '4s',
-                animationDelay: '0s'
+                animationDelay: '0s',
+                top: '50%',
+                left: '50%',
+                marginTop: '-0.75px',
+                marginLeft: '-0.75px'
               }}
             />
             {/* Particle 2 - Medium orbit */}
             <div 
-              className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-orbit-2"
+              className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-orbit"
               style={{ 
                 opacity: 0.6,
                 filter: 'blur(0.5px)',
                 animationDuration: '3s',
-                animationDelay: '0.5s'
+                animationDelay: '0.5s',
+                top: '50%',
+                left: '50%',
+                marginTop: '-0.5px',
+                marginLeft: '-0.5px'
               }}
             />
             {/* Particle 3 - Small, fast orbit */}
             <div 
-              className="absolute w-0.5 h-0.5 bg-cyan-200 rounded-full animate-orbit-3"
+              className="absolute w-0.5 h-0.5 bg-cyan-200 rounded-full animate-orbit"
               style={{ 
                 opacity: 0.9,
                 filter: 'blur(0.5px)',
                 animationDuration: '2.5s',
-                animationDelay: '1s'
+                animationDelay: '1s',
+                top: '50%',
+                left: '50%',
+                marginTop: '-0.25px',
+                marginLeft: '-0.25px'
               }}
             />
-            {/* Particle 4 - Medium orbit opposite */}
+            {/* Particle 4 - Medium orbit */}
             <div 
-              className="absolute w-1.2 h-1.2 bg-cyan-300 rounded-full animate-orbit-4"
+              className="absolute w-1.2 h-1.2 bg-cyan-300 rounded-full animate-orbit"
               style={{ 
                 opacity: 0.7,
                 filter: 'blur(0.5px)',
                 animationDuration: '3.5s',
-                animationDelay: '1.5s'
+                animationDelay: '1.5s',
+                top: '50%',
+                left: '50%',
+                marginTop: '-0.6px',
+                marginLeft: '-0.6px'
               }}
             />
             {/* Particle 5 - Small, outer orbit */}
             <div 
-              className="absolute w-0.8 h-0.8 bg-cyan-400 rounded-full animate-orbit-5"
+              className="absolute w-0.8 h-0.8 bg-cyan-400 rounded-full animate-orbit"
               style={{ 
                 opacity: 0.5,
                 filter: 'blur(0.5px)',
                 animationDuration: '4.5s',
-                animationDelay: '2s'
+                animationDelay: '2s',
+                top: '50%',
+                left: '50%',
+                marginTop: '-0.4px',
+                marginLeft: '-0.4px'
               }}
             />
             {/* Particle 6 - Extra small fast */}
             <div 
-              className="absolute w-0.4 h-0.4 bg-cyan-200 rounded-full animate-orbit-6"
+              className="absolute w-0.4 h-0.4 bg-cyan-200 rounded-full animate-orbit"
               style={{ 
                 opacity: 0.8,
                 filter: 'blur(0.5px)',
                 animationDuration: '2s',
-                animationDelay: '0.3s'
+                animationDelay: '0.3s',
+                top: '50%',
+                left: '50%',
+                marginTop: '-0.2px',
+                marginLeft: '-0.2px'
               }}
             />
           </div>
@@ -192,80 +216,35 @@ export function InteractiveRobot() {
           }
         }
 
-        @keyframes orbit1 {
-          0% { top: 10%; left: 50%; transform: translateX(-50%); opacity: 0.3; }
-          25% { top: 50%; left: 90%; transform: translateX(-50%); opacity: 1; }
-          50% { top: 90%; left: 50%; transform: translateX(-50%); opacity: 0.3; }
-          75% { top: 50%; left: 10%; transform: translateX(-50%); opacity: 1; }
-          100% { top: 10%; left: 50%; transform: translateX(-50%); opacity: 0.3; }
-        }
-
-        @keyframes orbit2 {
-          0% { top: 20%; left: 80%; opacity: 0.6; }
-          25% { top: 80%; left: 50%; opacity: 0.3; }
-          50% { top: 20%; left: 20%; opacity: 0.6; }
-          75% { top: 80%; left: 50%; opacity: 0.3; }
-          100% { top: 20%; left: 80%; opacity: 0.6; }
-        }
-
-        @keyframes orbit3 {
-          0% { top: 50%; left: 10%; opacity: 0.9; }
-          25% { top: 10%; left: 50%; opacity: 0.4; }
-          50% { top: 50%; left: 90%; opacity: 0.9; }
-          75% { top: 90%; left: 50%; opacity: 0.4; }
-          100% { top: 50%; left: 10%; opacity: 0.9; }
-        }
-
-        @keyframes orbit4 {
-          0% { top: 30%; left: 70%; opacity: 0.7; }
-          25% { top: 70%; left: 30%; opacity: 0.3; }
-          50% { top: 30%; left: 30%; opacity: 0.7; }
-          75% { top: 70%; left: 70%; opacity: 0.3; }
-          100% { top: 30%; left: 70%; opacity: 0.7; }
-        }
-
-        @keyframes orbit5 {
-          0% { top: 40%; left: 60%; opacity: 0.5; }
-          25% { top: 60%; left: 40%; opacity: 0.8; }
-          50% { top: 40%; left: 40%; opacity: 0.5; }
-          75% { top: 60%; left: 60%; opacity: 0.8; }
-          100% { top: 40%; left: 60%; opacity: 0.5; }
-        }
-
-        @keyframes orbit6 {
-          0% { top: 15%; left: 40%; opacity: 0.8; }
-          25% { top: 40%; left: 85%; opacity: 0.4; }
-          50% { top: 85%; left: 60%; opacity: 0.8; }
-          75% { top: 60%; left: 15%; opacity: 0.4; }
-          100% { top: 15%; left: 40%; opacity: 0.8; }
+        @keyframes orbit {
+          0% {
+            transform: translateX(50px) translateY(0) scale(1);
+            opacity: 0.3;
+          }
+          25% {
+            transform: translateX(0) translateY(-50px) scale(0.7);
+            opacity: 1;
+          }
+          50% {
+            transform: translateX(-50px) translateY(0) scale(1);
+            opacity: 0.3;
+          }
+          75% {
+            transform: translateX(0) translateY(50px) scale(0.7);
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(50px) translateY(0) scale(1);
+            opacity: 0.3;
+          }
         }
         
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
 
-        .animate-orbit-1 {
-          animation: orbit1 4s linear infinite;
-        }
-
-        .animate-orbit-2 {
-          animation: orbit2 3s linear infinite;
-        }
-
-        .animate-orbit-3 {
-          animation: orbit3 2.5s linear infinite;
-        }
-
-        .animate-orbit-4 {
-          animation: orbit4 3.5s linear infinite;
-        }
-
-        .animate-orbit-5 {
-          animation: orbit5 4.5s linear infinite;
-        }
-
-        .animate-orbit-6 {
-          animation: orbit6 2s linear infinite;
+        .animate-orbit {
+          animation: orbit 4s linear infinite;
         }
       `}</style>
     </div>
