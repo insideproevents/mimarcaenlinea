@@ -2,7 +2,6 @@ import { useState, useRef } from 'react';
 
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
-  const [isJumping, setIsJumping] = useState(false);
   const [isOnLeft, setIsOnLeft] = useState(false);
   const [isSliding, setIsSliding] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,49 +11,48 @@ export function InteractiveRobot() {
     if (isSliding) return;
     
     setIsSliding(true);
-    setIsJumping(true);
     
     // Calculate the width of the screen to slide across
     const screenWidth = window.innerWidth;
     const robotWidth = containerRef.current?.offsetWidth || 144;
     const distance = screenWidth - robotWidth - 32; // 32px for margins
     
-    // Toggle position and set translateX accordingly
+    // Slide to the opposite side
     const newIsOnLeft = !isOnLeft;
     setIsOnLeft(newIsOnLeft);
     setTranslateX(newIsOnLeft ? distance : -distance);
     
+    // Reset after animation completes
     setTimeout(() => {
-      setIsJumping(false);
       setIsSliding(false);
       setTranslateX(0);
-    }, 600);
+    }, 1500);
   };
 
   return (
     <div 
       ref={containerRef}
-      className={`fixed bottom-4 z-50 ${isOnLeft ? 'left-4' : 'right-4'}`}
+      className="fixed bottom-4 right-4 z-50"
+      style={{
+        transform: isSliding ? `translateX(${translateX}px)` : 'none',
+        transition: isSliding ? 'transform 1500ms ease-in-out' : 'none',
+      }}
     >
       <div
-        className={`relative w-36 h-36 md:w-48 md:h-48 cursor-pointer transition-transform duration-300 ${
+        className={`relative w-36 h-36 md:w-48 md:h-48 cursor-pointer ${
           isHovered ? 'scale-110' : 'scale-100'
-        } ${isJumping ? 'animate-jump' : 'animate-float'}`}
+        }`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleClick}
-        style={{
-          transform: isSliding ? `translateX(${translateX}px)` : undefined,
-          transition: isSliding ? 'transform 600ms linear' : undefined,
-        }}
       >
         {/* Robot Image with white background removed */}
         <img
           src="/robot.png"
           alt="Robot"
-          className={`w-full h-full object-contain transition-transform duration-300 ${
-            isHovered ? 'rotate-3' : 'rotate-0'
-          } ${isOnLeft ? 'scale-x-[-1]' : 'scale-x-100'}`}
+          className={`w-full h-full object-contain ${
+            isOnLeft ? 'scale-x-[-1]' : 'scale-x-100'
+          }`}
           style={{
             background: 'transparent',
             filter: isHovered 
@@ -72,56 +70,6 @@ export function InteractiveRobot() {
           </>
         )}
       </div>
-      
-      {/* All animation keyframes */}
-      <style>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          25% {
-            transform: translateY(-5px) rotate(-2deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(0deg);
-          }
-          75% {
-            transform: translateY(-5px) rotate(2deg);
-          }
-        }
-        
-        @keyframes jump {
-          0% {
-            transform: translateY(0px) scale(1);
-          }
-          50% {
-            transform: translateY(-30px) scale(1.1);
-          }
-          100% {
-            transform: translateY(0px) scale(1);
-          }
-        }
-
-        @keyframes slide {
-          0% {
-            transform: translateX(0px);
-          }
-          50% {
-            transform: translateX(-20px);
-          }
-          100% {
-            transform: translateX(0px);
-          }
-        }
-        
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
-        
-        .animate-jump {
-          animation: jump 0.5s ease-out;
-        }
-      `}</style>
     </div>
   );
 }
