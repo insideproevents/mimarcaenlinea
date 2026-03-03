@@ -60,7 +60,9 @@ export function InteractiveRobot() {
 
     const screenWidth = window.innerWidth;
     const robotWidth = containerRef.current?.offsetWidth || 144;
-    const distance = screenWidth - robotWidth - 32;
+    // Extra margin to ensure robot never leaves screen
+    const margin = 64; // 4rem = 64px safety margin
+    const distance = screenWidth - robotWidth - margin;
 
     if (position === 'right') {
       // Slide from right (0) to left (-distance)
