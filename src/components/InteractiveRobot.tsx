@@ -6,11 +6,9 @@ export function InteractiveRobot() {
   const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
-  const startTimeRef = useRef<number>(0);
-  const startXRef = useRef<number>(0);
-  const targetXRef = useRef<number>(0);
-  const currentXRef = useRef<number>(0);
-
+  
+  // Use refs to track actual position for animation
+  const currentTranslateX = useRef(0);
   const DURATION = 1500; // 1.5 seconds for smooth animation
 
   useEffect(() => {
@@ -22,14 +20,13 @@ export function InteractiveRobot() {
   }, []);
 
   const animateSlide = (fromX: number, toX: number) => {
-    startXRef.current = fromX;
-    targetXRef.current = toX;
-    currentXRef.current = fromX;
-    startTimeRef.current = performance.now();
+    const startX = fromX;
+    const targetX = toX;
+    const startTime = performance.now();
     setIsAnimating(true);
 
     const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTimeRef.current;
+      const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / DURATION, 1);
       
       // Ease-in-out function for smoother motion
@@ -37,18 +34,19 @@ export function InteractiveRobot() {
         ? 2 * progress * progress
         : 1 - Math.pow(-2 * progress + 2, 2) / 2;
       
-      currentXRef.current = startXRef.current + (targetXRef.current - startXRef.current) * easedProgress;
+      const newX = startX + (targetX - startX) * easedProgress;
+      currentTranslateX.current = newX;
       
       const container = containerRef.current;
       if (container) {
-        container.style.transform = `translateX(${currentXRef.current}px)`;
+        container.style.transform = `translateX(${newX}px)`;
       }
 
       if (progress < 1) {
         animationRef.current = requestAnimationFrame(animate);
       } else {
         setIsAnimating(false);
-        currentXRef.current = targetXRef.current;
+        currentTranslateX.current = targetX;
       }
     };
 
@@ -61,16 +59,20 @@ export function InteractiveRobot() {
     const screenWidth = window.innerWidth;
     const robotWidth = containerRef.current?.offsetWidth || 144;
     // Extra margin to ensure robot never leaves screen
-    const margin = 64; // 4rem = 64px safety margin
-    const distance = screenWidth - robotWidth - margin;
+    const margin = 64;
+    const maxDistance = screenWidth - robotWidth - margin;
 
     if (position === 'right') {
-      // Slide from right (0) to left (-distance)
-      animateSlide(0, -distance);
+      // Calculate actual current position and animate to left
+      const currentX = currentTranslateX.current;
+      const targetX = currentX - maxDistance;
+      animateSlide(currentX, targetX);
       setPosition('left');
     } else {
-      // Slide from left (-distance) to right (distance)
-      animateSlide(-distance, distance);
+      // Calculate actual current position and animate to right
+      const currentX = currentTranslateX.current;
+      const targetX = currentX + maxDistance;
+      animateSlide(currentX, targetX);
       setPosition('right');
     }
   };
@@ -88,11 +90,13 @@ export function InteractiveRobot() {
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleClick}
       >
-        {/* Robot Image with white background removed */}
+        {/* Robot Image - flip based on position to face direction of movement */}
         <img
           src="/robot.png"
           alt="Robot"
-          className="w-full h-full object-contain"
+          className={`w-full h-full object-contain transition-transform duration-300 ${
+            position === 'left' ? 'scale-x-[-1]' : ''
+          }`}
           style={{
             background: 'transparent',
             filter: isHovered 
