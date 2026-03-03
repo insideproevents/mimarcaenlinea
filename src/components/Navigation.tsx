@@ -3,8 +3,8 @@ import { Menu, X } from 'lucide-react';
 
 const menuItems = [
   { label: 'Inicio', href: '#inicio' },
-  { label: 'Nosotros', href: '#nosotros' },
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Nosotros', href: '#nosotros' },
   { label: 'Portafolio', href: '#portafolio' },
   { label: 'Contacto', href: '#contacto' },
 ];
