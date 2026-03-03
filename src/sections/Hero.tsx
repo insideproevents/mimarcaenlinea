@@ -5,22 +5,75 @@ export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const animationRef = useRef<number | null>(null);
+  const isReversing = useRef(false);
+  const lastTimeRef = useRef<number>(0);
 
   useEffect(() => {
     setIsLoaded(true);
     
-    // Ensure video plays on mobile
     const video = videoRef.current;
-    if (video) {
-      video.play().catch(() => {
-        // Autoplay was prevented, try again on user interaction
-        const playOnInteraction = () => {
+    if (!video) return;
+
+    // Start playing forward
+    video.playbackRate = 1;
+    isReversing.current = false;
+
+    const animate = (currentTime: number) => {
+      const video = videoRef.current;
+      if (!video) return;
+
+      // Initialize lastTime on first frame
+      if (lastTimeRef.current === 0) {
+        lastTimeRef.current = currentTime;
+      }
+
+      const deltaTime = currentTime - lastTimeRef.current;
+      lastTimeRef.current = currentTime;
+
+      if (isReversing.current) {
+        // When reversing, manually decrease currentTime
+        if (video.currentTime > 0) {
+          video.currentTime -= (deltaTime / 1000) * 1.5; // 1.5x reverse speed
+          if (video.currentTime <= 0) {
+            video.currentTime = 0;
+            // Switch back to forward
+            isReversing.current = false;
+            video.playbackRate = 1;
+            video.play();
+          }
+        }
+      } else {
+        // When playing forward, check if video has ended
+        if (video.ended) {
+          // Switch to reverse
+          isReversing.current = true;
+          video.playbackRate = 1;
           video.play();
-          document.removeEventListener('touchstart', playOnInteraction);
-        };
-        document.addEventListener('touchstart', playOnInteraction);
-      });
-    }
+        }
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    // Ensure video plays on mobile
+    video.play().then(() => {
+      animationRef.current = requestAnimationFrame(animate);
+    }).catch(() => {
+      const playOnInteraction = () => {
+        video.play().then(() => {
+          animationRef.current = requestAnimationFrame(animate);
+        });
+        document.removeEventListener('touchstart', playOnInteraction);
+      };
+      document.addEventListener('touchstart', playOnInteraction);
+    });
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -60,7 +113,6 @@ export function Hero() {
           className="w-full h-full object-cover"
           autoPlay
           muted
-          loop
           playsInline
           webkit-playsinline="true"
         >
