@@ -8,6 +8,7 @@ export function Hero() {
   const animationRef = useRef<number | null>(null);
   const isReversing = useRef(false);
   const lastTimeRef = useRef<number>(0);
+  const hasStarted = useRef(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -15,59 +16,73 @@ export function Hero() {
     const video = videoRef.current;
     if (!video) return;
 
-    // Start playing forward
-    video.playbackRate = 1;
-    isReversing.current = false;
+    const startAnimation = () => {
+      if (hasStarted.current) return;
+      hasStarted.current = true;
+      
+      video.playbackRate = 1;
+      isReversing.current = false;
+      
+      // Reset video to start
+      video.currentTime = 0;
 
-    const animate = (currentTime: number) => {
-      const video = videoRef.current;
-      if (!video) return;
+      const animate = (currentTime: number) => {
+        const video = videoRef.current;
+        if (!video) return;
 
-      // Initialize lastTime on first frame
-      if (lastTimeRef.current === 0) {
+        // Initialize lastTime on first frame
+        if (lastTimeRef.current === 0) {
+          lastTimeRef.current = currentTime;
+        }
+
+        const deltaTime = currentTime - lastTimeRef.current;
         lastTimeRef.current = currentTime;
-      }
 
-      const deltaTime = currentTime - lastTimeRef.current;
-      lastTimeRef.current = currentTime;
-
-      if (isReversing.current) {
-        // When reversing, manually decrease currentTime
-        if (video.currentTime > 0) {
-          video.currentTime -= (deltaTime / 1000) * 1.5; // 1.5x reverse speed
-          if (video.currentTime <= 0) {
-            video.currentTime = 0;
-            // Switch back to forward
-            isReversing.current = false;
+        if (isReversing.current) {
+          // When reversing, manually decrease currentTime
+          if (video.currentTime > 0) {
+            video.currentTime -= (deltaTime / 1000) * 1.5; // 1.5x reverse speed
+            if (video.currentTime <= 0) {
+              video.currentTime = 0;
+              // Switch back to forward
+              isReversing.current = false;
+              video.playbackRate = 1;
+              video.play();
+            }
+          }
+        } else {
+          // When playing forward, check if video has ended
+          if (video.ended) {
+            // Switch to reverse
+            isReversing.current = true;
             video.playbackRate = 1;
             video.play();
           }
         }
-      } else {
-        // When playing forward, check if video has ended
-        if (video.ended) {
-          // Switch to reverse
-          isReversing.current = true;
-          video.playbackRate = 1;
-          video.play();
-        }
-      }
 
-      animationRef.current = requestAnimationFrame(animate);
+        animationRef.current = requestAnimationFrame(animate);
+      };
+
+      video.play().then(() => {
+        animationRef.current = requestAnimationFrame(animate);
+      }).catch(() => {
+        // If autoplay fails, try on user interaction
+        const tryPlay = () => {
+          video.play().then(() => {
+            animationRef.current = requestAnimationFrame(animate);
+          });
+          document.removeEventListener('click', tryPlay);
+          document.removeEventListener('touchstart', tryPlay);
+          document.removeEventListener('keydown', tryPlay);
+        };
+        document.addEventListener('click', tryPlay);
+        document.addEventListener('touchstart', tryPlay);
+        document.addEventListener('keydown', tryPlay);
+      });
     };
 
-    // Ensure video plays on mobile
-    video.play().then(() => {
-      animationRef.current = requestAnimationFrame(animate);
-    }).catch(() => {
-      const playOnInteraction = () => {
-        video.play().then(() => {
-          animationRef.current = requestAnimationFrame(animate);
-        });
-        document.removeEventListener('touchstart', playOnInteraction);
-      };
-      document.addEventListener('touchstart', playOnInteraction);
-    });
+    // Try to start immediately
+    startAnimation();
 
     return () => {
       if (animationRef.current) {
@@ -115,6 +130,7 @@ export function Hero() {
           muted
           playsInline
           webkit-playsinline="true"
+          preload="auto"
         >
           <source src="/video1.mp4" type="video/mp4" />
           {/* Fallback content */}
