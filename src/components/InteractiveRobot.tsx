@@ -22,17 +22,16 @@ export function InteractiveRobot() {
     setIsOnLeft(newIsOnLeft);
     setTranslateX(newIsOnLeft ? distance : -distance);
     
-    // Reset after animation completes
+    // Reset sliding state after animation completes, but keep position
     setTimeout(() => {
       setIsSliding(false);
-      setTranslateX(0);
     }, 1500);
   };
 
   return (
     <div 
       ref={containerRef}
-      className="fixed bottom-4 right-4 z-50"
+      className={`fixed bottom-4 z-50 ${isOnLeft ? 'left-4' : 'right-4'}`}
       style={{
         transform: isSliding ? `translateX(${translateX}px)` : 'none',
         transition: isSliding ? 'transform 1500ms ease-in-out' : 'none',
