@@ -67,13 +67,11 @@ export function InteractiveRobot() {
     if (position === 'right') {
       // Slide from right (0) to left (-distance)
       animateSlide(0, -distance);
-      // Delay the direction change until after animation starts
-      setTimeout(() => setPosition('left'), 50);
+      setPosition('left');
     } else {
       // Slide from left (-distance) to right (distance)
       animateSlide(-distance, distance);
-      // Delay the direction change until after animation starts
-      setTimeout(() => setPosition('right'), 50);
+      setPosition('right');
     }
   };
 
@@ -94,9 +92,7 @@ export function InteractiveRobot() {
         <img
           src="/robot.png"
           alt="Robot"
-          className={`w-full h-full object-contain ${
-            position === 'left' ? 'scale-x-[-1]' : 'scale-x-100'
-          }`}
+          className="w-full h-full object-contain"
           style={{
             background: 'transparent',
             filter: isHovered 
