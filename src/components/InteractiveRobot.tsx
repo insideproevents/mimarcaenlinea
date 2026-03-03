@@ -80,7 +80,7 @@ export function InteractiveRobot() {
   return (
     <div 
       ref={containerRef}
-      className="fixed bottom-4 right-4 z-50"
+      className="fixed bottom-4 right-4 z-50 animate-float"
     >
       <div
         className={`relative w-36 h-36 md:w-48 md:h-48 cursor-pointer ${
@@ -114,6 +114,22 @@ export function InteractiveRobot() {
           </>
         )}
       </div>
+      
+      {/* Floating animation */}
+      <style>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+        
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 }
