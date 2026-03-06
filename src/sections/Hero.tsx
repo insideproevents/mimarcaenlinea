@@ -275,9 +275,9 @@ export function Hero() {
             tecnología de vanguardia y enfoque en resultados reales.
           </p>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <div
-            className={`transition-all duration-700 ease-expo-out ${
+            className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-700 ease-expo-out ${
               isLoaded
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-5'
@@ -288,8 +288,16 @@ export function Hero() {
               onClick={scrollToContact}
               className="px-12 py-4 bg-[#0041A8] rounded-full text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#0058d1] hover:shadow-blue"
             >
-              Contacto
+              Hablemos
             </button>
+            <a
+              href="http://wa.me/+56937751673"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-12 py-4 border border-white/30 rounded-full text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-white/10 hover:border-white/60"
+            >
+              Agenda un meeting
+            </a>
           </div>
         </div>
       </div>
