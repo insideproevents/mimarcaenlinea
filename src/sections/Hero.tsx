@@ -286,7 +286,7 @@ export function Hero() {
           >
             <button
               onClick={scrollToContact}
-              className="px-12 py-4 bg-[#0041A8] rounded-full text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-white hover:text-gray-600"
+              className="px-12 py-4 bg-[#0041A8] rounded-full text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-white hover:text-gray-600 border border-[#d3d3d3]"
             >
               Hablemos
             </button>
@@ -294,7 +294,7 @@ export function Hero() {
               href="http://wa.me/+56937751673"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-12 py-4 bg-white rounded-full text-gray-600 font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#0041A8] hover:text-white"
+              className="px-12 py-4 bg-white rounded-full text-gray-600 font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#0041A8] hover:text-white border border-[#d3d3d3]"
             >
               Agenda un meeting
             </a>
