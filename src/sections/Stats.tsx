@@ -1,13 +1,14 @@
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation';
+import { useLanguage } from '../hooks/useLanguage';
 
-const stats = [
-  { value: 50, suffix: '+', label: 'Proyectos entregados' },
-  { value: 98, suffix: '%', label: 'Clientes satisfechos' },
-  { value: 3, suffix: '+', label: 'Años de experiencia' },
-  { value: 24, suffix: '/7', label: 'Soporte técnico' },
+const getStats = (t: (key: string) => string) => [
+  { value: 50, suffix: '+', label: t('stats.projects') },
+  { value: 98, suffix: '%', label: t('stats.clients') },
+  { value: 3, suffix: '+', label: t('stats.experience') },
+  { value: 24, suffix: '/7', label: '24/7' },
 ];
 
-function StatItem({ stat, index, isVisible }: { stat: typeof stats[0]; index: number; isVisible: boolean }) {
+function StatItem({ stat, index, isVisible }: { stat: { value: number; suffix: string; label: string }; index: number; isVisible: boolean }) {
   const { ref, count } = useCountUp(stat.value, 2500);
 
   return (
@@ -32,6 +33,8 @@ function StatItem({ stat, index, isVisible }: { stat: typeof stats[0]; index: nu
 }
 
 export function Stats() {
+  const { t } = useLanguage();
+  const stats = getStats(t);
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
 
   return (
