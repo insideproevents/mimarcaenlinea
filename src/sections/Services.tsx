@@ -137,20 +137,24 @@ export function Services() {
             return (
               <div
                 key={service.titleKey}
-                className={`group relative p-8 lg:p-10 bg-black rounded-[10%] border border-[#d3d3d3] transition-all duration-500 ease-expo-out hover:bg-[#d3d3d3] ${
+                className={`group relative p-8 lg:p-10 bg-black rounded-[10%] border border-[#d3d3d3] transition-all duration-500 ease-expo-out ${
                   gridVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
                 }`}
                 style={{
                   transitionDelay: gridVisible ? `${index * 80 + 300}ms` : '0ms',
-                  backgroundImage: `url(${service.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
                 }}
               >
-                {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-all duration-300 rounded-[10%]" />
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 rounded-[10%] grayscale opacity-10 group-hover:opacity-20 transition-opacity duration-300"
+                  style={{
+                    backgroundImage: `url(${service.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
                 
                 {/* Content */}
                 <div className="relative z-10">
