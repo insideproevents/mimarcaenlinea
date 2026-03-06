@@ -124,7 +124,7 @@ export function Services() {
         {/* Services Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -132,7 +132,7 @@ export function Services() {
             return (
               <div
                 key={service.title}
-                className={`group relative p-8 lg:p-10 bg-black transition-all duration-500 ease-expo-out hover:bg-[#d3d3d3] ${
+                className={`group relative p-8 lg:p-10 bg-black rounded-[10%] transition-all duration-500 ease-expo-out hover:bg-[#d3d3d3] ${
                   gridVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
