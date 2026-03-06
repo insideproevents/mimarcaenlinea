@@ -8,6 +8,8 @@ import {
   FileText,
   Sparkles,
   ArrowRight,
+  ClipboardList,
+  TrendingUp,
 } from 'lucide-react';
 
 const services = [
@@ -49,6 +51,18 @@ const services = [
     icon: Camera,
     title: 'Creación de Contenido',
     description: 'Producción audiovisual para elevar tu imagen.',
+  },
+  {
+    icon: ClipboardList,
+    title: 'Asesoría y cotización de web compleja',
+    description:
+      'Analizamos tu proyecto en profundidad.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Asesoría de marketing para marcas y empresas',
+    description:
+      'Sesión estratégica para evaluar tu presencia digital.',
   },
 ];
 
