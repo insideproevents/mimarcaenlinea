@@ -132,7 +132,7 @@ export function Services() {
             return (
               <div
                 key={service.title}
-                className={`group relative p-8 lg:p-10 bg-black rounded-[10%] border-2 border-[#d3d3d3] transition-all duration-500 ease-expo-out hover:bg-[#d3d3d3] ${
+                className={`group relative p-8 lg:p-10 bg-black rounded-[10%] border border-[#d3d3d3] transition-all duration-500 ease-expo-out hover:bg-[#d3d3d3] ${
                   gridVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
