@@ -1,14 +1,17 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useLanguage } from '../hooks/useLanguage';
 import { CheckCircle } from 'lucide-react';
 
-const features = [
-  'Diseño personalizado',
-  'Tecnología moderna',
-  'SEO integrado',
-  'Soporte continuo',
+const getFeatures = (t: (key: string) => string) => [
+  t('about.feature1'),
+  t('about.feature2'),
+  t('about.feature3'),
+  t('about.feature4'),
 ];
 
 export function About() {
+  const { t } = useLanguage();
+  const features = getFeatures(t);
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
 
   return (
@@ -37,7 +40,7 @@ export function About() {
                     : 'opacity-0 translate-y-5'
                 }`}
               >
-                Sobre Nosotros
+                {t('about.title')}
               </span>
 
               <h2
@@ -48,8 +51,8 @@ export function About() {
                 }`}
                 style={{ transitionDelay: '100ms' }}
               >
-                Somos un equipo especializado en{' '}
-                <span className="text-[#0041A8]">diseño y desarrollo web</span>
+                {t('about.subtitle')}{' '}
+                <span className="text-[#0041A8]">{t('about.subtitle2')}</span>
               </h2>
 
               <div
@@ -61,15 +64,10 @@ export function About() {
                 style={{ transitionDelay: '200ms' }}
               >
                 <p className="text-lg text-[#d3d3d3] leading-relaxed">
-                  Enfocado en crear soluciones digitales modernas, funcionales y
-                  orientadas a resultados. Trabajamos con empresas,
-                  emprendedores y profesionales que buscan una presencia online
-                  sólida, confiable y alineada con sus objetivos comerciales.
+                  {t('about.desc1')}
                 </p>
                 <p className="text-[#d3d3d3] leading-relaxed">
-                  Nuestro enfoque combina creatividad, tecnología de vanguardia
-                  y estrategia para entregar proyectos que no solo se ven bien,
-                  sino que generan resultados tangibles para tu negocio.
+                  {t('about.desc2')}
                 </p>
               </div>
 
@@ -123,7 +121,7 @@ export function About() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <p className="text-[#0041A8] text-sm uppercase tracking-wider mt-1">
-                      Diseño Web
+                      {t('about.visual')}
                     </p>
                   </div>
                 </div>

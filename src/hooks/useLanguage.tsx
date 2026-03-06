@@ -108,11 +108,46 @@ const translations: Translations = {
 
   // About
   'about.title': { es: 'Sobre Nosotros', en: 'About Us' },
-  'about.subtitle': { es: 'Creamos experiencias digitales que conquistan', en: 'We create digital experiences that conquer' },
-  'about.description': { 
-    es: 'Somos una agencia de diseño web especializada en crear presencia digital memorable. Creemos que cada negocio merece una website que no solo funcione, sino que conquiste.', 
-    en: 'We are a web design agency specialized in creating memorable digital presence. We believe every business deserves a website that not only works but conquers.' 
-  },
+  'about.subtitle': { es: 'Somos un equipo especializado en', en: 'We are a specialized team in' },
+  'about.subtitle2': { es: 'diseño y desarrollo web', en: 'web design and development' },
+  'about.desc1': { es: 'Enfocado en crear soluciones digitales modernas, funcionales y orientadas a resultados. Trabajamos con empresas, emprendedores y profesionales que buscan una presencia online sólida, confiable y alineada con sus objetivos comerciales.', en: 'Focused on creating modern, functional, and results-oriented digital solutions. We work with companies, entrepreneurs, and professionals seeking a solid, reliable online presence aligned with their business goals.' },
+  'about.desc2': { es: 'Nuestro enfoque combina creatividad, tecnología de vanguardia y estrategia para entregar proyectos que no solo se ven bien, sino que generan resultados tangibles para tu negocio.', en: 'Our approach combines creativity, cutting-edge technology, and strategy to deliver projects that not only look good but also generate tangible results for your business.' },
+  'about.feature1': { es: 'Diseño personalizado', en: 'Custom Design' },
+  'about.feature2': { es: 'Tecnología moderna', en: 'Modern Technology' },
+  'about.feature3': { es: 'SEO integrado', en: 'Integrated SEO' },
+  'about.feature4': { es: 'Soporte continuo', en: 'Ongoing Support' },
+  'about.visual': { es: 'Diseño Web', en: 'Web Design' },
+
+  // Portfolio
+  'portfolio.title': { es: 'Portafolio', en: 'Portfolio' },
+  'portfolio.subtitle': { es: 'Proyectos que hablan por sí mismos', en: 'Projects that speak for themselves' },
+  'portfolio.description': { es: 'Cada proyecto es único. Conoce algunos de los trabajos que hemos realizado para nuestros clientes.', en: 'Each project is unique. Check out some of the work we have done for our clients.' },
+
+  // Contact
+  'contact.title': { es: 'Contacto', en: 'Contact' },
+  'contact.subtitle': { es: 'Hablemos de tu proyecto', en: "Let's talk about your project" },
+  'contact.description': { es: '¿Listo para empezar? Escríbenos y cotizamos tu proyecto sin compromiso.', en: 'Ready to start? Write to us and get a quote with no obligation.' },
+  'contact.form.name': { es: 'Nombre', en: 'Name' },
+  'contact.form.email': { es: 'Correo electrónico', en: 'Email' },
+  'contact.form.phone': { es: 'Teléfono', en: 'Phone' },
+  'contact.form.message': { es: 'Mensaje', en: 'Message' },
+  'contact.form.submit': { es: 'Enviar mensaje', en: 'Send message' },
+  'contact.info.title': { es: 'Información de contacto', en: 'Contact information' },
+  'contact.info.email': { es: 'Correo', en: 'Email' },
+  'contact.info.phone': { es: 'Teléfono', en: 'Phone' },
+  'contact.info.whatsapp': { es: 'WhatsApp', en: 'WhatsApp' },
+
+  // Footer
+  'footer.rights': { es: 'Todos los derechos reservados', en: 'All rights reserved' },
+
+  // Stats
+  'stats.projects': { es: 'Proyectos realizados', en: 'Projects completed' },
+  'stats.clients': { es: 'Clientes satisfechos', en: 'Satisfied clients' },
+  'stats.experience': { es: 'Años de experiencia', en: 'Years of experience' },
+
+  // Value Proposition
+  'value.title': { es: '¿Por qué elegirnos?', en: 'Why choose us?' },
+  'value.subtitle': { es: 'Nos diferencia la atención personalizada', en: 'What sets us apart is personalized attention' },
 };
 
 interface LanguageContextType {
