@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useLanguage } from '../hooks/useLanguage';
 import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle } from 'lucide-react';
 
 const services = [
@@ -31,6 +32,7 @@ const timeframes = [
 ];
 
 export function Contact() {
+  const { t } = useLanguage();
   const { ref: headerRef, isVisible: headerVisible } =
     useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const { ref: formRef, isVisible: formVisible } =
@@ -128,7 +130,7 @@ export function Contact() {
                   : 'opacity-0 translate-y-5'
               }`}
             >
-              Contacto
+              {t('contact.title')}
             </span>
             <h2
               className={`font-display font-bold text-h2 text-white mb-6 leading-tight transition-all duration-700 ease-expo-out ${
@@ -138,7 +140,7 @@ export function Contact() {
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              Hablemos sobre tu <span className="text-[#0041A8]">proyecto</span>
+              {t('contact.subtitle')} <span className="text-[#0041A8]">{t('contact.subtitle2')}</span>
             </h2>
             <p
               className={`text-lg text-[#d3d3d3] leading-relaxed transition-all duration-600 ease-smooth ${
@@ -148,8 +150,7 @@ export function Contact() {
               }`}
               style={{ transitionDelay: '200ms' }}
             >
-              Cuéntanos qué necesitas y te ayudaremos a definir la mejor
-              solución web para tu negocio.
+              {t('contact.description')}
             </p>
           </div>
 

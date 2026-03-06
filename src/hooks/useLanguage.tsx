@@ -147,8 +147,9 @@ const translations: Translations = {
 
   // Contact
   'contact.title': { es: 'Contacto', en: 'Contact' },
-  'contact.subtitle': { es: 'Hablemos de tu proyecto', en: "Let's talk about your project" },
-  'contact.description': { es: '¿Listo para empezar? Escríbenos y cotizamos tu proyecto sin compromiso.', en: 'Ready to start? Write to us and get a quote with no obligation.' },
+  'contact.subtitle': { es: 'Hablemos sobre tu', en: "Let's talk about your" },
+  'contact.subtitle2': { es: 'proyecto', en: 'project' },
+  'contact.description': { es: 'Cuéntanos qué necesitas y te ayudaremos a definir la mejor solución web para tu negocio.', en: 'Tell us what you need and we will help you define the best web solution for your business.' },
   'contact.form.name': { es: 'Nombre', en: 'Name' },
   'contact.form.email': { es: 'Correo electrónico', en: 'Email' },
   'contact.form.phone': { es: 'Teléfono', en: 'Phone' },
