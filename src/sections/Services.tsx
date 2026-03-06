@@ -13,7 +13,7 @@ import {
   TrendingUp,
 } from 'lucide-react';
 
-const getServices = (t: (key: string) => string) => [
+const servicesList = [
   {
     icon: Layout,
     titleKey: 'service.landing.auto',
@@ -63,7 +63,7 @@ const getServices = (t: (key: string) => string) => [
 
 export function Services() {
   const { t } = useLanguage();
-  const services = getServices(t);
+  const services = servicesList;
   const { ref: headerRef, isVisible: headerVisible } =
     useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const { ref: gridRef, isVisible: gridVisible } =
