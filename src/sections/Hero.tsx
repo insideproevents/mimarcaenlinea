@@ -294,7 +294,7 @@ export function Hero() {
               href="http://wa.me/+56937751673"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-12 py-4 border border-white/30 rounded-full text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-white/10 hover:border-white/60"
+              className="px-12 py-4 bg-white rounded-full text-gray-600 font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#0041A8] hover:text-white"
             >
               Agenda un meeting
             </a>
