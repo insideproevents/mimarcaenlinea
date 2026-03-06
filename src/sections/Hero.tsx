@@ -286,7 +286,7 @@ export function Hero() {
           >
             <button
               onClick={scrollToContact}
-              className="px-12 py-4 bg-[#0041A8] rounded-full text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#0058d1] hover:shadow-blue"
+              className="px-12 py-4 bg-white rounded-full text-gray-600 font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#0041A8] hover:text-white"
             >
               Hablemos
             </button>
