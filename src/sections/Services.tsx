@@ -164,12 +164,12 @@ export function Services() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-display font-semibold text-xl text-white mb-4 transition-all duration-300 group-hover:text-gray-800">
+                  <h3 className="font-display font-semibold text-xl text-white mb-4 transition-all duration-300">
                     {t(service.titleKey)}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[#d3d3d3] text-sm leading-relaxed mb-6 group-hover:text-gray-800">
+                  <p className="text-[#d3d3d3] text-sm leading-relaxed mb-6">
                     {t(service.descKey)}
                   </p>
 
