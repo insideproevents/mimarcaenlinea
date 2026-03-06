@@ -18,46 +18,55 @@ const servicesList = [
     icon: Layout,
     titleKey: 'service.landing.auto',
     descKey: 'service.landing.auto.desc',
+    image: '/servicios/Landing Page Autoadministrable.jpg',
   },
   {
     icon: FileText,
     titleKey: 'service.landing.pro',
     descKey: 'service.landing.pro.desc',
+    image: '/servicios/Landing Page Profesional.jpg',
   },
   {
     icon: Sparkles,
     titleKey: 'service.corporate',
     descKey: 'service.corporate.desc',
+    image: '/servicios/Web Corporativa.jpg',
   },
   {
     icon: ShoppingCart,
     titleKey: 'service.ecommerce',
     descKey: 'service.ecommerce.desc',
+    image: '/servicios/Ecommerce.jpg',
   },
   {
     icon: User,
     titleKey: 'service.presskit',
     descKey: 'service.presskit.desc',
+    image: '/servicios/Presskit para Artistas.jpg',
   },
   {
     icon: Palette,
     titleKey: 'service.branding',
     descKey: 'service.branding.desc',
+    image: '/servicios/Branding_.jpg',
   },
   {
     icon: Camera,
     titleKey: 'service.content',
     descKey: 'service.content.desc',
+    image: '/servicios/Creación de Contenido.jpg',
   },
   {
     icon: ClipboardList,
     titleKey: 'service.web.complex',
     descKey: 'service.web.complex.desc',
+    image: '/servicios/Asesoría y cotización de web compleja.jpg',
   },
   {
     icon: TrendingUp,
     titleKey: 'service.marketing',
     descKey: 'service.marketing.desc',
+    image: '/servicios/Asesoría de marketing para marcas y empresas.jpg',
   },
 ];
 
@@ -135,36 +144,45 @@ export function Services() {
                 }`}
                 style={{
                   transitionDelay: gridVisible ? `${index * 80 + 300}ms` : '0ms',
+                  backgroundImage: `url(${service.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                 }}
               >
-                {/* Icon */}
-                <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                  <Icon className="w-8 h-8 text-[#0041A8] transition-all duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-all duration-300 rounded-[10%]" />
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className="w-12 h-12 mb-6 flex items-center justify-center">
+                    <Icon className="w-8 h-8 text-[#0041A8] transition-all duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-display font-semibold text-xl text-white mb-4 transition-all duration-300 group-hover:text-gray-800">
+                    {t(service.titleKey)}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-[#d3d3d3] text-sm leading-relaxed mb-6 group-hover:text-gray-800">
+                    {t(service.descKey)}
+                  </p>
+
+                  {/* Link */}
+                  <a
+                    href="http://wa.me/+56937751673"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[#0041A8] text-sm font-medium transition-all duration-300 group-hover:gap-3"
+                  >
+                    {t('services.link')}
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </a>
                 </div>
-
-                {/* Title */}
-                <h3 className="font-display font-semibold text-xl text-white mb-4 transition-all duration-300 group-hover:text-gray-800">
-                  {t(service.titleKey)}
-                </h3>
-
-                {/* Description */}
-                <p className="text-[#d3d3d3] text-sm leading-relaxed mb-6 group-hover:text-gray-800">
-                  {t(service.descKey)}
-                </p>
-
-                {/* Link */}
-                <a
-                  href="http://wa.me/+56937751673"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#0041A8] text-sm font-medium transition-all duration-300 group-hover:gap-3"
-                >
-                  {t('services.link')}
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </a>
 
                 {/* Hover Border */}
                 <div className="absolute inset-0 border border-transparent transition-all duration-300 group-hover:border-[#0041A8]/30 pointer-events-none" />
