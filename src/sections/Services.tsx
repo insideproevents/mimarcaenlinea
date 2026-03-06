@@ -54,7 +54,7 @@ const servicesList = [
     icon: Camera,
     titleKey: 'service.content',
     descKey: 'service.content.desc',
-    image: '/servicios/CreacióndeContenido.jpg',
+    image: '/servicios/creaciondecontenido.jpg',
   },
   {
     icon: ClipboardList,
