@@ -91,7 +91,7 @@ export function Navigation() {
                   }`}
                   aria-label="Español"
                 >
-                  <svg viewBox="0 0 24 24" className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300">
+                  <svg viewBox="0 0 24 24" className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300 scale-75">
                     <rect width="24" height="24" fill="#AA151B"/>
                     <rect y="4" width="24" height="6" fill="#F1BF00"/>
                     <rect y="14" width="24" height="6" fill="#F1BF00"/>
