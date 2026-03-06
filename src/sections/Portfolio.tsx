@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useLanguage } from '../hooks/useLanguage';
 import { ArrowUpRight } from 'lucide-react';
 
 const projects = [
@@ -35,6 +36,7 @@ const projects = [
 ];
 
 export function Portfolio() {
+  const { t } = useLanguage();
   const { ref: headerRef, isVisible: headerVisible } =
     useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const { ref: gridRef, isVisible: gridVisible } =
@@ -64,7 +66,7 @@ export function Portfolio() {
                 : 'opacity-0 translate-y-5'
             }`}
           >
-            Portafolio
+            {t('portfolio.title')}
           </span>
           <h2
             className={`font-display font-bold text-h2 text-white mb-6 leading-tight transition-all duration-700 ease-expo-out ${
@@ -74,7 +76,7 @@ export function Portfolio() {
             }`}
             style={{ transitionDelay: '100ms' }}
           >
-            Proyectos y <span className="text-[#0041A8]">colaboraciones</span>
+            {t('portfolio.subtitle')} <span className="text-[#0041A8]">{t('portfolio.subtitle2')}</span>
           </h2>
           <p
             className={`text-lg text-white/50 max-w-2xl leading-relaxed transition-all duration-600 ease-smooth ${
@@ -84,9 +86,7 @@ export function Portfolio() {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            Estos son algunos de los proyectos en los que hemos trabajado,
-            desarrollando soluciones digitales adaptadas a cada cliente, rubro y
-            objetivo.
+            {t('portfolio.description2')}
           </p>
         </div>
 

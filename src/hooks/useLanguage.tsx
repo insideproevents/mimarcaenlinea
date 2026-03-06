@@ -121,7 +121,29 @@ const translations: Translations = {
   // Portfolio
   'portfolio.title': { es: 'Portafolio', en: 'Portfolio' },
   'portfolio.subtitle': { es: 'Proyectos que hablan por sí mismos', en: 'Projects that speak for themselves' },
+  'portfolio.subtitle2': { es: 'y colaboraciones', en: 'and collaborations' },
   'portfolio.description': { es: 'Cada proyecto es único. Conoce algunos de los trabajos que hemos realizado para nuestros clientes.', en: 'Each project is unique. Check out some of the work we have done for our clients.' },
+  'portfolio.description2': { es: 'Estos son algunos de los proyectos en los que hemos trabajado, desarrollando soluciones digitales adaptadas a cada cliente, rubro y objetivo.', en: 'These are some of the projects we have worked on, developing digital solutions tailored to each client, industry, and goal.' },
+
+  // Portfolio Projects
+  'portfolio.project1.title': { es: 'Ecommerce Moda', en: 'Fashion Ecommerce' },
+  'portfolio.project1.category': { es: 'Tienda Online', en: 'Online Store' },
+  'portfolio.project1.desc': { es: 'Diseño y desarrollo de tienda online para marca de ropa.', en: 'Design and development of online store for clothing brand.' },
+  'portfolio.project2.title': { es: 'Web Corporativa', en: 'Corporate Website' },
+  'portfolio.project2.category': { es: 'Web Corporativa', en: 'Corporate Website' },
+  'portfolio.project2.desc': { es: 'Sitio web profesional para empresa de tecnología.', en: 'Professional website for technology company.' },
+  'portfolio.project3.title': { es: 'Landing Producto', en: 'Product Landing' },
+  'portfolio.project3.category': { es: 'Landing Page', en: 'Landing Page' },
+  'portfolio.project3.desc': { es: 'Página de lanzamiento para nuevo producto digital.', en: 'Landing page for new digital product.' },
+  'portfolio.project4.title': { es: 'Portafolio Creativo', en: 'Creative Portfolio' },
+  'portfolio.project4.category': { es: 'Web Personal', en: 'Personal Website' },
+  'portfolio.project4.desc': { es: 'Sitio web para fotógrafo profesional.', en: 'Website for professional photographer.' },
+  'portfolio.project5.title': { es: 'Restaurante App', en: 'Restaurant App' },
+  'portfolio.project5.category': { es: 'Web + App', en: 'Web + App' },
+  'portfolio.project5.desc': { es: 'Plataforma digital para cadena de restaurantes.', en: 'Digital platform for restaurant chain.' },
+  'portfolio.project6.title': { es: 'Startup Tech', en: 'Tech Startup' },
+  'portfolio.project6.category': { es: 'Web Corporativa', en: 'Corporate Website' },
+  'portfolio.project6.desc': { es: 'Identidad digital para startup tecnológica.', en: 'Digital identity for tech startup.' },
 
   // Contact
   'contact.title': { es: 'Contacto', en: 'Contact' },
