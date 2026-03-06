@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const menuItems = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Portafolio', href: '#portafolio' },
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Contacto', href: '#contacto' },
+  { labelKey: 'nav.inicio', href: '#inicio' },
+  { labelKey: 'nav.servicios', href: '#servicios' },
+  { labelKey: 'nav.portfolio', href: '#portafolio' },
+  { labelKey: 'nav.nosotros', href: '#nosotros' },
+  { labelKey: 'nav.contacto', href: '#contacto' },
 ];
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,19 +76,55 @@ export function Navigation() {
                   }}
                   className="relative text-white/70 hover:text-white text-sm font-medium tracking-wide uppercase transition-all duration-300 group"
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0041A8] transition-all duration-300 ease-expo-out group-hover:w-full" />
                 </a>
               ))}
+
+              {/* Language Switcher */}
+              <div className="flex items-center gap-2 ml-2">
+                {/* Spanish Flag */}
+                <button
+                  onClick={() => setLanguage('es')}
+                  className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all duration-300 ${
+                    language === 'es' ? 'border-[#0041A8] scale-110' : 'border-transparent'
+                  }`}
+                  aria-label="Español"
+                >
+                  <svg viewBox="0 0 24 24" className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300">
+                    <rect width="24" height="24" fill="#AA151B"/>
+                    <rect y="4" width="24" height="6" fill="#F1BF00"/>
+                    <rect y="14" width="24" height="6" fill="#F1BF00"/>
+                    <rect x="8" y="0" width="8" height="24" fill="#F1BF00"/>
+                  </svg>
+                </button>
+                {/* UK Flag */}
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all duration-300 ${
+                    language === 'en' ? 'border-[#0041A8] scale-110' : 'border-transparent'
+                  }`}
+                  aria-label="English"
+                >
+                  <svg viewBox="0 0 24 24" className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300">
+                    <rect width="24" height="24" fill="#012169"/>
+                    <path d="M0 0L24 24M24 0L0 24" stroke="white" strokeWidth="2"/>
+                    <rect x="0" y="9" width="24" height="6" fill="white"/>
+                    <rect x="9" y="0" width="6" height="24" fill="white"/>
+                    <rect x="0" y="10" width="24" height="4" fill="#C8102E"/>
+                    <rect x="10" y="0" width="4" height="24" fill="#C8102E"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
             {/* CTA Button */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex items-center gap-4">
               <button
                 onClick={() => scrollToSection('#contacto')}
                 className="px-8 py-3 bg-[#0041A8] rounded-full text-white text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[#0058d1] hover:shadow-blue"
               >
-                Contacto
+                {t('nav.contacto')}
               </button>
             </div>
 
@@ -140,7 +178,7 @@ export function Navigation() {
                   transitionDelay: isMobileMenuOpen ? `${index * 80 + 200}ms` : '0ms',
                 }}
               >
-                {item.label}
+                {t(item.labelKey)}
               </a>
             ))}
 
@@ -155,7 +193,7 @@ export function Navigation() {
                 transitionDelay: isMobileMenuOpen ? '600ms' : '0ms',
               }}
             >
-              Contacto
+              {t('nav.contacto')}
             </button>
           </div>
         </div>

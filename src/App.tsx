@@ -8,30 +8,33 @@ import { Portfolio } from './sections/Portfolio';
 import { Contact } from './sections/Contact';
 import { Footer } from './sections/Footer';
 import { InteractiveRobot } from './components/InteractiveRobot';
+import { LanguageProvider } from './hooks/useLanguage';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
-      {/* Navigation */}
-      <Navigation />
+    <LanguageProvider>
+      <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
+        {/* Navigation */}
+        <Navigation />
 
-      {/* Main Content */}
-      <main>
-        <Hero />
-        <Services />
-        <Portfolio />
-        <ValueProposition />
-        <Stats />
-        <About />
-        <Contact />
-      </main>
+        {/* Main Content */}
+        <main>
+          <Hero />
+          <Services />
+          <Portfolio />
+          <ValueProposition />
+          <Stats />
+          <About />
+          <Contact />
+        </main>
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
 
-      {/* Interactive Robot Character */}
-      <InteractiveRobot />
-    </div>
+        {/* Interactive Robot Character */}
+        <InteractiveRobot />
+      </div>
+    </LanguageProvider>
   );
 }
 

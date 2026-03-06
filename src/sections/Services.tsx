@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useLanguage } from '../hooks/useLanguage';
 import {
   Layout,
   ShoppingCart,
@@ -12,61 +13,57 @@ import {
   TrendingUp,
 } from 'lucide-react';
 
-const services = [
+const getServices = (t: (key: string) => string) => [
   {
     icon: Layout,
-    title: 'Landing Page Autoadministrable',
-    description:
-      'Ideal para campañas, servicios o negocios que necesitan presencia digital rápida y flexible.',
+    titleKey: 'service.landing.auto',
+    descKey: 'service.landing.auto.desc',
   },
   {
     icon: FileText,
-    title: 'Landing Page Profesional',
-    description:
-      'Solución rápida y eficiente para promocionar servicios o productos.',
+    titleKey: 'service.landing.pro',
+    descKey: 'service.landing.pro.desc',
   },
   {
     icon: Sparkles,
-    title: 'Web Corporativa',
-    description:
-      'Sitios web corporativos de hasta 6 secciones para transmitir confianza.',
+    titleKey: 'service.corporate',
+    descKey: 'service.corporate.desc',
   },
   {
     icon: ShoppingCart,
-    title: 'Ecommerce',
-    description: 'Tienda online profesional lista para vender.',
+    titleKey: 'service.ecommerce',
+    descKey: 'service.ecommerce.desc',
   },
   {
     icon: User,
-    title: 'Presskit para Artistas',
-    description:
-      'Plataforma digital para músicos, actores y creadores.',
+    titleKey: 'service.presskit',
+    descKey: 'service.presskit.desc',
   },
   {
     icon: Palette,
-    title: 'Branding',
-    description: 'Identidad visual completa para tu marca.',
+    titleKey: 'service.branding',
+    descKey: 'service.branding.desc',
   },
   {
     icon: Camera,
-    title: 'Creación de Contenido',
-    description: 'Producción audiovisual para elevar tu imagen.',
+    titleKey: 'service.content',
+    descKey: 'service.content.desc',
   },
   {
     icon: ClipboardList,
-    title: 'Asesoría y cotización de web compleja',
-    description:
-      'Analizamos tu proyecto en profundidad.',
+    titleKey: 'service.web.complex',
+    descKey: 'service.web.complex.desc',
   },
   {
     icon: TrendingUp,
-    title: 'Asesoría de marketing para marcas y empresas',
-    description:
-      'Sesión estratégica para evaluar tu presencia digital.',
+    titleKey: 'service.marketing',
+    descKey: 'service.marketing.desc',
   },
 ];
 
 export function Services() {
+  const { t } = useLanguage();
+  const services = getServices(t);
   const { ref: headerRef, isVisible: headerVisible } =
     useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const { ref: gridRef, isVisible: gridVisible } =
@@ -96,7 +93,7 @@ export function Services() {
                 : 'opacity-0 translate-y-5'
             }`}
           >
-            Nuestros Servicios
+            {t('services.title')}
           </span>
           <h2
             className={`font-display font-bold text-h2 text-white mb-6 leading-tight transition-all duration-700 ease-expo-out ${
@@ -106,7 +103,7 @@ export function Services() {
             }`}
             style={{ transitionDelay: '100ms' }}
           >
-            Soluciones web para cada etapa de tu negocio
+            {t('services.subtitle')}
           </h2>
           <p
             className={`text-lg text-[#d3d3d3] max-w-2xl leading-relaxed transition-all duration-600 ease-smooth ${
@@ -116,8 +113,7 @@ export function Services() {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            Ofrecemos distintos tipos de sitios web según tus necesidades,
-            objetivos y nivel de crecimiento digital.
+            {t('services.description')}
           </p>
         </div>
 
@@ -131,7 +127,7 @@ export function Services() {
 
             return (
               <div
-                key={service.title}
+                key={service.titleKey}
                 className={`group relative p-8 lg:p-10 bg-black rounded-[10%] border border-[#d3d3d3] transition-all duration-500 ease-expo-out hover:bg-[#d3d3d3] ${
                   gridVisible
                     ? 'opacity-100 translate-y-0'
@@ -148,12 +144,12 @@ export function Services() {
 
                 {/* Title */}
                 <h3 className="font-display font-semibold text-xl text-white mb-4 transition-all duration-300 group-hover:text-gray-800">
-                  {service.title}
+                  {t(service.titleKey)}
                 </h3>
 
                 {/* Description */}
                 <p className="text-[#d3d3d3] text-sm leading-relaxed mb-6 group-hover:text-gray-800">
-                  {service.description}
+                  {t(service.descKey)}
                 </p>
 
                 {/* Link */}
@@ -163,7 +159,7 @@ export function Services() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[#0041A8] text-sm font-medium transition-all duration-300 group-hover:gap-3"
                 >
-                  Solicitar info
+                  {t('services.link')}
                   <ArrowRight
                     size={16}
                     className="transition-transform duration-300 group-hover:translate-x-1"

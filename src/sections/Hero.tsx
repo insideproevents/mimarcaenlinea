@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
+import { useLanguage } from '../hooks/useLanguage';
 
 export function Hero() {
+  const { t } = useLanguage();
   const [isLoaded, setIsLoaded] = useState(false);
   const [videoOpacity, setVideoOpacity] = useState(1);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -234,7 +236,7 @@ export function Hero() {
             style={{ transitionDelay: '200ms' }}
           >
             <span className="text-sm font-semibold tracking-[0.4em] uppercase text-white">
-              Agencia de Diseño Web y Medios Digitales
+              {t('hero.label')}
             </span>
           </div>
 
@@ -248,7 +250,7 @@ export function Hero() {
               }`}
               style={{ transitionDelay: '400ms' }}
             >
-              Diseño y desarrollo
+              {t('hero.title1')}
             </span>
             <span
               className={`block text-hero-lg transition-all duration-1000 ease-expo-out ${
@@ -258,7 +260,9 @@ export function Hero() {
               }`}
               style={{ transitionDelay: '550ms' }}
             >
-              web <span className="text-[#0041A8]">profesional</span>
+              {t('hero.title2').split(' ').map((word, i, arr) => 
+                i === arr.length - 1 ? <span key={i} className="text-[#0041A8]">{word}</span> : word + ' '
+              )}
             </span>
           </h1>
 
@@ -271,8 +275,7 @@ export function Hero() {
             }`}
             style={{ transitionDelay: '750ms' }}
           >
-            Creamos el sitio web ideal para tu negocio, con diseño único,
-            tecnología de vanguardia y enfoque en resultados reales.
+            {t('hero.description')}
           </p>
 
           {/* CTA Buttons */}
@@ -288,7 +291,7 @@ export function Hero() {
               onClick={scrollToContact}
               className="px-12 py-4 bg-[#0041A8] rounded-full text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-white hover:text-gray-600 border border-[#d3d3d3]"
             >
-              Hablemos
+              {t('hero.button1')}
             </button>
             <a
               href="http://wa.me/+56937751673"
@@ -296,7 +299,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="px-12 py-4 bg-white rounded-full text-gray-600 font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#0041A8] hover:text-white border border-[#d3d3d3]"
             >
-              Agenda un meeting
+              {t('hero.button2')}
             </a>
           </div>
         </div>
