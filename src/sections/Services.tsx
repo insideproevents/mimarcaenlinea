@@ -48,7 +48,7 @@ const servicesList = [
     icon: Palette,
     titleKey: 'service.branding',
     descKey: 'service.branding.desc',
-    image: '',
+    image: '/servicios/branding.jpg',
   },
   {
     icon: Camera,
