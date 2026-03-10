@@ -66,7 +66,7 @@ const servicesList = [
     icon: TrendingUp,
     titleKey: 'service.marketing',
     descKey: 'service.marketing.desc',
-    image: '/servicios/Asesoríademarketingparamarcasy empresas.jpg',
+    image: '/servicios/asesoríademarketing.jpg',
   },
 ];
 
