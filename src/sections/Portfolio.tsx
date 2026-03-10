@@ -2,37 +2,13 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
 import { ArrowUpRight } from 'lucide-react';
 
-const projects = [
-  {
-    title: 'Ecommerce Moda',
-    category: 'Tienda Online',
-    description: 'Diseño y desarrollo de tienda online para marca de ropa.',
-  },
-  {
-    title: 'Web Corporativa',
-    category: 'Web Corporativa',
-    description: 'Sitio web profesional para empresa de tecnología.',
-  },
-  {
-    title: 'Landing Producto',
-    category: 'Landing Page',
-    description: 'Página de lanzamiento para nuevo producto digital.',
-  },
-  {
-    title: 'Portafolio Creativo',
-    category: 'Web Personal',
-    description: 'Sitio web para fotógrafo profesional.',
-  },
-  {
-    title: 'Restaurante App',
-    category: 'Web + App',
-    description: 'Plataforma digital para cadena de restaurantes.',
-  },
-  {
-    title: 'Startup Tech',
-    category: 'Web Corporativa',
-    description: 'Identidad digital para startup tecnológica.',
-  },
+const projectKeys = [
+  { title: 'portfolio.project1.title', category: 'portfolio.project1.category', desc: 'portfolio.project1.desc' },
+  { title: 'portfolio.project2.title', category: 'portfolio.project2.category', desc: 'portfolio.project2.desc' },
+  { title: 'portfolio.project3.title', category: 'portfolio.project3.category', desc: 'portfolio.project3.desc' },
+  { title: 'portfolio.project4.title', category: 'portfolio.project4.category', desc: 'portfolio.project4.desc' },
+  { title: 'portfolio.project5.title', category: 'portfolio.project5.category', desc: 'portfolio.project5.desc' },
+  { title: 'portfolio.project6.title', category: 'portfolio.project6.category', desc: 'portfolio.project6.desc' },
 ];
 
 export function Portfolio() {
@@ -95,10 +71,10 @@ export function Portfolio() {
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10"
         >
-          {projects.map((project, index) => {
+          {projectKeys.map((projectKey, index) => {
             return (
               <div
-                key={project.title}
+                key={projectKey.title}
                 className={`group relative aspect-[4/3] bg-black overflow-hidden cursor-pointer transition-all duration-700 ease-expo-out hover:bg-[#d3d3d3] ${
                   gridVisible
                     ? 'opacity-100 translate-y-0'
@@ -134,7 +110,7 @@ export function Portfolio() {
                   {/* Top */}
                   <div className="flex justify-between items-start">
                     <span className="px-3 py-1 bg-white/5 border border-white/10 text-xs text-white/60 uppercase tracking-wider group-hover:text-gray-800 group-hover:border-gray-400">
-                      {project.category}
+                      {t(projectKey.category)}
                     </span>
                     <div className="w-10 h-10 bg-[#0041A8] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
                       <ArrowUpRight className="w-5 h-5 text-white" />
@@ -144,10 +120,10 @@ export function Portfolio() {
                   {/* Bottom */}
                   <div>
                     <h3 className="font-display font-semibold text-2xl text-white mb-2 transform translate-y-16 group-hover:translate-y-0 transition-transform duration-500 group-hover:text-gray-800">
-                      {project.title}
+                      {t(projectKey.title)}
                     </h3>
                     <p className="text-sm text-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 group-hover:text-gray-800">
-                      {project.description}
+                      {t(projectKey.desc)}
                     </p>
                   </div>
                 </div>
@@ -176,7 +152,7 @@ export function Portfolio() {
             }}
             className="inline-flex items-center gap-2 text-[#0041A8] font-medium hover:gap-3 transition-all duration-300"
           >
-            ¿Tienes un proyecto en mente? Hablemos
+            {t('portfolio.cta')}
             <ArrowUpRight size={18} />
           </a>
         </div>

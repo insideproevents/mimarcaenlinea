@@ -61,7 +61,7 @@ export function Stats() {
                   : 'opacity-0 translate-y-5'
               }`}
             >
-              Expertos Digitales
+              {t('stats.label')}
             </span>
             <h2
               className={`font-display font-bold text-h3 text-white max-w-2xl mx-auto leading-tight transition-all duration-700 ease-expo-out ${
@@ -71,7 +71,7 @@ export function Stats() {
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              Tu socio estratégico para soluciones web inteligentes y orientadas a resultados
+              {t('stats.title')}
             </h2>
           </div>
 

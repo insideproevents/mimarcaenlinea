@@ -3,32 +3,32 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
 import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle } from 'lucide-react';
 
-const services = [
-  'Landing Page Autoadministrable',
-  'Landing Page Profesional',
-  'Web Corporativa',
-  'Ecommerce',
-  'Presskit para Artistas',
-  'Branding',
-  'Creación de Contenido',
+const serviceKeys = [
+  'service.landing.auto',
+  'service.landing.pro',
+  'service.corporate',
+  'service.ecommerce',
+  'service.presskit',
+  'service.branding',
+  'service.content',
 ];
 
-const budgets = [
-  'Menos de $500.000',
-  '$500.000 - $1.000.000',
-  '$1.000.000 - $2.000.000',
-  '$2.000.000 - $5.000.000',
-  'Más de $5.000.000',
-  'A definir',
+const budgetKeys = [
+  'budget.1',
+  'budget.2',
+  'budget.3',
+  'budget.4',
+  'budget.5',
+  'budget.6',
 ];
 
-const timeframes = [
-  'Menos de 1 mes',
-  '1-2 meses',
-  '2-3 meses',
-  '3-6 meses',
-  'Más de 6 meses',
-  'Flexible',
+const timeframeKeys = [
+  'timeframe.1',
+  'timeframe.2',
+  'timeframe.3',
+  'timeframe.4',
+  'timeframe.5',
+  'timeframe.6',
 ];
 
 export function Contact() {
@@ -170,7 +170,7 @@ export function Contact() {
                     <Mail className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
-                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">Email</p>
+                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">{t('contact.info.email')}</p>
                     <a
                       href="mailto:hola@mimarcaenlinea.cl"
                       className="text-white hover:text-[#0041A8] transition-colors duration-300"
@@ -185,7 +185,7 @@ export function Contact() {
                     <Phone className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
-                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">Teléfono</p>
+                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">{t('contact.info.phone')}</p>
                     <a
                       href="tel:+56986244373"
                       className="text-white hover:text-[#0041A8] transition-colors duration-300 block"
@@ -206,7 +206,7 @@ export function Contact() {
                     <MessageCircle className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
-                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">WhatsApp</p>
+                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">{t('contact.info.whatsapp')}</p>
                     <a
                       href="http://wa.me/+56937751673"
                       target="_blank"
@@ -231,7 +231,7 @@ export function Contact() {
                     <MapPin className="w-5 h-5 text-[#0041A8]" />
                   </div>
                   <div>
-                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">Ubicación</p>
+                    <p className="text-sm text-[#d3d3d3] mb-1 uppercase tracking-wider">{t('contact.info.location')}</p>
                     <p className="text-white">Santiago, Chile</p>
                   </div>
                 </div>
@@ -240,8 +240,7 @@ export function Contact() {
               {/* Note */}
               <div className="p-6 border border-white/10">
                 <p className="text-sm text-white/40 leading-relaxed">
-                  Nuestro equipo revisará tu solicitud y te responderá con una
-                  propuesta personalizada en menos de 24 horas.
+                  {t('contact.info.note')}
                 </p>
               </div>
             </div>
@@ -262,7 +261,7 @@ export function Contact() {
                   {/* Nombre */}
                   <div>
                     <label className="block text-sm text-white/60 mb-2 uppercase tracking-wider">
-                      Nombre <span className="text-[#0041A8]">*</span>
+                      {t('contact.form.name')} <span className="text-[#0041A8]">*</span>
                     </label>
                     <input
                       type="text"
@@ -271,14 +270,14 @@ export function Contact() {
                       onChange={handleChange}
                       required
                       className="input-field"
-                      placeholder="Tu nombre"
+                      placeholder={t('contact.form.name.placeholder')}
                     />
                   </div>
 
                   {/* Empresa */}
                   <div>
                     <label className="block text-sm text-white/60 mb-2 uppercase tracking-wider">
-                      Empresa
+                      {t('contact.form.company')}
                     </label>
                     <input
                       type="text"
@@ -286,7 +285,7 @@ export function Contact() {
                       value={formData.empresa}
                       onChange={handleChange}
                       className="input-field"
-                      placeholder="Nombre de tu empresa"
+                      placeholder={t('contact.form.company.placeholder')}
                     />
                   </div>
                 </div>
@@ -294,7 +293,7 @@ export function Contact() {
                 {/* Servicio */}
                 <div>
                   <label className="block text-sm text-white/60 mb-2 uppercase tracking-wider">
-                    Servicio de interés
+                    {t('contact.form.service')}
                   </label>
                   <select
                     name="servicio"
@@ -302,10 +301,10 @@ export function Contact() {
                     onChange={handleChange}
                     className="input-field"
                   >
-                    <option value="">Selecciona un servicio</option>
-                    {services.map((service) => (
-                      <option key={service} value={service}>
-                        {service}
+                    <option value="">{t('contact.form.service.select')}</option>
+                    {serviceKeys.map((key) => (
+                      <option key={key} value={t(key)}>
+                        {t(key)}
                       </option>
                     ))}
                   </select>
@@ -314,7 +313,7 @@ export function Contact() {
                 {/* Objetivo */}
                 <div>
                   <label className="block text-sm text-white/60 mb-2 uppercase tracking-wider">
-                    Objetivo del sitio web
+                    {t('contact.form.goal')}
                   </label>
                   <input
                     type="text"
@@ -322,7 +321,7 @@ export function Contact() {
                     value={formData.objetivo}
                     onChange={handleChange}
                     className="input-field"
-                    placeholder="¿Qué quieres lograr con tu sitio web?"
+                    placeholder={t('contact.form.goal.placeholder')}
                   />
                 </div>
 
@@ -330,7 +329,7 @@ export function Contact() {
                   {/* Presupuesto */}
                   <div>
                     <label className="block text-sm text-white/60 mb-2 uppercase tracking-wider">
-                      Presupuesto estimado
+                      {t('contact.form.budget')}
                     </label>
                     <select
                       name="presupuesto"
@@ -338,10 +337,10 @@ export function Contact() {
                       onChange={handleChange}
                       className="input-field"
                     >
-                      <option value="">Selecciona un rango</option>
-                      {budgets.map((budget) => (
-                        <option key={budget} value={budget}>
-                          {budget}
+                      <option value="">{t('contact.form.budget.select')}</option>
+                      {budgetKeys.map((key) => (
+                        <option key={key} value={t(key)}>
+                          {t(key)}
                         </option>
                       ))}
                     </select>
@@ -350,7 +349,7 @@ export function Contact() {
                   {/* Plazo */}
                   <div>
                     <label className="block text-sm text-white/60 mb-2 uppercase tracking-wider">
-                      Plazo deseado
+                      {t('contact.form.timeline')}
                     </label>
                     <select
                       name="plazo"
@@ -358,10 +357,10 @@ export function Contact() {
                       onChange={handleChange}
                       className="input-field"
                     >
-                      <option value="">Selecciona un plazo</option>
-                      {timeframes.map((timeframe) => (
-                        <option key={timeframe} value={timeframe}>
-                          {timeframe}
+                      <option value="">{t('contact.form.timeline.select')}</option>
+                      {timeframeKeys.map((key) => (
+                        <option key={key} value={t(key)}>
+                          {t(key)}
                         </option>
                       ))}
                     </select>
@@ -371,7 +370,7 @@ export function Contact() {
                 {/* Mensaje */}
                 <div>
                   <label className="block text-sm text-white/60 mb-2 uppercase tracking-wider">
-                    Mensaje <span className="text-[#0041A8]">*</span>
+                    {t('contact.form.message')} <span className="text-[#0041A8]">*</span>
                   </label>
                   <textarea
                     name="mensaje"
@@ -380,7 +379,7 @@ export function Contact() {
                     required
                     rows={4}
                     className="input-field resize-none"
-                    placeholder="Cuéntanos más sobre tu proyecto..."
+                    placeholder={t('contact.form.message.placeholder')}
                   />
                 </div>
 
@@ -398,15 +397,15 @@ export function Contact() {
                     {isSubmitted ? (
                       <>
                         <CheckCircle size={18} />
-                        ¡Mensaje enviado!
+                        {t('contact.form.sent')}
                       </>
                     ) : isSending ? (
                       <>
-                        Enviando...
+                        {t('contact.form.sending')}
                       </>
                     ) : (
                       <>
-                        Enviar mensaje
+                        {t('contact.form.submit')}
                         <Send size={18} />
                       </>
                     )}

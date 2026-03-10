@@ -83,7 +83,7 @@ export function Navigation() {
 
               {/* Language Switcher */}
               <div className="flex items-center gap-2 ml-2">
-                {/* Spanish Flag */}
+                {/* Spanish Flag (Chile) */}
                 <button
                   onClick={() => setLanguage('es')}
                   className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all duration-300 ${
@@ -91,12 +91,11 @@ export function Navigation() {
                   }`}
                   aria-label="Español"
                 >
-                  <svg viewBox="0 0 24 24" className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300 scale-75">
-                    <rect width="24" height="24" fill="#AA151B"/>
-                    <rect y="4" width="24" height="6" fill="#F1BF00"/>
-                    <rect y="14" width="24" height="6" fill="#F1BF00"/>
-                    <rect x="8" y="0" width="8" height="24" fill="#F1BF00"/>
-                  </svg>
+                  <img 
+                    src="/chile.png" 
+                    alt="Español" 
+                    className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
+                  />
                 </button>
                 {/* UK Flag */}
                 <button

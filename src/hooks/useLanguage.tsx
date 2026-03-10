@@ -144,6 +144,7 @@ const translations: Translations = {
   'portfolio.project6.title': { es: 'Startup Tech', en: 'Tech Startup' },
   'portfolio.project6.category': { es: 'Web Corporativa', en: 'Corporate Website' },
   'portfolio.project6.desc': { es: 'Identidad digital para startup tecnológica.', en: 'Digital identity for tech startup.' },
+  'portfolio.cta': { es: '¿Tienes un proyecto en mente? Hablemos', en: 'Do you have a project in mind? Let\'s talk' },
 
   // Contact
   'contact.title': { es: 'Contacto', en: 'Contact' },
@@ -155,10 +156,42 @@ const translations: Translations = {
   'contact.form.phone': { es: 'Teléfono', en: 'Phone' },
   'contact.form.message': { es: 'Mensaje', en: 'Message' },
   'contact.form.submit': { es: 'Enviar mensaje', en: 'Send message' },
+  'contact.form.name.placeholder': { es: 'Tu nombre', en: 'Your name' },
+  'contact.form.company': { es: 'Empresa', en: 'Company' },
+  'contact.form.company.placeholder': { es: 'Nombre de tu empresa', en: 'Your company name' },
+  'contact.form.service': { es: 'Servicio de interés', en: 'Service of interest' },
+  'contact.form.service.select': { es: 'Selecciona un servicio', en: 'Select a service' },
+  'contact.form.goal': { es: 'Objetivo del sitio web', en: 'Website goal' },
+  'contact.form.goal.placeholder': { es: '¿Qué quieres lograr con tu sitio web?', en: 'What do you want to achieve with your website?' },
+  'contact.form.budget': { es: 'Presupuesto estimado', en: 'Estimated budget' },
+  'contact.form.budget.select': { es: 'Selecciona un rango', en: 'Select a range' },
+  'contact.form.timeline': { es: 'Plazo deseado', en: 'Desired timeline' },
+  'contact.form.timeline.select': { es: 'Selecciona un plazo', en: 'Select a timeline' },
+  'contact.form.message.placeholder': { es: 'Cuéntanos más sobre tu proyecto...', en: 'Tell us more about your project...' },
+  'contact.form.sending': { es: 'Enviando...', en: 'Sending...' },
+  'contact.form.sent': { es: '¡Mensaje enviado!', en: 'Message sent!' },
   'contact.info.title': { es: 'Información de contacto', en: 'Contact information' },
   'contact.info.email': { es: 'Correo', en: 'Email' },
   'contact.info.phone': { es: 'Teléfono', en: 'Phone' },
   'contact.info.whatsapp': { es: 'WhatsApp', en: 'WhatsApp' },
+  'contact.info.location': { es: 'Ubicación', en: 'Location' },
+  'contact.info.note': { es: 'Nuestro equipo revisará tu solicitud y te responderá con una propuesta personalizada en menos de 24 horas.', en: 'Our team will review your request and respond with a personalized proposal within 24 hours.' },
+
+  // Budgets for Contact Form
+  'budget.1': { es: 'Menos de $500.000', en: 'Less than $500.000' },
+  'budget.2': { es: '$500.000 - $1.000.000', en: '$500.000 - $1.000.000' },
+  'budget.3': { es: '$1.000.000 - $2.000.000', en: '$1.000.000 - $2.000.000' },
+  'budget.4': { es: '$2.000.000 - $5.000.000', en: '$2.000.000 - $5.000.000' },
+  'budget.5': { es: 'Más de $5.000.000', en: 'More than $5.000.000' },
+  'budget.6': { es: 'A definir', en: 'To be defined' },
+
+  // Timeframes for Contact Form
+  'timeframe.1': { es: 'Menos de 1 mes', en: 'Less than 1 month' },
+  'timeframe.2': { es: '1-2 meses', en: '1-2 months' },
+  'timeframe.3': { es: '2-3 meses', en: '2-3 months' },
+  'timeframe.4': { es: '3-6 meses', en: '3-6 months' },
+  'timeframe.5': { es: 'Más de 6 meses', en: 'More than 6 months' },
+  'timeframe.6': { es: 'Flexible', en: 'Flexible' },
 
   // Footer
   'footer.rights': { es: 'Todos los derechos reservados', en: 'All rights reserved' },
@@ -167,10 +200,18 @@ const translations: Translations = {
   'stats.projects': { es: 'Proyectos realizados', en: 'Projects completed' },
   'stats.clients': { es: 'Clientes satisfechos', en: 'Satisfied clients' },
   'stats.experience': { es: 'Años de experiencia', en: 'Years of experience' },
+  'stats.label': { es: 'Expertos Digitales', en: 'Digital Experts' },
+  'stats.title': { es: 'Tu socio estratégico para soluciones web inteligentes y orientadas a resultados', en: 'Your strategic partner for intelligent, results-oriented web solutions' },
 
   // Value Proposition
   'value.title': { es: '¿Por qué elegirnos?', en: 'Why choose us?' },
   'value.subtitle': { es: 'Nos diferencia la atención personalizada', en: 'What sets us apart is personalized attention' },
+  'value.headline1': { es: 'Construimos tu', en: 'We build your' },
+  'value.headline2': { es: 'presencia digital', en: 'digital presence' },
+  'value.headline3': { es: 'con', en: 'with' },
+  'value.headline4': { es: 'visión y estructura', en: 'vision and structure' },
+  'value.headline5': { es: 'desde el comienzo.', en: 'from the start.' },
+  'value.description': { es: 'No solo diseñamos páginas web. Creamos herramientas digitales pensadas para transmitir profesionalismo, atraer clientes y apoyar tus objetivos comerciales. Cada proyecto se desarrolla con estándares actuales de diseño, rendimiento y posicionamiento.', en: 'We don\'t just design websites. We create digital tools designed to convey professionalism, attract customers, and support your business goals. Each project is developed with current standards of design, performance, and positioning.' },
 };
 
 interface LanguageContextType {

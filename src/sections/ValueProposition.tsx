@@ -1,6 +1,8 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useLanguage } from '../hooks/useLanguage';
 
 export function ValueProposition() {
+  const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
 
   return (
@@ -26,7 +28,7 @@ export function ValueProposition() {
                 : 'opacity-0 translate-y-10'
             }`}
           >
-            Construimos tu <span className="text-[#0041A8]">presencia digital</span> con <span className="text-[#0041A8]">visión y estructura</span> desde el comienzo.
+            {t('value.headline1')} <span className="text-[#0041A8]">{t('value.headline2')}</span> {t('value.headline3')} <span className="text-[#0041A8]">{t('value.headline4')}</span> {t('value.headline5')}
           </h2>
 
           {/* Body Text */}
@@ -39,10 +41,7 @@ export function ValueProposition() {
             style={{ transitionDelay: '200ms' }}
           >
             <p className="text-lg md:text-xl text-[#d3d3d3] leading-relaxed max-w-3xl mx-auto">
-              No solo diseñamos páginas web. Creamos herramientas digitales
-              pensadas para transmitir profesionalismo, atraer clientes y apoyar
-              tus objetivos comerciales. Cada proyecto se desarrolla con
-              estándares actuales de diseño, rendimiento y posicionamiento.
+              {t('value.description')}
             </p>
           </div>
         </div>
