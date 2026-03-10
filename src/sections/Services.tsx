@@ -60,7 +60,7 @@ const servicesList = [
     icon: ClipboardList,
     titleKey: 'service.web.complex',
     descKey: 'service.web.complex.desc',
-    image: '/servicios/Asesoríaycotizacióndewebcompleja.jpg',
+    image: '/servicios/asesoríaycotizacióndeweb.jpg',
   },
   {
     icon: TrendingUp,
