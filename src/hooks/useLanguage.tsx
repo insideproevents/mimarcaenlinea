@@ -126,7 +126,7 @@ const translations: Translations = {
   'portfolio.description2': { es: 'Estos son algunos de los proyectos en los que hemos trabajado, desarrollando soluciones digitales adaptadas a cada cliente, rubro y objetivo.', en: 'These are some of the projects we have worked on, developing digital solutions tailored to each client, industry, and goal.' },
 
   // Portfolio Projects
-  'portfolio.project1.title': { es: 'Ecommerce Moda', en: 'Fashion Ecommerce' },
+  'portfolio.project1.title': { es: 'E-commerce', en: 'E-commerce' },
   'portfolio.project1.category': { es: 'Tienda Online', en: 'Online Store' },
   'portfolio.project1.desc': { es: 'Diseño y desarrollo de tienda online para marca de ropa.', en: 'Design and development of online store for clothing brand.' },
   'portfolio.project2.title': { es: 'Web Corporativa', en: 'Corporate Website' },
