@@ -128,7 +128,7 @@ const translations: Translations = {
   // Portfolio Projects
   'portfolio.project1.title': { es: 'E-commerce', en: 'E-commerce' },
   'portfolio.project1.category': { es: 'Tienda Online', en: 'Online Store' },
-  'portfolio.project1.desc': { es: 'Diseño y desarrollo de tienda online para marca de ropa.', en: 'Design and development of online store for clothing brand.' },
+  'portfolio.project1.desc': { es: 'Diseño y desarrollo de tienda online.', en: 'Design and development of online store.' },
   'portfolio.project2.title': { es: 'Web Corporativa', en: 'Corporate Website' },
   'portfolio.project2.category': { es: 'Web Corporativa', en: 'Corporate Website' },
   'portfolio.project2.desc': { es: 'Sitio web profesional para empresa de tecnología.', en: 'Professional website for technology company.' },
