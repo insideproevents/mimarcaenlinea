@@ -1,6 +1,11 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
 import { ArrowUpRight } from 'lucide-react';
+import ecommerceImage from '../../assetts/ecommerce.png';
+import gastronomiaImage from '../../assetts/gastronomia.png';
+import clinicadentalImage from '../../assetts/clinicadental.png';
+import inmobiliarioImage from '../../assetts/Inmobiliario.png';
+import idaeduImage from '../../assetts/idaedu.png';
 
 const projectKeys = [
   { title: 'portfolio.project1.title', category: 'portfolio.project1.category', desc: 'portfolio.project1.desc' },
@@ -69,7 +74,7 @@ export function Portfolio() {
         {/* Projects Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] bg-transparent"
         >
           {projectKeys.map((projectKey, index) => {
             return (
@@ -86,13 +91,70 @@ export function Portfolio() {
                     : '0ms',
                 }}
               >
-                {/* Background Gradient */}
-                <div
-                  className="absolute inset-0 opacity-30 group-hover:opacity-60 transition-opacity duration-500"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(0,71,171,0.3) 0%, rgba(0,45,115,0.2) 100%)',
-                  }}
-                />
+                {/* Background Gradient / Image for E-commerce, Web Corporativa, Clinica Dental, Portafolio Creativo, and Gastronomia */}
+                {index === 0 ? (
+                  <div
+                    className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-50"
+                    style={{
+                      backgroundImage: `url(${ecommerceImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'grayscale(100%)',
+                      opacity: 0.3,
+                    }}
+                  />
+                ) : index === 1 ? (
+                  <div
+                    className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-50"
+                    style={{
+                      backgroundImage: `url(${inmobiliarioImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'grayscale(100%)',
+                      opacity: 0.3,
+                    }}
+                  />
+                ) : index === 2 ? (
+                  <div
+                    className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-50"
+                    style={{
+                      backgroundImage: `url(${clinicadentalImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'grayscale(100%)',
+                      opacity: 0.3,
+                    }}
+                  />
+                ) : index === 3 ? (
+                  <div
+                    className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-50"
+                    style={{
+                      backgroundImage: `url(${idaeduImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'grayscale(100%)',
+                      opacity: 0.3,
+                    }}
+                  />
+                ) : index === 4 ? (
+                  <div
+                    className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-50"
+                    style={{
+                      backgroundImage: `url(${gastronomiaImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'grayscale(100%)',
+                      opacity: 0.3,
+                    }}
+                  />
+                ) : (
+                  <div
+                    className="absolute inset-0 opacity-20 transition-opacity duration-500 grayscale"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0,71,171,0.3) 0%, rgba(0,45,115,0.2) 100%)',
+                    }}
+                  />
+                )}
 
                 {/* Pattern */}
                 <div className="absolute inset-0 opacity-20">

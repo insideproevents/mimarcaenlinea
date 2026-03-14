@@ -1,6 +1,7 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
 import { CheckCircle } from 'lucide-react';
+import { AbstractShape } from '../components/AbstractShape';
 
 const getFeatures = (t: (key: string) => string) => [
   t('about.feature1'),
@@ -101,38 +102,7 @@ export function About() {
               style={{ transitionDelay: '400ms' }}
             >
               <div className="relative aspect-square max-w-md mx-auto">
-                {/* Main Circle */}
-                <div 
-                  className="absolute inset-0 rounded-full border border-[#0041A8]/20"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(0,71,171,0.1) 0%, transparent 50%)',
-                  }}
-                />
-
-                {/* Inner Circle */}
-                <div 
-                  className="absolute inset-12 rounded-full border border-white/5"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%)',
-                  }}
-                />
-
-                {/* Center Content */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <p className="text-[#0041A8] text-sm uppercase tracking-wider mt-1">
-                      {t('about.visual')}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Orbiting Elements */}
-                <div className="absolute inset-0 animate-spin" style={{ animationDuration: '25s' }}>
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#0041A8] rounded-full shadow-blue" />
-                </div>
-                <div className="absolute inset-0 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }}>
-                  <div className="absolute bottom-12 right-12 w-2 h-2 bg-white/30 rounded-full" />
-                </div>
+                <AbstractShape />
               </div>
             </div>
           </div>
