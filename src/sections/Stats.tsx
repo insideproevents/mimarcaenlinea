@@ -2,14 +2,18 @@ import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
 
 const getStats = (t: (key: string) => string) => [
+  { value: 3, suffix: '+', label: 'Experiencia IA' },
   { value: 50, suffix: '+', label: t('stats.projects') },
-  { value: 98, suffix: '%', label: t('stats.clients') },
-  { value: 3, suffix: '+', label: t('stats.experience') },
+  { value: 99, suffix: '%', label: t('stats.clients') },
+  { value: 6, suffix: '+', label: t('stats.experience') },
   { value: 24, suffix: '/7', label: '24/7' },
 ];
 
 function StatItem({ stat, index, isVisible }: { stat: { value: number; suffix: string; label: string }; index: number; isVisible: boolean }) {
   const { ref, count } = useCountUp(stat.value, 2500);
+
+  // Colors: first (Experiencia IA) is blue, then alternating purple and blue
+  const colorClass = index === 1 || index === 3 ? 'text-purple-700' : 'text-[#0041A8]';
 
   return (
     <div
@@ -21,7 +25,7 @@ function StatItem({ stat, index, isVisible }: { stat: { value: number; suffix: s
       }`}
       style={{ transitionDelay: `${index * 150 + 300}ms` }}
     >
-      <div className="font-display font-bold text-5xl lg:text-6xl text-[#0041A8] mb-3">
+      <div className={`font-display font-bold text-5xl lg:text-6xl ${colorClass} mb-3`}>
         {count}
         <span className="text-4xl lg:text-5xl">{stat.suffix}</span>
       </div>
@@ -76,7 +80,7 @@ export function Stats() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
             {stats.map((stat, index) => (
               <StatItem key={stat.label} stat={stat} index={index} isVisible={isVisible} />
             ))}

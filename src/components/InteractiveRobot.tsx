@@ -122,9 +122,9 @@ const [isAnimating, setIsAnimating] = useState(false);
           {/* Social icons - floating circles */}
 {showSocials && (
             <>
-              <div className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-green-500 animate-float-slow rounded-full flex items-center justify-center shadow-lg z-30">
+              <a href="https://wa.me/56937751673" target="_blank" rel="noopener noreferrer" className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-green-500 animate-float-slow rounded-full flex items-center justify-center shadow-lg z-30">
                 <MessageCircle className="w-4 h-4 md:w-5 md:h-5 text-white" />
-              </div>
+              </a>
               <div className="absolute top-1 left-1 w-8 h-8 md:w-10 md:h-10 bg-blue-600 animate-float-medium rounded-full flex items-center justify-center shadow-lg z-30">
                 <Facebook className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
