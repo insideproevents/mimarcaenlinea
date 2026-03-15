@@ -20,10 +20,10 @@ export function InteractiveRobot() {
     };
   }, []);
 
-  // Auto-hide bubble after 3 seconds
+  // Auto-hide bubble after 6 seconds
   useEffect(() => {
     if (showBubble) {
-      const timer = setTimeout(() => setShowBubble(false), 3000);
+      const timer = setTimeout(() => setShowBubble(false), 6000);
       return () => clearTimeout(timer);
     }
   }, [showBubble]);
@@ -128,14 +128,12 @@ export function InteractiveRobot() {
 
           {/* Text bubble on click */}
           {showBubble && (
-            <div className="absolute bottom-full left-1/2 md:bottom-[-6rem] -translate-x-1/2 mb-2 w-40 md:w-64 z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
+            <div className="absolute -top-24 left-1/2 md:-top-28 -translate-x-1/2 mb-2 w-40 md:w-64 z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
               <div 
                 className="relative w-full aspect-[2/1] md:aspect-[2.5/1] bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
                 style={{
                   backgroundImage: "url('/assetts/burbuja.png')",
-                  opacity: 0.4,
-                  minHeight: '3rem',
-                  mdMinHeight: '4rem'
+                  opacity: 0.4
                 }}
               >
                 <span className="text-white font-semibold text-xs md:text-base px-3 md:px-6 py-2 drop-shadow-lg relative z-10 text-center leading-tight">
