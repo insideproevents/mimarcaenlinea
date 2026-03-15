@@ -23,6 +23,16 @@ export function InteractiveRobot() {
     };
   }, []);
 
+  // Auto-hide social icons after 6 seconds
+  useEffect(() => {
+    if (showSocials) {
+      const timer = setTimeout(() => {
+        setShowSocials(false);
+      }, 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [showSocials]);
+
 
 
   const animateSlide = (fromX: number, toX: number, newPosition: 'left' | 'right') => {
