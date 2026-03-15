@@ -178,7 +178,7 @@ export function Services() {
                     href="http://wa.me/+56937751673"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-purple-700 text-sm font-medium transition-all duration-300 group-hover:gap-3"
+                    className="inline-flex items-center gap-2 text-[#0041A8] text-sm font-medium transition-all duration-300 group-hover:gap-3"
                   >
                     {t('services.link')}
                     <ArrowRight
