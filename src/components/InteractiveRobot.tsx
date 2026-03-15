@@ -2,10 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, Facebook, Instagram, X } from 'lucide-react';
 
 export function InteractiveRobot() {
-const [isHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [position, setPosition] = useState<'left' | 'right'>('right');
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [showSocials, setShowSocials] = useState(false);
+const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
   
@@ -22,14 +21,6 @@ const [isHovered] = useState(false);
   }, []);
 
 
-
-  // Auto-hide socials after 5 seconds
-  useEffect(() => {
-    if (showSocials) {
-      const timer = setTimeout(() => setShowSocials(false), 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [showSocials]);
 
   const animateSlide = (fromX: number, toX: number, newPosition: 'left' | 'right') => {
     const startX = fromX;
