@@ -98,27 +98,21 @@ export function InteractiveRobot() {
     >
       <div className="animate-float">
         <div
-          className={`relative w-28 h-28 md:w-48 md:h-48 cursor-pointer ${
-            isHovered ? 'scale-110' : 'scale-100'
-          }`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          className="relative w-28 h-28 md:w-48 md:h-48 cursor-pointer active:scale-[1.05] transition-transform duration-200"
           onClick={handleClick}
         >
           {/* Robot Image - flip based on position to face direction of movement */}
-          <img
-            src="/robot.png"
-            alt="Robot"
-            className={`w-full h-full object-contain transition-transform duration-300 ${
-              position === 'left' ? 'scale-x-[-1]' : ''
-            }`}
-            style={{
-              background: 'transparent',
-              filter: isHovered 
-                ? 'drop-shadow(0 0 20px rgba(0,255,255,0.6))' 
-                : 'drop-shadow(0 0 10px rgba(0,255,255,0.3))',
-            }}
-          />
+          <div className="relative w-full h-full">
+            <img
+              src="/robot.png"
+              alt="Robot"
+              className={`w-full h-full object-contain transition-all duration-200 ${position === 'left' ? 'scale-x-[-1]' : ''}`}
+              style={{
+                background: 'transparent',
+                filter: 'drop-shadow(0 0 10px rgba(0,255,255,0.3)) drop-shadow(0 0 20px rgba(0,255,255,0.1))',
+              }}
+            />
+          </div>
           
           {/* Sparkle effect on hover */}
           {isHovered && (
@@ -134,108 +128,20 @@ export function InteractiveRobot() {
           {/* Social icons - floating circles */}
           {showSocials && (
             <>
-              <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer" className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-float-slow hover:animate-none" title="WhatsApp" aria-label="WhatsApp">
+              <a href="https://wa.me/56937751673" target="_blank" rel="noopener noreferrer" className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-green-500 active:bg-green-600 active:translate-y-0.5 active:drop-shadow-[0_0_15px_rgba(34,197,94,0.8)] rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 z-30 animate-float-slow hover:animate-none focus:outline-none focus:ring-2 focus:ring-green-400" title="WhatsApp" aria-label="WhatsApp">
                 <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
               </a>
-              <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="absolute top-1 left-1 w-8 h-8 md:w-10 md:h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-float-medium hover:animate-none" title="Facebook" aria-label="Facebook">
+              <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="absolute top-1 left-1 w-8 h-8 md:w-10 md:h-10 bg-blue-600 active:bg-blue-700 active:translate-y-0.5 active:drop-shadow-[0_0_15px_rgba(59,130,246,0.8)] rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 z-30 animate-float-medium hover:animate-none focus:outline-none focus:ring-2 focus:ring-blue-400" title="Facebook" aria-label="Facebook">
                 <Facebook className="w-4 h-4 md:w-5 md:h-5" />
               </a>
-              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-float-slow2 hover:animate-none" title="Instagram" aria-label="Instagram">
+              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 active:from-pink-600 active:to-purple-600 active:translate-y-0.5 active:drop-shadow-[0_0_15px_rgba(249,168,37,0.8)] rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 z-30 animate-float-slow2 hover:animate-none focus:outline-none focus:ring-4 focus:ring-pink-400/50" title="Instagram" aria-label="Instagram">
                 <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               </a>
-              <a href="https://x.com/yourhandle" target="_blank" rel="noopener noreferrer" className="absolute bottom-2 left-2 w-8 h-8 md:w-10 md:h-10 bg-black hover:bg-gray-800 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-float-fast hover:animate-none" title="X" aria-label="X">
+              <a href="https://x.com/yourhandle" target="_blank" rel="noopener noreferrer" className="absolute bottom-2 left-2 w-8 h-8 md:w-10 md:h-10 bg-black active:bg-gray-800 active:translate-y-0.5 active:drop-shadow-[0_0_15px_rgba(75,85,99,0.8)] rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 z-30 animate-float-fast hover:animate-none focus:outline-none focus:ring-2 focus:ring-gray-400" title="X" aria-label="X">
                 <X className="w-4 h-4 md:w-5 md:h-5" />
               </a>
             </>
           )}
-
-          {/* Orbiting particles */}
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Particle 1 - Outer orbit */}
-            <div 
-              className="absolute w-1.5 h-1.5 bg-cyan-300 rounded-full animate-orbit"
-              style={{ 
-                opacity: 0.8,
-                filter: 'blur(0.5px)',
-                animationDuration: '4s',
-                animationDelay: '0s',
-                top: '50%',
-                left: '50%',
-                marginTop: '-0.75px',
-                marginLeft: '-0.75px'
-              }}
-            />
-            {/* Particle 2 - Medium orbit */}
-            <div 
-              className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-orbit"
-              style={{ 
-                opacity: 0.6,
-                filter: 'blur(0.5px)',
-                animationDuration: '3s',
-                animationDelay: '0.5s',
-                top: '50%',
-                left: '50%',
-                marginTop: '-0.5px',
-                marginLeft: '-0.5px'
-              }}
-            />
-            {/* Particle 3 - Small, fast orbit */}
-            <div 
-              className="absolute w-0.5 h-0.5 bg-cyan-200 rounded-full animate-orbit"
-              style={{ 
-                opacity: 0.9,
-                filter: 'blur(0.5px)',
-                animationDuration: '2.5s',
-                animationDelay: '1s',
-                top: '50%',
-                left: '50%',
-                marginTop: '-0.25px',
-                marginLeft: '-0.25px'
-              }}
-            />
-            {/* Particle 4 - Medium orbit */}
-            <div 
-              className="absolute w-1.2 h-1.2 bg-cyan-300 rounded-full animate-orbit"
-              style={{ 
-                opacity: 0.7,
-                filter: 'blur(0.5px)',
-                animationDuration: '3.5s',
-                animationDelay: '1.5s',
-                top: '50%',
-                left: '50%',
-                marginTop: '-0.6px',
-                marginLeft: '-0.6px'
-              }}
-            />
-            {/* Particle 5 - Small, outer orbit */}
-            <div 
-              className="absolute w-0.8 h-0.8 bg-cyan-400 rounded-full animate-orbit"
-              style={{ 
-                opacity: 0.5,
-                filter: 'blur(0.5px)',
-                animationDuration: '4.5s',
-                animationDelay: '2s',
-                top: '50%',
-                left: '50%',
-                marginTop: '-0.4px',
-                marginLeft: '-0.4px'
-              }}
-            />
-            {/* Particle 6 - Extra small fast */}
-            <div 
-              className="absolute w-0.4 h-0.4 bg-cyan-200 rounded-full animate-orbit"
-              style={{ 
-                opacity: 0.8,
-                filter: 'blur(0.5px)',
-                animationDuration: '2s',
-                animationDelay: '0.3s',
-                top: '50%',
-                left: '50%',
-                marginTop: '-0.2px',
-                marginLeft: '-0.2px'
-              }}
-            />
-          </div>
         </div>
       </div>
       
