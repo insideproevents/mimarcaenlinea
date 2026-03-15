@@ -134,7 +134,7 @@ export function InteractiveRobot() {
                   style={{
                     backgroundImage: "url('/assetts/burbuja.png')",
                     backgroundSize: 'contain',
-                    opacity: 0.64,
+                    opacity: 0.54,
                     filter: 'drop-shadow(0 0 8px rgba(0,255,255,0.4))'
                   }}
                 >
