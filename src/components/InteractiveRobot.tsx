@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, Facebook, Instagram, Twitter } from 'lucide-react';
+import { MessageCircle, Facebook, Instagram, X } from 'lucide-react';
 
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
@@ -144,7 +144,7 @@ export function InteractiveRobot() {
                 <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               </a>
               <a href="https://x.com/yourhandle" target="_blank" rel="noopener noreferrer" className="absolute bottom-2 left-2 w-8 h-8 md:w-10 md:h-10 bg-black hover:bg-gray-800 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-float-fast hover:animate-none" title="X" aria-label="X">
-                <Twitter className="w-4 h-4 md:w-5 md:h-5" />
+                <X className="w-4 h-4 md:w-5 md:h-5" />
               </a>
             </>
           )}
