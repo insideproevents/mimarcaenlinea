@@ -1,4 +1,4 @@
-auimport { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
