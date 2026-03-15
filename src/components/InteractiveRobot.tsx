@@ -133,7 +133,7 @@ export function InteractiveRobot() {
                 className="relative w-full aspect-[2/1] md:aspect-[2.5/1] bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
                 style={{
                   backgroundImage: "url('/assetts/burbuja.png')",
-                  opacity: 0.4
+                  opacity: 0.8
                 }}
               >
                 <span className="text-black font-semibold text-xs md:text-sm px-4 md:px-8 py-1.5 drop-shadow-md relative z-10 text-center leading-tight max-w-[90%] mx-1">
