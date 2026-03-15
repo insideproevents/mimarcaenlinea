@@ -136,7 +136,7 @@ export function InteractiveRobot() {
                   opacity: 0.4
                 }}
               >
-                <span className="text-white font-semibold text-xs md:text-base px-3 md:px-6 py-2 drop-shadow-lg relative z-10 text-center leading-tight">
+                <span className="text-black font-semibold text-xs md:text-sm px-4 md:px-8 py-1.5 drop-shadow-md relative z-10 text-center leading-tight max-w-[90%] mx-1">
                   ¿En qué puedo ayudarte?
                 </span>
               </div>
