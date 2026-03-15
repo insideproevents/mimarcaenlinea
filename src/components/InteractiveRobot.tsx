@@ -2,9 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
-  const [showBubble, setShowBubble] = useState(false);
   const [position, setPosition] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
+  const [showBubble, setShowBubble] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
   
@@ -19,6 +19,14 @@ export function InteractiveRobot() {
       }
     };
   }, []);
+
+  // Auto-hide bubble after 3 seconds
+  useEffect(() => {
+    if (showBubble) {
+      const timer = setTimeout(() => setShowBubble(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showBubble]);
 
   const animateSlide = (fromX: number, toX: number, newPosition: 'left' | 'right') => {
     const startX = fromX;
@@ -59,8 +67,7 @@ export function InteractiveRobot() {
   const handleClick = () => {
     if (isAnimating) return;
 
-    // Toggle speech bubble
-    setShowBubble(!showBubble);
+    setShowBubble(true);
 
     const screenWidth = window.innerWidth;
     const robotWidth = containerRef.current?.offsetWidth || 144;
@@ -109,46 +116,6 @@ export function InteractiveRobot() {
                 : 'drop-shadow(0 0 10px rgba(0,255,255,0.3))',
             }}
           />
-
-          {/* Comic Speech Bubble */}
-          {showBubble && (
-            <div 
-              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 animate-bounce-in"
-              style={{ transformOrigin: 'bottom center' }}
-            >
-              {/* Bubble content - Comic style oval with tail */}
-              <svg 
-                width="220" 
-                height="100" 
-                viewBox="0 0 220 100" 
-                className="animate-pulse"
-              >
-                {/* Main oval shape */}
-                <ellipse 
-                  cx="110" 
-                  cy="45" 
-                  rx="105" 
-                  ry="42" 
-                  fill="white" 
-                  filter="url(#shadow)"
-                />
-                {/* Tail */}
-                <path 
-                  d="M 160 80 L 175 95 L 185 82 Z" 
-                  fill="white"
-                />
-                <defs>
-                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="2" dy="3" stdDeviation="3" floodOpacity="0.2"/>
-                  </filter>
-                </defs>
-              </svg>
-              {/* Text overlay */}
-              <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black font-bold text-sm md:text-base text-center whitespace-nowrap">
-                ¿En qué puedo ayudarte?
-              </p>
-            </div>
-          )}
           
           {/* Sparkle effect on hover */}
           {isHovered && (
@@ -157,6 +124,25 @@ export function InteractiveRobot() {
               <div className="absolute top-4 left-4 w-1 h-1 bg-cyan-400 rounded-full animate-pulse" />
               <div className="absolute bottom-4 right-4 w-1.5 h-1.5 bg-cyan-300 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
             </>
+          )}
+
+          {/* Text bubble on click */}
+          {showBubble && (
+            <div className="absolute bottom-full left-1/2 md:bottom-[-6rem] -translate-x-1/2 mb-2 w-40 md:w-64 z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
+              <div 
+                className="relative w-full aspect-[2/1] md:aspect-[2.5/1] bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
+                style={{
+                  backgroundImage: "url('/assetts/burbuja.png')",
+                  opacity: 0.4,
+                  minHeight: '3rem',
+                  mdMinHeight: '4rem'
+                }}
+              >
+                <span className="text-white font-semibold text-xs md:text-base px-3 md:px-6 py-2 drop-shadow-lg relative z-10 text-center leading-tight">
+                  ¿En qué puedo ayudarte?
+                </span>
+              </div>
+            </div>
           )}
 
           {/* Orbiting particles */}
@@ -293,20 +279,20 @@ export function InteractiveRobot() {
 
         @keyframes bounce-in {
           0% {
-            transform: translateX(-50%) scale(0);
+            transform: translateX(-50%) scale(0) translateY(10px);
             opacity: 0;
           }
           50% {
-            transform: translateX(-50%) scale(1.1);
+            transform: translateX(-50%) scale(1.05) translateY(-2px);
           }
           100% {
-            transform: translateX(-50%) scale(1);
+            transform: translateX(-50%) scale(1) translateY(0);
             opacity: 1;
           }
         }
 
         .animate-bounce-in {
-          animation: bounce-in 0.4s ease-out forwards;
+          animation: bounce-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
         }
       `}</style>
     </div>
