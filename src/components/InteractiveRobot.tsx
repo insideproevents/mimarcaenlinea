@@ -137,8 +137,10 @@ export function InteractiveRobot() {
                   opacity: 0.8
                 }}
               >
-                <span className="text-black font-semibold text-sm px-3 md:px-5 py-2 drop-shadow-md relative z-10 text-center leading-tight whitespace-nowrap">
-                  ¿En qué puedo ayudarte?
+                <span className="text-black font-semibold text-xs md:text-sm px-4 md:px-6 py-2 drop-shadow-md relative z-10 text-center leading-[1.1rem] md:leading-[1.3rem] [text-wrap:balance]">
+                  ¿En qué puedo 
+                  <br className="hidden md:block" />
+                  ayudarte?
                 </span>
               </div>
             </div>
