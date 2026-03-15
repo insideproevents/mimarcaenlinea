@@ -129,26 +129,7 @@ export function InteractiveRobot() {
             </>
           )}
 
-          {/* Text bubble on click */}
-          {showBubble && (
-            <div key="bubble" className="absolute -top-16 left-1/2 md:-top-20 -translate-x-1/2 mb-2 w-48 md:w-[18rem] z-20 pointer-events-none" style={{ animationDelay: '0.1s' }}>
-                <div 
-                  className="relative w-full h-24 md:h-28 bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
-                  style={{
-                    backgroundImage: "url('/assetts/burbuja.png')",
-                    backgroundSize: 'contain',
-                    opacity: 0.54,
-                    filter: 'drop-shadow(0 0 8px rgba(0,255,255,0.4))'
-                  }}
-                >
-                <span className="-translate-y-[0.9rem] -translate-x-[0.3rem] text-black font-semibold text-xs md:text-sm px-4 md:px-6 pt-0 drop-shadow-md relative z-10 block text-center leading-[1.1rem] md:leading-[1.3rem] [text-wrap:balance]">
-                  ¿En qué puedo 
-                  <br className="hidden md:block" />
-                  ayudarte?
-                </span>
-              </div>
-            </div>
-          )}
+
 
           {/* Social icons - floating circles */}
           {showSocials && (
