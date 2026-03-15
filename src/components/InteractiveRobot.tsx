@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
+  const [showBubble, setShowBubble] = useState(false);
   const [position, setPosition] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -58,6 +59,9 @@ export function InteractiveRobot() {
   const handleClick = () => {
     if (isAnimating) return;
 
+    // Toggle speech bubble
+    setShowBubble(!showBubble);
+
     const screenWidth = window.innerWidth;
     const robotWidth = containerRef.current?.offsetWidth || 144;
     // Extra margin to ensure robot never leaves screen
@@ -105,6 +109,46 @@ export function InteractiveRobot() {
                 : 'drop-shadow(0 0 10px rgba(0,255,255,0.3))',
             }}
           />
+
+          {/* Comic Speech Bubble */}
+          {showBubble && (
+            <div 
+              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 animate-bounce-in"
+              style={{ transformOrigin: 'bottom center' }}
+            >
+              {/* Bubble content - Comic style oval with tail */}
+              <svg 
+                width="220" 
+                height="100" 
+                viewBox="0 0 220 100" 
+                className="animate-pulse"
+              >
+                {/* Main oval shape */}
+                <ellipse 
+                  cx="110" 
+                  cy="45" 
+                  rx="105" 
+                  ry="42" 
+                  fill="white" 
+                  filter="url(#shadow)"
+                />
+                {/* Tail */}
+                <path 
+                  d="M 160 80 L 175 95 L 185 82 Z" 
+                  fill="white"
+                />
+                <defs>
+                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="2" dy="3" stdDeviation="3" floodOpacity="0.2"/>
+                  </filter>
+                </defs>
+              </svg>
+              {/* Text overlay */}
+              <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black font-bold text-sm md:text-base text-center whitespace-nowrap">
+                ¿En qué puedo ayudarte?
+              </p>
+            </div>
+          )}
           
           {/* Sparkle effect on hover */}
           {isHovered && (
@@ -245,6 +289,24 @@ export function InteractiveRobot() {
 
         .animate-orbit {
           animation: orbit 4s linear infinite;
+        }
+
+        @keyframes bounce-in {
+          0% {
+            transform: translateX(-50%) scale(0);
+            opacity: 0;
+          }
+          50% {
+            transform: translateX(-50%) scale(1.1);
+          }
+          100% {
+            transform: translateX(-50%) scale(1);
+            opacity: 1;
+          }
+        }
+
+        .animate-bounce-in {
+          animation: bounce-in 0.4s ease-out forwards;
         }
       `}</style>
     </div>

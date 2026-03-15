@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Palette, Code, Megaphone, Target, Lightbulb, TrendingUp, Zap } from 'lucide-react';
 
 interface AbstractShapeProps {

@@ -178,7 +178,7 @@ export function Floating3DShapes({ className = '' }: Floating3DShapesProps) {
       )}
 
       {/* Floating spheres */}
-      {spheres.slice(1).map((sphere, index) => (
+      {spheres.slice(1).map((sphere) => (
         <div
           key={sphere.id}
           className="absolute rounded-full"
