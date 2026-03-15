@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, Facebook, Instagram, X } from 'lucide-react';
 
 export function InteractiveRobot() {
-  const [isHovered, setIsHovered] = useState(false);
+const [isHovered] = useState(false);
   const [position, setPosition] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
   const [showSocials, setShowSocials] = useState(false);
