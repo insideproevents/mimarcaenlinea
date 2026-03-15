@@ -128,15 +128,16 @@ export function InteractiveRobot() {
 
           {/* Text bubble on click */}
           {showBubble && (
-            <div className="absolute -top-28 left-1/2 md:-top-36 -translate-x-1/2 mb-2 w-56 md:w-96 z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
+            <div className="absolute -top-20 left-1/2 md:-top-28 -translate-x-1/2 mb-3 w-[10rem] md:w-72 z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
               <div 
-                className="relative w-full aspect-[2/1] md:aspect-[2.5/1] bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
+                className="relative w-full h-20 md:h-24 bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
                 style={{
                   backgroundImage: "url('/assetts/burbuja.png')",
+                  backgroundSize: 'contain',
                   opacity: 0.8
                 }}
               >
-                <span className="text-black font-semibold text-xs md:text-sm px-4 md:px-8 py-1.5 drop-shadow-md relative z-10 text-center leading-tight max-w-[90%] mx-1">
+                <span className="text-black font-semibold text-sm px-3 md:px-5 py-2 drop-shadow-md relative z-10 text-center leading-tight whitespace-nowrap">
                   ¿En qué puedo ayudarte?
                 </span>
               </div>
