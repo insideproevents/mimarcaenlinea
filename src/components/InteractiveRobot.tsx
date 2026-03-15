@@ -7,7 +7,6 @@ export function InteractiveRobot() {
   const [position, setPosition] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
   const [showSocials, setShowSocials] = useState(false);
-  const [isHiding, setIsHiding] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const animationRef = useRef<number | null>(null);
@@ -27,19 +26,10 @@ export function InteractiveRobot() {
   // Auto-hide social icons after 6 seconds
   useEffect(() => {
     if (showSocials) {
-      // Start hiding animation at 5 seconds
-      const hideTimer = setTimeout(() => {
-        setIsHiding(true);
-      }, 5000);
-      // Actually hide at 6 seconds
-      const closeTimer = setTimeout(() => {
+      const timer = setTimeout(() => {
         setShowSocials(false);
-        setIsHiding(false);
       }, 6000);
-      return () => {
-        clearTimeout(hideTimer);
-        clearTimeout(closeTimer);
-      };
+      return () => clearTimeout(timer);
     }
   }, [showSocials]);
 
@@ -142,16 +132,16 @@ export function InteractiveRobot() {
           {/* Social icons - floating circles */}
 {showSocials && (
             <>
-              <a href="https://wa.me/56937751673" target="_blank" rel="noopener noreferrer" className={`absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-green-500 animate-float-slow rounded-full flex items-center justify-center shadow-lg z-30 transition-all duration-500 ${isHiding ? '-translate-x-4 -translate-y-4 opacity-50' : ''}`}>
+              <a href="https://wa.me/56937751673" target="_blank" rel="noopener noreferrer" className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-green-500 animate-float-slow rounded-full flex items-center justify-center shadow-lg z-30">
                 <MessageCircle className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </a>
-              <div className={`absolute top-1 left-1 w-8 h-8 md:w-10 md:h-10 bg-blue-600 animate-float-medium rounded-full flex items-center justify-center shadow-lg z-30 transition-all duration-500 ${isHiding ? '-translate-x-4 translate-y-4 opacity-50' : ''}`}>
+              <div className="absolute top-1 left-1 w-8 h-8 md:w-10 md:h-10 bg-blue-600 animate-float-medium rounded-full flex items-center justify-center shadow-lg z-30">
                 <Facebook className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
-              <div className={`absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 animate-float-slow2 rounded-full flex items-center justify-center shadow-lg z-30 transition-all duration-500 ${isHiding ? 'translate-x-4 -translate-y-4 opacity-50' : ''}`}>
+              <div className="absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 animate-float-slow2 rounded-full flex items-center justify-center shadow-lg z-30">
                 <Instagram className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
-              <div className={`absolute bottom-2 left-2 w-8 h-8 md:w-10 md:h-10 bg-black animate-float-fast rounded-full flex items-center justify-center shadow-lg z-30 transition-all duration-500 ${isHiding ? 'translate-x-4 translate-y-4 opacity-50' : ''}`}>
+              <div className="absolute bottom-2 left-2 w-8 h-8 md:w-10 md:h-10 bg-black animate-float-fast rounded-full flex items-center justify-center shadow-lg z-30">
                 <X className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
             </>
