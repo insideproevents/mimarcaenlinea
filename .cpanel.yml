@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mimarcae/public_html
+    - rm -rf $DEPLOYPATH
+    - mkdir -p $DEPLOYPATH
+    - cp -R dist/. $DEPLOYPATH/
+    - cp .htaccess $DEPLOYPATH/ 2>/dev/null || true
