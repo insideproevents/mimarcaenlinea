@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+auimport { useState, useRef, useEffect } from 'react';
 
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
@@ -128,7 +128,7 @@ export function InteractiveRobot() {
 
           {/* Text bubble on click */}
           {showBubble && (
-            <div className="absolute -top-24 left-1/2 md:-top-28 -translate-x-1/2 mb-2 w-40 md:w-64 z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
+            <div className="absolute -top-28 left-1/2 md:-top-36 -translate-x-1/2 mb-2 w-56 md:w-96 z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
               <div 
                 className="relative w-full aspect-[2/1] md:aspect-[2.5/1] bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
                 style={{
