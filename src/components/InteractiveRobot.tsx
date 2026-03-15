@@ -134,16 +134,16 @@ export function InteractiveRobot() {
           {/* Social icons - floating circles */}
           {showSocials && (
             <>
-              <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer" className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-[float_2s_ease-in-out_infinite] hover:animate-none" title="WhatsApp" aria-label="WhatsApp">
+              <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer" className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-float-slow hover:animate-none" title="WhatsApp" aria-label="WhatsApp">
                 <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
               </a>
-              <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="absolute top-1 left-1 w-8 h-8 md:w-10 md:h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-[float_2s_ease-in-out_infinite_0.3s] hover:animate-none" title="Facebook" aria-label="Facebook">
+              <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="absolute top-1 left-1 w-8 h-8 md:w-10 md:h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-float-medium hover:animate-none" title="Facebook" aria-label="Facebook">
                 <Facebook className="w-4 h-4 md:w-5 md:h-5" />
               </a>
-              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-[float_2s_ease-in-out_infinite_0.6s] hover:animate-none" title="Instagram" aria-label="Instagram">
+              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-float-slow2 hover:animate-none" title="Instagram" aria-label="Instagram">
                 <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               </a>
-              <a href="https://x.com/yourhandle" target="_blank" rel="noopener noreferrer" className="absolute bottom-2 left-2 w-8 h-8 md:w-10 md:h-10 bg-black hover:bg-gray-800 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-[float_2s_ease-in-out_infinite_0.9s] hover:animate-none" title="X" aria-label="X">
+              <a href="https://x.com/yourhandle" target="_blank" rel="noopener noreferrer" className="absolute bottom-2 left-2 w-8 h-8 md:w-10 md:h-10 bg-black hover:bg-gray-800 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-float-fast hover:animate-none" title="X" aria-label="X">
                 <Twitter className="w-4 h-4 md:w-5 md:h-5" />
               </a>
             </>
@@ -250,9 +250,41 @@ export function InteractiveRobot() {
           }
         }
 
-        @keyframes social-float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-8px) rotate(180deg); }
+        @keyframes float-slow {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-12px);
+          }
+        }
+
+        @keyframes float-medium {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        @keyframes float-slow2 {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-14px);
+          }
+        }
+
+        @keyframes float-fast {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
         }
 
         @keyframes orbit {
@@ -282,26 +314,24 @@ export function InteractiveRobot() {
           animation: float 3s ease-in-out infinite;
         }
 
+        .animate-float-slow {
+          animation: float-slow 6s ease-in-out infinite;
+        }
+
+        .animate-float-medium {
+          animation: float-medium 4.5s ease-in-out infinite;
+        }
+
+        .animate-float-slow2 {
+          animation: float-slow2 5.5s ease-in-out infinite;
+        }
+
+        .animate-float-fast {
+          animation: float-fast 4s ease-in-out infinite;
+        }
+
         .animate-orbit {
           animation: orbit 4s linear infinite;
-        }
-
-        @keyframes bounce-in {
-          0% {
-            transform: translateX(-50%) scale(0) translateY(10px);
-            opacity: 0;
-          }
-          50% {
-            transform: translateX(-50%) scale(1.05) translateY(-2px);
-          }
-          100% {
-            transform: translateX(-50%) scale(1) translateY(0);
-            opacity: 1;
-          }
-        }
-
-        .animate-bounce-in {
-          animation: bounce-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
         }
       `}</style>
     </div>
