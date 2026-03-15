@@ -17,6 +17,7 @@ const translations: Translations = {
   'nav.portfolio': { es: 'Portafolio', en: 'Portfolio' },
   'nav.nosotros': { es: 'Nosotros', en: 'About' },
   'nav.contacto': { es: 'Contacto', en: 'Contact' },
+  'nav.idioma': { es: 'Idioma', en: 'Language' },
 
   // Hero
   'hero.label': { es: 'Agencia de Diseño Web y Medios Digitales', en: 'Web Design Agency and Digital Media' },

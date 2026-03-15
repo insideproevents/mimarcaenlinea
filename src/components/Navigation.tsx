@@ -181,6 +181,40 @@ export function Navigation() {
               </a>
             ))}
 
+            {/* Language Switcher Mobile */}
+            <div className="flex items-center gap-4 mt-8 py-6 border-t border-b border-white/10">
+              <span className="text-white/50 text-sm uppercase tracking-wide">{t('nav.idioma') || 'Idioma'}:</span>
+              <button
+                onClick={() => setLanguage('es')}
+                className={`w-10 h-10 rounded-full overflow-hidden border-2 transition-all duration-300 ${
+                  language === 'es' ? 'border-[#0041A8] scale-110' : 'border-transparent'
+                }`}
+                aria-label="Español"
+              >
+                <img 
+                  src="/chile.png" 
+                  alt="Español" 
+                  className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`w-10 h-10 rounded-full overflow-hidden border-2 transition-all duration-300 ${
+                  language === 'en' ? 'border-[#0041A8] scale-110' : 'border-transparent'
+                }`}
+                aria-label="English"
+              >
+                <svg viewBox="0 0 24 24" className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300">
+                  <rect width="24" height="24" fill="#012169"/>
+                  <path d="M0 0L24 24M24 0L0 24" stroke="white" strokeWidth="2"/>
+                  <rect x="0" y="9" width="24" height="6" fill="white"/>
+                  <rect x="9" y="0" width="6" height="24" fill="white"/>
+                  <rect x="0" y="10" width="24" height="4" fill="#C8102E"/>
+                  <rect x="10" y="0" width="4" height="24" fill="#C8102E"/>
+                </svg>
+              </button>
+            </div>
+
             <button
               onClick={() => scrollToSection('#contacto')}
               className={`mt-10 px-8 py-4 bg-[#0041A8] rounded-full text-white font-semibold uppercase tracking-wider transition-all duration-500 ${

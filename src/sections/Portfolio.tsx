@@ -57,7 +57,7 @@ export function Portfolio() {
             }`}
             style={{ transitionDelay: '100ms' }}
           >
-            <span className="text-purple-700">{t('portfolio.subtitle')}</span> <span className="text-[#0041A8]">{language === 'es' ? 'que hablan por sí mismos' : 'that speak for themselves'}</span>
+            <span className="text-white">{t('portfolio.subtitle')}</span> <span className="text-[#0041A8]">{language === 'es' ? 'que hablan por sí mismos' : 'that speak for themselves'}</span>
           </h2>
           <p
             className={`text-lg text-white/50 max-w-2xl leading-relaxed transition-all duration-600 ease-smooth ${
