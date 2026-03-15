@@ -69,6 +69,14 @@ export function InteractiveRobot() {
 
     setShowBubble(true);
 
+    // Reset bubble animation by toggling false first, then true to avoid double animation
+    setTimeout(() => {
+      setShowBubble(false);
+    }, 10);
+    setTimeout(() => {
+      setShowBubble(true);
+    }, 20);
+
     const screenWidth = window.innerWidth;
     const robotWidth = containerRef.current?.offsetWidth || 144;
     // Extra margin to ensure robot never leaves screen
@@ -128,7 +136,7 @@ export function InteractiveRobot() {
 
           {/* Text bubble on click */}
           {showBubble && (
-            <div className="absolute -top-16 left-1/2 md:-top-20 -translate-x-1/2 mb-2 w-48 md:w-[18rem] z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
+            <div key="bubble" className="absolute -top-16 left-1/2 md:-top-20 -translate-x-1/2 mb-2 w-48 md:w-[18rem] z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
                 <div 
                   className="relative w-full h-24 md:h-28 bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
                   style={{
