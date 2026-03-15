@@ -134,7 +134,7 @@ export function InteractiveRobot() {
                 style={{
                   backgroundImage: "url('/assetts/burbuja.png')",
                   backgroundSize: 'contain',
-                  opacity: 0.8
+                  opacity: 0.64
                 }}
               >
                 <span className="text-black font-semibold text-xs md:text-sm px-4 md:px-6 py-2 drop-shadow-md relative z-10 text-center leading-[1.1rem] md:leading-[1.3rem] [text-wrap:balance]">
