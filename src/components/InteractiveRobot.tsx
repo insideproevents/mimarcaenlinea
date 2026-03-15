@@ -129,14 +129,15 @@ export function InteractiveRobot() {
           {/* Text bubble on click */}
           {showBubble && (
             <div className="absolute -top-16 left-1/2 md:-top-20 -translate-x-1/2 mb-2 w-48 md:w-[18rem] z-20 pointer-events-none animate-bounce-in" style={{ animationDelay: '0.1s' }}>
-              <div 
-                className="relative w-full h-24 md:h-28 bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
-                style={{
-                  backgroundImage: "url('/assetts/burbuja.png')",
-                  backgroundSize: 'contain',
-                  opacity: 0.64
-                }}
-              >
+                <div 
+                  className="relative w-full h-24 md:h-28 bg-no-repeat bg-center bg-contain rounded-xl flex items-center justify-center overflow-hidden"
+                  style={{
+                    backgroundImage: "url('/assetts/burbuja.png')",
+                    backgroundSize: 'contain',
+                    opacity: 0.64,
+                    filter: 'drop-shadow(0 0 8px rgba(0,255,255,0.4))'
+                  }}
+                >
                 <span className="-translate-y-[1rem] text-black font-semibold text-xs md:text-sm px-4 md:px-6 pt-0 drop-shadow-md relative z-10 block text-center leading-[1.1rem] md:leading-[1.3rem] [text-wrap:balance]">
                   ¿En qué puedo 
                   <br className="hidden md:block" />
