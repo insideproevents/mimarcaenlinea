@@ -120,8 +120,7 @@ const translations: Translations = {
 
   // Portfolio
   'portfolio.title': { es: 'Portafolio', en: 'Portfolio' },
-  'portfolio.subtitle': { es: 'Proyectos que hablan por sí mismos', en: 'Projects that speak for themselves' },
-  'portfolio.subtitle2': { es: 'y colaboraciones', en: 'and collaborations' },
+  'portfolio.subtitle': { es: 'Proyectos', en: 'Projects' },
   'portfolio.description': { es: 'Cada proyecto es único. Conoce algunos de los trabajos que hemos realizado para nuestros clientes.', en: 'Each project is unique. Check out some of the work we have done for our clients.' },
   'portfolio.description2': { es: 'Estos son algunos de los proyectos en los que hemos trabajado, desarrollando soluciones digitales adaptadas a cada cliente, rubro y objetivo.', en: 'These are some of the projects we have worked on, developing digital solutions tailored to each client, industry, and goal.' },
 

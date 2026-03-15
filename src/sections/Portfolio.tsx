@@ -17,7 +17,7 @@ const projectKeys = [
 ];
 
 export function Portfolio() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { ref: headerRef, isVisible: headerVisible } =
     useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const { ref: gridRef, isVisible: gridVisible } =
@@ -57,7 +57,7 @@ export function Portfolio() {
             }`}
             style={{ transitionDelay: '100ms' }}
           >
-            {t('portfolio.subtitle')} <span className="text-[#0041A8]">{t('portfolio.subtitle2')}</span>
+            {t('portfolio.subtitle')} <span className="text-purple-700">{language === 'es' ? 'que hablan por sí mismos' : 'that speak for themselves'}</span>
           </h2>
           <p
             className={`text-lg text-white/50 max-w-2xl leading-relaxed transition-all duration-600 ease-smooth ${
