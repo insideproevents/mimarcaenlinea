@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
+import { MessageCircle, Facebook, Instagram, Twitter } from 'lucide-react';
 
 export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
   const [position, setPosition] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
   const [showBubble, setShowBubble] = useState(false);
+  const [showSocials, setShowSocials] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
   
@@ -20,13 +22,24 @@ export function InteractiveRobot() {
     };
   }, []);
 
-  // Auto-hide bubble after 6 seconds
+  // Auto-hide bubble after 6 seconds, show socials
   useEffect(() => {
     if (showBubble) {
-      const timer = setTimeout(() => setShowBubble(false), 6000);
+      const timer = setTimeout(() => {
+        setShowBubble(false);
+        setTimeout(() => setShowSocials(true), 200); // slight delay after hide
+      }, 6000);
       return () => clearTimeout(timer);
     }
   }, [showBubble]);
+
+  // Auto-hide socials after 5 seconds
+  useEffect(() => {
+    if (showSocials) {
+      const timer = setTimeout(() => setShowSocials(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showSocials]);
 
   const animateSlide = (fromX: number, toX: number, newPosition: 'left' | 'right') => {
     const startX = fromX;
@@ -155,6 +168,24 @@ export function InteractiveRobot() {
             </div>
           )}
 
+          {/* Social icons - floating circles */}
+          {showSocials && (
+            <>
+              <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer" className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-[float_2s_ease-in-out_infinite] hover:animate-none" title="WhatsApp" aria-label="WhatsApp">
+                <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
+              </a>
+              <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="absolute top-1 left-1 w-8 h-8 md:w-10 md:h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-[float_2s_ease-in-out_infinite_0.3s] hover:animate-none" title="Facebook" aria-label="Facebook">
+                <Facebook className="w-4 h-4 md:w-5 md:h-5" />
+              </a>
+              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-[float_2s_ease-in-out_infinite_0.6s] hover:animate-none" title="Instagram" aria-label="Instagram">
+                <Instagram className="w-4 h-4 md:w-5 md:h-5" />
+              </a>
+              <a href="https://x.com/yourhandle" target="_blank" rel="noopener noreferrer" className="absolute bottom-2 left-2 w-8 h-8 md:w-10 md:h-10 bg-black hover:bg-gray-800 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 z-30 animate-[float_2s_ease-in-out_infinite_0.9s] hover:animate-none" title="X" aria-label="X">
+                <Twitter className="w-4 h-4 md:w-5 md:h-5" />
+              </a>
+            </>
+          )}
+
           {/* Orbiting particles */}
           <div className="absolute inset-0 pointer-events-none">
             {/* Particle 1 - Outer orbit */}
@@ -254,6 +285,11 @@ export function InteractiveRobot() {
           50% {
             transform: translateY(-15px);
           }
+        }
+
+        @keyframes social-float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-8px) rotate(180deg); }
         }
 
         @keyframes orbit {
