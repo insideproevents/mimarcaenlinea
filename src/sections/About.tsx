@@ -101,7 +101,7 @@ export function About() {
               }`}
               style={{ transitionDelay: '400ms' }}
             >
-              <div className="relative aspect-square max-w-md mx-auto">
+              <div className="relative aspect-square max-w-md mx-auto overflow-hidden rounded-2xl">
                 <AbstractShape />
               </div>
             </div>
