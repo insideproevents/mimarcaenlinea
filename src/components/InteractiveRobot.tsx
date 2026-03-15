@@ -5,7 +5,6 @@ export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
   const [position, setPosition] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
-  const [showBubble, setShowBubble] = useState(false);
   const [showSocials, setShowSocials] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
@@ -22,16 +21,7 @@ export function InteractiveRobot() {
     };
   }, []);
 
-  // Auto-hide bubble after 6 seconds, show socials
-  useEffect(() => {
-    if (showBubble) {
-      const timer = setTimeout(() => {
-        setShowBubble(false);
-        setTimeout(() => setShowSocials(true), 200); // slight delay after hide
-      }, 6000);
-      return () => clearTimeout(timer);
-    }
-  }, [showBubble]);
+
 
   // Auto-hide socials after 5 seconds
   useEffect(() => {
@@ -80,15 +70,7 @@ export function InteractiveRobot() {
   const handleClick = () => {
     if (isAnimating) return;
 
-    setShowBubble(true);
-
-    // Reset bubble animation by toggling false first, then true to avoid double animation
-    setTimeout(() => {
-      setShowBubble(false);
-    }, 10);
-    setTimeout(() => {
-      setShowBubble(true);
-    }, 20);
+    setShowSocials(true);
 
     const screenWidth = window.innerWidth;
     const robotWidth = containerRef.current?.offsetWidth || 144;
