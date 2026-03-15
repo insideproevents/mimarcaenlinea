@@ -1,7 +1,6 @@
 ---
 deployment:
   tasks:
-    - npm run build
     - export DEPLOYPATH=/home/mimarcae/public_html
     - rm -rf $DEPLOYPATH
     - mkdir -p $DEPLOYPATH
