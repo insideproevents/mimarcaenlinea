@@ -4,6 +4,8 @@ deployment:
     - export REPO_PATH=$(pwd)
     - export DEPLOYPATH=${CPANEL_HOME:=/home/mimarcae}/public_html
     - cd $REPO_PATH
+    - npm install
+    - npm run build
     - test -d $DEPLOYPATH && rm -rf $DEPLOYPATH/* || mkdir -p $DEPLOYPATH
     - cp -R dist/* $DEPLOYPATH/
     - chmod 755 $DEPLOYPATH
