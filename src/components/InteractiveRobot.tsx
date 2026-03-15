@@ -5,7 +5,9 @@ export function InteractiveRobot() {
   const [isHovered, setIsHovered] = useState(false);
   const [position, setPosition] = useState<'left' | 'right'>('right');
 const [isAnimating, setIsAnimating] = useState(false);
+  const [showSocials, setShowSocials] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
   const animationRef = useRef<number | null>(null);
   
   // Use refs to track actual position for animation
