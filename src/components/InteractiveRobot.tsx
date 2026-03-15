@@ -138,7 +138,7 @@ export function InteractiveRobot() {
                     filter: 'drop-shadow(0 0 8px rgba(0,255,255,0.4))'
                   }}
                 >
-                <span className="-translate-y-[1rem] text-black font-semibold text-xs md:text-sm px-4 md:px-6 pt-0 drop-shadow-md relative z-10 block text-center leading-[1.1rem] md:leading-[1.3rem] [text-wrap:balance]">
+                <span className="-translate-y-[1rem] -translate-x-[0.3rem] text-black font-semibold text-xs md:text-sm px-4 md:px-6 pt-0 drop-shadow-md relative z-10 block text-center leading-[1.1rem] md:leading-[1.3rem] [text-wrap:balance]">
                   ¿En qué puedo 
                   <br className="hidden md:block" />
                   ayudarte?
