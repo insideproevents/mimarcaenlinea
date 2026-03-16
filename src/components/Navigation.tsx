@@ -55,12 +55,12 @@ export function Navigation() {
               <img 
                 src="/mi_logo.png" 
                 alt="MIMARCA" 
-                className="h-[77px] w-auto"
+                className="h-14 sm:h-[77px] w-auto"
               />
               <img 
                 src="/logo_texto.png" 
                 alt="MIMARCA" 
-                className="h-[64px] w-auto"
+                className="h-10 sm:h-[64px] w-auto"
               />
             </a>
 
