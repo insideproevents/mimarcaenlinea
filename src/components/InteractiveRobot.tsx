@@ -138,7 +138,7 @@ export function InteractiveRobot() {
               <div className="absolute top-1 left-1 w-8 h-8 md:w-10 md:h-10 bg-blue-600 animate-float-medium rounded-full flex items-center justify-center shadow-lg z-30">
                 <Facebook className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
-              <a href="https://www.instagram.com/mimarcaenlinea.cl/" target="_blank" rel="noopener noreferrer" className="absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 animate-float-slow2 rounded-full flex items-center justify-center shadow-lg z-30">
+              <a href="https://www.instagram.com/mimarcaenlinea.cl/" target="_blank" rel="noopener noreferrer" className="absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 animate-float-slow2 rounded-full flex items-center justify-center shadow-lg z-30 cursor-pointer">
                 <Instagram className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </a>
               <div className="absolute -bottom-1 -left-1 w-8 h-8 md:w-10 md:h-10 bg-black animate-float-fast rounded-full flex items-center justify-center shadow-lg z-30">
