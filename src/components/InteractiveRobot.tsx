@@ -141,7 +141,7 @@ export function InteractiveRobot() {
               <div className="absolute bottom-1 -right-1 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-500 to-purple-500 animate-float-slow2 rounded-full flex items-center justify-center shadow-lg z-30">
                 <Instagram className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
-              <div className="absolute bottom-2 left-2 w-8 h-8 md:w-10 md:h-10 bg-black animate-float-fast rounded-full flex items-center justify-center shadow-lg z-30">
+              <div className="absolute -bottom-2 -left-2 w-8 h-8 md:w-10 md:h-10 bg-black animate-float-fast rounded-full flex items-center justify-center shadow-lg z-30">
                 <X className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
             </>
