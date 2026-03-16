@@ -1,5 +1,6 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
+import { CurvedWaveBackground } from '../components/CurvedWaveBackground';
 import {
   Layout,
   ShoppingCart,
@@ -82,6 +83,7 @@ export function Services() {
     <section id="servicios" className="relative w-full py-24 lg:py-32 bg-black overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
+        <CurvedWaveBackground />
         <div
           className="absolute top-0 right-0 w-[700px] h-[700px]"
           style={{

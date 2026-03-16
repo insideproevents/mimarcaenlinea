@@ -1,5 +1,6 @@
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
+import { CurvedWaveBackground } from '../components/CurvedWaveBackground';
 
 const getStats = (t: (key: string) => string) => [
   { value: 3, suffix: '+', label: 'Experiencia IA' },
@@ -45,6 +46,7 @@ export function Stats() {
     <section className="relative w-full py-24 lg:py-32 bg-black overflow-hidden border-y border-white/10">
       {/* Background */}
       <div className="absolute inset-0">
+        <CurvedWaveBackground />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px]"
           style={{

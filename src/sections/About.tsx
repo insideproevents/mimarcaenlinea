@@ -2,6 +2,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
 import { CheckCircle } from 'lucide-react';
 import { AbstractShape } from '../components/AbstractShape';
+import { CurvedWaveBackground } from '../components/CurvedWaveBackground';
 
 const getFeatures = (t: (key: string) => string) => [
   t('about.feature1'),
@@ -19,6 +20,7 @@ export function About() {
     <section id="nosotros" className="relative w-full py-24 lg:py-32 bg-black overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
+        <CurvedWaveBackground />
         <div
           className="absolute bottom-0 right-0 w-[600px] h-[600px]"
           style={{
