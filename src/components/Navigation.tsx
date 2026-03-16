@@ -60,7 +60,7 @@ export function Navigation() {
               <img 
                 src="/logo_texto.png" 
                 alt="MIMARCA" 
-                className="h-[53px] sm:h-[64px] w-auto"
+                className="h-[58px] sm:h-[64px] w-auto"
               />
             </a>
 
