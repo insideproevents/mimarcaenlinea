@@ -5,113 +5,192 @@ interface CurvedWaveBackgroundProps {
 export function CurvedWaveBackground({ className = '' }: CurvedWaveBackgroundProps) {
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
-      {/* Animated curved wave lines */}
+      {/* Animated curved line waves - just strokes, no fills */}
       <svg
         className="absolute top-0 left-0 w-full h-full"
         viewBox="0 0 1440 800"
         preserveAspectRatio="none"
       >
-        {/* First wave - cyan */}
+        {/* First curved line - flowing wave stroke */}
         <path
-          d="M0,200 C360,150 720,250 1080,200 C1260,175 1350,200 1440,200 L1440,0 L0,0 Z"
-          fill="url(#waveGradient1)"
-          opacity="0.15"
-          style={{ animation: 'wave1 8s ease-in-out infinite' }}
+          d="M-100,150 Q360,50 720,150 T1540,150"
+          fill="none"
+          stroke="rgba(255,255,255,0.15)"
+          strokeWidth="2"
+          style={{ animation: 'waveLine1 4s ease-in-out infinite' }}
         />
         
-        {/* Second wave - blue */}
+        {/* Second curved line */}
         <path
-          d="M0,250 C480,200 960,300 1440,250 L1440,0 L0,0 Z"
-          fill="url(#waveGradient2)"
-          opacity="0.1"
-          style={{ animation: 'wave2 10s ease-in-out infinite' }}
+          d="M-100,250 Q360,150 720,250 T1540,250"
+          fill="none"
+          stroke="rgba(255,255,255,0.12)"
+          strokeWidth="2"
+          style={{ animation: 'waveLine2 5s ease-in-out infinite' }}
         />
         
-        {/* Third wave - lighter cyan */}
+        {/* Third curved line */}
         <path
-          d="M0,300 C240,260 480,340 720,300 C960,260 1200,340 1440,300 L1440,0 L0,0 Z"
-          fill="url(#waveGradient3)"
-          opacity="0.08"
-          style={{ animation: 'wave3 12s ease-in-out infinite' }}
+          d="M-100,350 Q360,250 720,350 T1540,350"
+          fill="none"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="2"
+          style={{ animation: 'waveLine3 6s ease-in-out infinite' }}
         />
         
-        {/* Fourth wave - deep blue */}
+        {/* Fourth curved line */}
         <path
-          d="M0,350 C540,300 1080,400 1440,350 L1440,0 L0,0 Z"
-          fill="url(#waveGradient4)"
-          opacity="0.06"
-          style={{ animation: 'wave4 15s ease-in-out infinite' }}
+          d="M-100,450 Q360,350 720,450 T1540,450"
+          fill="none"
+          stroke="rgba(255,255,255,0.08)"
+          strokeWidth="2"
+          style={{ animation: 'waveLine4 7s ease-in-out infinite' }}
         />
         
-        {/* Gradient definitions */}
-        <defs>
-          <linearGradient id="waveGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#06b6d4" />
-            <stop offset="100%" stopColor="#0891b2" />
-          </linearGradient>
-          <linearGradient id="waveGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="100%" stopColor="#2563eb" />
-          </linearGradient>
-          <linearGradient id="waveGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#22d3ee" />
-            <stop offset="100%" stopColor="#06b6d4" />
-          </linearGradient>
-          <linearGradient id="waveGradient4" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#1d4ed8" />
-            <stop offset="100%" stopColor="#1e40af" />
-          </linearGradient>
-        </defs>
+        {/* Fifth curved line */}
+        <path
+          d="M-100,550 Q360,450 720,550 T1540,550"
+          fill="none"
+          stroke="rgba(255,255,255,0.06)"
+          strokeWidth="2"
+          style={{ animation: 'waveLine5 8s ease-in-out infinite' }}
+        />
+        
+        {/* Sixth curved line */}
+        <path
+          d="M-100,650 Q360,550 720,650 T1540,650"
+          fill="none"
+          stroke="rgba(255,255,255,0.05)"
+          strokeWidth="2"
+          style={{ animation: 'waveLine6 9s ease-in-out infinite' }}
+        />
+        
+        {/* Additional floating curved strokes - left side */}
+        <path
+          d="M50,200 Q100,150 150,200 Q200,250 250,200"
+          fill="none"
+          stroke="rgba(255,255,255,0.08)"
+          strokeWidth="1.5"
+          style={{ animation: 'floatCurve1 6s ease-in-out infinite' }}
+        />
+        
+        <path
+          d="M80,400 Q130,350 180,400 Q230,450 280,400"
+          fill="none"
+          stroke="rgba(255,255,255,0.06)"
+          strokeWidth="1.5"
+          style={{ animation: 'floatCurve2 8s ease-in-out infinite reverse' }}
+        />
+        
+        {/* Additional floating curved strokes - right side */}
+        <path
+          d="M1200,300 Q1250,250 1300,300 Q1350,350 1400,300"
+          fill="none"
+          stroke="rgba(255,255,255,0.07)"
+          strokeWidth="1.5"
+          style={{ animation: 'floatCurve3 7s ease-in-out infinite' }}
+        />
+        
+        <path
+          d="M1150,500 Q1200,450 1250,500 Q1300,550 1350,500"
+          fill="none"
+          stroke="rgba(255,255,255,0.05)"
+          strokeWidth="1.5"
+          style={{ animation: 'floatCurve4 9s ease-in-out infinite reverse' }}
+        />
       </svg>
-      
-      {/* Additional floating curved lines */}
-      <div className="absolute top-10 left-10 w-32 h-32 opacity-20" style={{ animation: 'floatWave 6s ease-in-out infinite' }}>
-        <svg viewBox="0 0 100 100" fill="none">
-          <path
-            d="M10 50 Q 30 20 50 50 Q 70 80 90 50"
-            stroke="#06b6d4"
-            strokeWidth="2"
-            fill="none"
-            style={{ animation: 'dash 3s linear infinite' }}
-          />
-        </svg>
-      </div>
-      
-      <div className="absolute top-20 right-20 w-24 h-24 opacity-15" style={{ animation: 'floatWave 8s ease-in-out infinite reverse' }}>
-        <svg viewBox="0 0 100 100" fill="none">
-          <path
-            d="M10 50 Q 30 20 50 50 Q 70 80 90 50"
-            stroke="#3b82f6"
-            strokeWidth="2"
-            fill="none"
-          />
-        </svg>
-      </div>
       
       {/* CSS animations */}
       <style>{`
-        @keyframes wave1 {
-          0%, 100% { transform: translateX(0) translateY(0); }
-          50% { transform: translateX(-20px) translateY(10px); }
+        @keyframes waveLine1 {
+          0%, 100% { 
+            transform: translateX(0) translateY(0);
+            d: path('M-100,150 Q360,50 720,150 T1540,150');
+          }
+          50% { 
+            transform: translateX(30px) translateY(-20px);
+            d: path('M-100,130 Q360,30 720,130 T1540,130');
+          }
         }
-        @keyframes wave2 {
-          0%, 100% { transform: translateX(0) translateY(0); }
-          50% { transform: translateX(20px) translateY(-15px); }
+        @keyframes waveLine2 {
+          0%, 100% { 
+            transform: translateX(0) translateY(0);
+          }
+          50% { 
+            transform: translateX(-25px) translateY(15px);
+          }
         }
-        @keyframes wave3 {
-          0%, 100% { transform: translateX(0) translateY(0); }
-          50% { transform: translateX(-15px) translateY(8px); }
+        @keyframes waveLine3 {
+          0%, 100% { 
+            transform: translateX(0) translateY(0);
+          }
+          50% { 
+            transform: translateX(20px) translateY(-10px);
+          }
         }
-        @keyframes wave4 {
-          0%, 100% { transform: translateX(0) translateY(0); }
-          50% { transform: translateX(10px) translateY(-10px); }
+        @keyframes waveLine4 {
+          0%, 100% { 
+            transform: translateX(0) translateY(0);
+          }
+          50% { 
+            transform: translateX(-15px) translateY(20px);
+          }
         }
-        @keyframes floatWave {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(5deg); }
+        @keyframes waveLine5 {
+          0%, 100% { 
+            transform: translateX(0) translateY(0);
+          }
+          50% { 
+            transform: translateX(10px) translateY(-15px);
+          }
         }
-        @keyframes dash {
-          to { stroke-dashoffset: 100; }
+        @keyframes waveLine6 {
+          0%, 100% { 
+            transform: translateX(0) translateY(0);
+          }
+          50% { 
+            transform: translateX(-20px) translateY(10px);
+          }
+        }
+        @keyframes floatCurve1 {
+          0%, 100% { 
+            transform: translateY(0) scale(1);
+            opacity: 0.08;
+          }
+          50% { 
+            transform: translateY(-30px) scale(1.1);
+            opacity: 0.15;
+          }
+        }
+        @keyframes floatCurve2 {
+          0%, 100% { 
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.06;
+          }
+          50% { 
+            transform: translateY(-25px) rotate(5deg);
+            opacity: 0.12;
+          }
+        }
+        @keyframes floatCurve3 {
+          0%, 100% { 
+            transform: translateY(0) scale(1);
+            opacity: 0.07;
+          }
+          50% { 
+            transform: translateY(-20px) scale(0.95);
+            opacity: 0.14;
+          }
+        }
+        @keyframes floatCurve4 {
+          0%, 100% { 
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.05;
+          }
+          50% { 
+            transform: translateY(-35px) rotate(-3deg);
+            opacity: 0.1;
+          }
         }
       `}</style>
     </div>
