@@ -1,6 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
-import { CurvedWaveBackground } from '../components/CurvedWaveBackground';
 
 export function ValueProposition() {
   const { t } = useLanguage();
@@ -10,7 +9,6 @@ export function ValueProposition() {
     <section className="relative w-full py-24 lg:py-32 bg-black overflow-hidden">
       {/* Background Accent */}
       <div className="absolute inset-0">
-        <CurvedWaveBackground />
         <div
           className="absolute top-1/2 left-0 w-[500px] h-[500px] -translate-y-1/2"
           style={{
