@@ -5,125 +5,132 @@ interface CurvedWaveBackgroundProps {
 export function CurvedWaveBackground({ className = '' }: CurvedWaveBackgroundProps) {
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
-      {/* Animated curved line waves - spread across section like reference */}
+      {/* Animated curved line waves - thinner and closer together */}
       <svg
         className="absolute top-0 left-0 w-full h-full"
         viewBox="0 0 1440 800"
         preserveAspectRatio="none"
       >
-        {/* Upper area waves */}
+        {/* Upper area waves - closer together */}
         <path
-          d="M-200,60 Q360,20 720,60 T1640,60"
+          d="M-200,40 Q360,20 720,40 T1640,40"
           fill="none"
-          stroke="rgba(255,255,255,0.35)"
-          strokeWidth="3"
+          stroke="rgba(255,255,255,0.25)"
+          strokeWidth="1.5"
           style={{ animation: 'waveMove1 8s ease-in-out infinite' }}
         />
         <path
-          d="M-200,100 Q480,50 720,100 T1640,100"
+          d="M-200,65 Q480,45 720,65 T1640,65"
           fill="none"
-          stroke="rgba(255,255,255,0.3)"
-          strokeWidth="3"
-          style={{ animation: 'waveMove2 7s ease-in-out infinite', animationDelay: '0.5s' }}
+          stroke="rgba(255,255,255,0.22)"
+          strokeWidth="1.5"
+          style={{ animation: 'waveMove2 7s ease-in-out infinite', animationDelay: '0.3s' }}
         />
         <path
-          d="M-200,150 Q360,110 720,150 T1640,150"
+          d="M-200,90 Q360,70 720,90 T1640,90"
           fill="none"
-          stroke="rgba(255,255,255,0.25)"
-          strokeWidth="2.5"
-          style={{ animation: 'waveMove3 9s ease-in-out infinite', animationDelay: '1s' }}
+          stroke="rgba(255,255,255,0.2)"
+          strokeWidth="1.2"
+          style={{ animation: 'waveMove3 9s ease-in-out infinite', animationDelay: '0.6s' }}
         />
         
-        {/* Middle-upper area waves */}
+        {/* Middle-upper area waves - closer together */}
         <path
-          d="M-200,200 Q480,150 720,200 T1640,200"
+          d="M-200,120 Q480,95 720,120 T1640,120"
           fill="none"
-          stroke="rgba(255,255,255,0.4)"
-          strokeWidth="4"
+          stroke="rgba(255,255,255,0.3)"
+          strokeWidth="1.8"
           style={{ animation: 'waveMove1 6s ease-in-out infinite', animationDelay: '0.2s' }}
         />
         <path
-          d="M-200,250 Q360,200 720,250 T1640,250"
+          d="M-200,145 Q360,120 720,145 T1640,145"
           fill="none"
-          stroke="rgba(255,255,255,0.35)"
-          strokeWidth="3.5"
-          style={{ animation: 'waveMove2 7.5s ease-in-out infinite', animationDelay: '0.7s' }}
+          stroke="rgba(255,255,255,0.28)"
+          strokeWidth="1.5"
+          style={{ animation: 'waveMove2 7.5s ease-in-out infinite', animationDelay: '0.5s' }}
         />
         <path
-          d="M-200,300 Q480,250 720,300 T1640,300"
+          d="M-200,170 Q480,145 720,170 T1640,170"
           fill="none"
-          stroke="rgba(255,255,255,0.3)"
-          strokeWidth="3"
-          style={{ animation: 'waveMove3 8s ease-in-out infinite', animationDelay: '1.2s' }}
+          stroke="rgba(255,255,255,0.25)"
+          strokeWidth="1.5"
+          style={{ animation: 'waveMove3 8s ease-in-out infinite', animationDelay: '0.8s' }}
         />
         
-        {/* Center area waves - more prominent */}
+        {/* Center area waves - main cluster, closer */}
         <path
-          d="M-200,350 Q360,290 720,350 T1640,350"
+          d="M-200,200 Q360,170 720,200 T1640,200"
           fill="none"
-          stroke="rgba(255,255,255,0.45)"
-          strokeWidth="4"
+          stroke="rgba(255,255,255,0.35)"
+          strokeWidth="2"
           style={{ animation: 'waveMove1 5s ease-in-out infinite', animationDelay: '0.3s' }}
         />
         <path
-          d="M-200,400 Q480,340 720,400 T1640,400"
+          d="M-200,225 Q480,195 720,225 T1640,225"
           fill="none"
-          stroke="rgba(255,255,255,0.4)"
-          strokeWidth="3.5"
-          style={{ animation: 'waveMove2 6s ease-in-out infinite', animationDelay: '0.8s' }}
+          stroke="rgba(255,255,255,0.32)"
+          strokeWidth="1.8"
+          style={{ animation: 'waveMove2 6s ease-in-out infinite', animationDelay: '0.6s' }}
         />
         <path
-          d="M-200,450 Q360,390 720,450 T1640,450"
+          d="M-200,250 Q360,220 720,250 T1640,250"
           fill="none"
-          stroke="rgba(255,255,255,0.35)"
-          strokeWidth="3"
-          style={{ animation: 'waveMove3 7s ease-in-out infinite', animationDelay: '1.5s' }}
-        />
-        
-        {/* Middle-lower area waves */}
-        <path
-          d="M-200,500 Q480,440 720,500 T1640,500"
-          fill="none"
-          stroke="rgba(255,255,255,0.3)"
-          strokeWidth="3"
-          style={{ animation: 'waveMove1 8s ease-in-out infinite', animationDelay: '0.4s' }}
+          stroke="rgba(255,255,255,0.28)"
+          strokeWidth="1.5"
+          style={{ animation: 'waveMove3 7s ease-in-out infinite', animationDelay: '0.9s' }}
         />
         <path
-          d="M-200,550 Q360,490 720,550 T1640,550"
-          fill="none"
-          stroke="rgba(255,255,255,0.35)"
-          strokeWidth="3.5"
-          style={{ animation: 'waveMove2 7s ease-in-out infinite', animationDelay: '1s' }}
-        />
-        <path
-          d="M-200,600 Q480,540 720,600 T1640,600"
-          fill="none"
-          stroke="rgba(255,255,255,0.3)"
-          strokeWidth="3"
-          style={{ animation: 'waveMove3 8.5s ease-in-out infinite', animationDelay: '1.3s' }}
-        />
-        
-        {/* Lower area waves */}
-        <path
-          d="M-200,650 Q360,600 720,650 T1640,650"
+          d="M-200,275 Q480,245 720,275 T1640,275"
           fill="none"
           stroke="rgba(255,255,255,0.25)"
-          strokeWidth="2.5"
-          style={{ animation: 'waveMove1 9s ease-in-out infinite', animationDelay: '0.6s' }}
+          strokeWidth="1.5"
+          style={{ animation: 'waveMove1 6s ease-in-out infinite', animationDelay: '1.2s' }}
+        />
+        
+        {/* Middle-lower area waves - closer together */}
+        <path
+          d="M-200,305 Q360,275 720,305 T1640,305"
+          fill="none"
+          stroke="rgba(255,255,255,0.28)"
+          strokeWidth="1.5"
+          style={{ animation: 'waveMove2 7s ease-in-out infinite', animationDelay: '0.4s' }}
         />
         <path
-          d="M-200,700 Q480,650 720,700 T1640,700"
+          d="M-200,330 Q480,300 720,330 T1640,330"
+          fill="none"
+          stroke="rgba(255,255,255,0.25)"
+          strokeWidth="1.5"
+          style={{ animation: 'waveMove3 8s ease-in-out infinite', animationDelay: '0.7s' }}
+        />
+        <path
+          d="M-200,355 Q360,325 720,355 T1640,355"
+          fill="none"
+          stroke="rgba(255,255,255,0.22)"
+          strokeWidth="1.2"
+          style={{ animation: 'waveMove1 8s ease-in-out infinite', animationDelay: '1s' }}
+        />
+        
+        {/* Lower area waves - closer together */}
+        <path
+          d="M-200,385 Q480,355 720,385 T1640,385"
           fill="none"
           stroke="rgba(255,255,255,0.2)"
-          strokeWidth="2"
-          style={{ animation: 'waveMove2 8s ease-in-out infinite', animationDelay: '1.1s' }}
+          strokeWidth="1.2"
+          style={{ animation: 'waveMove2 9s ease-in-out infinite', animationDelay: '0.5s' }}
         />
         <path
-          d="M-200,750 Q360,700 720,750 T1640,750"
+          d="M-200,410 Q360,380 720,410 T1640,410"
+          fill="none"
+          stroke="rgba(255,255,255,0.18)"
+          strokeWidth="1"
+          style={{ animation: 'waveMove3 8s ease-in-out infinite', animationDelay: '0.8s' }}
+        />
+        <path
+          d="M-200,435 Q480,405 720,435 T1640,435"
           fill="none"
           stroke="rgba(255,255,255,0.15)"
-          strokeWidth="2"
-          style={{ animation: 'waveMove3 10s ease-in-out infinite', animationDelay: '1.6s' }}
+          strokeWidth="1"
+          style={{ animation: 'waveMove1 10s ease-in-out infinite', animationDelay: '1.1s' }}
         />
       </svg>
       
