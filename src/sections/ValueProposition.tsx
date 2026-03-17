@@ -1,5 +1,6 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
+import { AnimacionBackground } from '../components/AnimacionBackground';
 
 export function ValueProposition() {
   const { t } = useLanguage();
@@ -16,9 +17,10 @@ export function ValueProposition() {
             filter: 'blur(80px)',
           }}
         />
+        <AnimacionBackground className="z-0 pointer-events-none opacity-100" />
       </div>
 
-      <div ref={ref} className="relative z-10 w-full px-6 lg:px-16">
+      <div ref={ref} className="relative z-20 w-full px-6 lg:px-16"> 
         <div className="max-w-4xl mx-auto text-center">
           {/* Headline */}
           <h2

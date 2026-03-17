@@ -1,5 +1,6 @@
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../hooks/useLanguage';
+import { VectorNetworkBackground } from '../components/VectorNetworkBackground';
 
 const getStats = (t: (key: string) => string) => [
   { value: 3, suffix: '+', label: 'Experiencia IA' },
@@ -52,6 +53,7 @@ export function Stats() {
             filter: 'blur(80px)',
           }}
         />
+        <VectorNetworkBackground className="z-0 pointer-events-none" />
       </div>
 
       <div ref={ref} className="relative z-10 w-full px-6 lg:px-16">
@@ -90,3 +92,4 @@ export function Stats() {
     </section>
   );
 }
+

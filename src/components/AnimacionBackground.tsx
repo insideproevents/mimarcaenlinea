@@ -1,116 +1,90 @@
-import { useEffect, useRef, useState } from 'react';
-import animacionImage from '../../assetts/animacion.jpg';
+import { useEffect, useRef } from 'react';
 
 interface AnimacionBackgroundProps {
   className?: string;
 }
 
 export function AnimacionBackground({ className = '' }: AnimacionBackgroundProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [scale, setScale] = useState(1);
-  const [rotation, setRotation] = useState(0);
-  const animationRef = useRef<number | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    setIsLoaded(true);
+    const canvas = canvasRef.current!;
+    const ctx = canvas.getContext('2d')!;
+    let startTime = 0;
+    let animationId = 0;
 
-    // Subtle scale and rotation animation
-    let startTime: number | null = null;
-    
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const elapsed = currentTime - startTime;
-
-      // Gentle pulsing scale (1 to 1.05)
-      const newScale = 1 + Math.sin(elapsed / 3000) * 0.03;
-      setScale(newScale);
-
-      // Very slow rotation (0 to 2 degrees)
-      const newRotation = Math.sin(elapsed / 8000) * 2;
-      setRotation(newRotation);
-
-      animationRef.current = requestAnimationFrame(animate);
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = canvas.clientWidth * dpr;
+      canvas.height = canvas.clientHeight * dpr;
+      canvas.style.width = canvas.clientWidth + 'px';
+      canvas.style.height = canvas.clientHeight + 'px';
+      ctx.scale(dpr, dpr);
     };
 
-    animationRef.current = requestAnimationFrame(animate);
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const time = currentTime - startTime;
+
+      const rect = canvas.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // FONDO oscuro
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, width, height);
+
+      const numLines = 60;
+      const lineWidth = 1.5;
+      const oscillationSpeed = 0.002;
+      const amplitude = 15;
+      
+      ctx.lineCap = 'round';
+      ctx.lineWidth = lineWidth;
+
+      for (let i = 0; i < numLines; i++) {
+        const progress = i / (numLines - 1);
+        const baseY = height * 0.1 + progress * height * 0.8;
+        
+        const offset = Math.sin(time * oscillationSpeed + i * 0.4) * amplitude;
+        const strokeAlpha = 0.6 + Math.sin(time * 0.001 + i * 0.2) * 0.2;
+
+        ctx.strokeStyle = `rgba(75, 85, 99, ${strokeAlpha})`;
+        
+        ctx.beginPath();
+        ctx.moveTo(0, baseY);
+        
+        for (let x = 0; x <= width; x += 5) {
+          const xProgress = x / width;
+          const wave = Math.sin(xProgress * Math.PI * 6 + time * 0.0015 + i * 0.3) * 8;
+          ctx.lineTo(x, baseY + offset + wave);
+        }
+        ctx.stroke();
+      }
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+    animationId = requestAnimationFrame(animate);
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      window.removeEventListener('resize', resize);
+      if (animationId) cancelAnimationFrame(animationId);
     };
   }, []);
 
   return (
-    <div className={`relative w-full h-full overflow-hidden ${className}`}>
-      {/* Background Image with animation */}
-      <div 
-        className="absolute inset-0 transition-transform duration-1000 ease-out"
-        style={{
-          transform: `scale(${scale}) rotate(${rotation}deg)`,
-          opacity: isLoaded ? 0.8 : 0,
-          transition: 'opacity 1s ease-out',
-        }}
-      >
-        <div 
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${animacionImage})`,
-            filter: 'grayscale(30%) contrast(1.1)',
-          }}
-        />
-      </div>
-
-      {/* Gradient overlay for depth */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.6) 100%)',
-        }}
+    <div className={`w-full h-full overflow-hidden ${className}`}>
+      <canvas 
+        ref={canvasRef} 
+        className="w-full h-full absolute inset-0" 
+        style={{background: 'transparent'}}
       />
-
-      {/* Subtle blue glow effect */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at 30% 30%, rgba(0, 71, 171, 0.15) 0%, transparent 50%)',
-          animation: 'pulse 4s ease-in-out infinite',
-        }}
-      />
-
-      {/* Floating particles effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white/30 rounded-full"
-            style={{
-              left: `${15 + Math.random() * 70}%`,
-              top: `${15 + Math.random() * 70}%`,
-              animation: `floatParticle ${3 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* CSS Keyframes */}
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 0.5; }
-          50% { opacity: 1; }
-        }
-        @keyframes floatParticle {
-          0%, 100% { 
-            transform: translateY(0) translateX(0); 
-            opacity: 0.3;
-          }
-          50% { 
-            transform: translateY(-20px) translateX(10px); 
-            opacity: 0.6;
-          }
-        }
-      `}</style>
     </div>
   );
 }
