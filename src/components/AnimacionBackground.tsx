@@ -33,8 +33,8 @@ export function AnimacionBackground({ className = '' }: AnimacionBackgroundProps
 
       ctx.clearRect(0, 0, width, height);
 
-      const numLines = 50;
-      const lineWidth = 2.5;
+const numLines = window.innerWidth < 768 ? 30 : 50;
+const lineWidth = window.innerWidth < 768 ? 3.5 : 2.5;
 const speed = 1.2;
       const amp = 35;
 
@@ -44,7 +44,7 @@ const speed = 1.2;
       for (let i = 0; i < numLines; i++) {
         const y = (i / (numLines - 1)) * height * 0.85 + height * 0.075;
         const offset = Math.sin(time * speed + i * 0.4) * amp;
-        const alpha = 0.9 + Math.sin(time * 0.5 + i * 0.1) * 0.1;
+const alpha = window.innerWidth < 768 ? 1.0 : (0.9 + Math.sin(time * 0.5 + i * 0.1) * 0.1);
 
 ctx.strokeStyle = `rgb(55, 65, 81, ${alpha * 0.45})`; // Gris oscuro #374151 low opacity
         
