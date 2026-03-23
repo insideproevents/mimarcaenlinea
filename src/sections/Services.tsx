@@ -148,7 +148,7 @@ export function Services() {
               >
                 {/* Background Image */}
                 <div 
-                  className="absolute inset-0 rounded-[10%] grayscale opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                  className="absolute inset-0 rounded-[10%] grayscale opacity-50 group-hover:opacity-80 transition-opacity duration-300"
                   style={{
                     backgroundImage: `url(${service.image})`,
                     backgroundSize: 'cover',
