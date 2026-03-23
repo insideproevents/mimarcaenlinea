@@ -6,6 +6,7 @@ vite
 
 # Deploy files (keep in git)
 !deploy-*.sh
+!.cpanel.yml
 -e 
 id_rsa
 public/id_rsa.pub
