@@ -1,4 +1,4 @@
 ---
 deployment:
   branch: main
-  path: /home/mimarcae/mimarca
+  path: /home/mimarcae/public_html
