@@ -1,8 +1,6 @@
 ---
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/mimarcae/public_html
-    - rm -rf $DEPLOYPATH
-    - mkdir -p $DEPLOYPATH
-    - cp -R dist/. $DEPLOYPATH/
-    - cp .htaccess $DEPLOYPATH/ 2>/dev/null || true
+deploy:
+  path: /home/mimarcae/public_html
+  repo: git@github.com:insideproevents/mimarcaenlinea.git
+  branch: main
+
