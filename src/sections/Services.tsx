@@ -160,7 +160,7 @@ export function Services() {
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-purple-700 transition-all duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                    <Icon className="w-8 h-8 text-white transition-all duration-300 group-hover:scale-110" strokeWidth={1.5} />
                   </div>
 
                   {/* Title */}
