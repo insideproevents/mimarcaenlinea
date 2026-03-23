@@ -35,7 +35,7 @@ export function AnimacionBackground({ className = '' }: AnimacionBackgroundProps
 
       const numLines = 50;
       const lineWidth = 2.5;
-      const speed = 3;
+const speed = 1.8;
       const amp = 35;
 
       ctx.lineCap = 'round';
@@ -46,7 +46,7 @@ export function AnimacionBackground({ className = '' }: AnimacionBackgroundProps
         const offset = Math.sin(time * speed + i * 0.4) * amp;
         const alpha = 0.9 + Math.sin(time * 0.5 + i * 0.1) * 0.1;
 
-        ctx.strokeStyle = `rgb(107, 114, 128, ${alpha})`; // Gris #6B7280 PERFECTO
+ctx.strokeStyle = `rgb(55, 65, 81, ${alpha * 0.45})`; // Gris oscuro #374151 low opacity
         
         ctx.beginPath();
         ctx.moveTo(0, y);
