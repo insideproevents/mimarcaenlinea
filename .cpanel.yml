@@ -1,6 +1,19 @@
 ---
-# cPanel Git Deploy (no SSH)
+# cPanel Git Deployment Configuration
 deployment:
-  tasks:
-    - export DEPLOY_TARGET=public_html
-    - composer install --no-dev --optimize-autoloader
+  branch: main
+  restartable: yes
+  
+hooks:
+  # Pre-deployment: Install dependencies
+  - 
+    event: pre_deploy
+    action: |
+      npm install
+      npm run build
+  
+  # Post-deployment: Copy files
+  - 
+    event: post_deploy
+    action: |
+      cp -r dist/* $DEPLOY_TARGET/
