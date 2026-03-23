@@ -1,0 +1,17 @@
+## MIME types for Vite SPA
+AddType application/javascript .js
+AddType module application/javascript-module .js
+AddType text/css .css
+AddType video/mp4 .mp4
+AddType image/png .png
+AddType image/jpeg .jpg .jpeg
+
+## Allow modules
+<IfModule mod_mime.c>
+AddType application/javascript .js
+AddType text/css .css
+AddType video/mp4 .mp4
+</IfModule>
+
+## No listado directorios
+Options -Indexes
