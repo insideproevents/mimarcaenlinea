@@ -1,5 +1,5 @@
 ---
-# cPanel Git Deployment - Simple Version
 deployment:
   branch: main
   path: /home/mimarcae/public_html
+  restartable: yes

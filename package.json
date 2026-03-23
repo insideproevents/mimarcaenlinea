@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && ./deploy-manual.sh",
+    "deploy:zip": "npm run build && ./deploy-manual.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
