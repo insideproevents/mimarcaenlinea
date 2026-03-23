@@ -1,5 +1,6 @@
 ---
+# cPanel Git - Solo clona el repositorio
+# No hace build - solo sincroniza archivos
 deployment:
   branch: main
-  path: /home/mimarcae/public_html
-  restartable: yes
+  path: /home/mimarcae/mimarca-repo
