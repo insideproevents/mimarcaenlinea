@@ -1,4 +1,5 @@
 ---
+# cPanel Git Deployment Configuration
 deployment:
   branch: main
   path: /home/mimarcae/public_html
