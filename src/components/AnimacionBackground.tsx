@@ -35,7 +35,7 @@ export function AnimacionBackground({ className = '' }: AnimacionBackgroundProps
 
       const numLines = 50;
       const lineWidth = 2.5;
-const speed = 1.8;
+const speed = 1.2;
       const amp = 35;
 
       ctx.lineCap = 'round';
