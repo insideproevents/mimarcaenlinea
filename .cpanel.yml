@@ -1,19 +1,5 @@
 ---
-# cPanel Git Deployment Configuration
+# cPanel Git Deployment - Simple Version
 deployment:
   branch: main
-  restartable: yes
-  
-hooks:
-  # Pre-deployment: Install dependencies
-  - 
-    event: pre_deploy
-    action: |
-      npm install
-      npm run build
-  
-  # Post-deployment: Copy files
-  - 
-    event: post_deploy
-    action: |
-      cp -r dist/* $DEPLOY_TARGET/
+  path: /home/mimarcae/public_html
