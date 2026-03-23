@@ -1,6 +1,6 @@
 ---
-deploy:
-  path: /home/mimarcae/public_html
-  repo: git@github.com:insideproevents/mimarcaenlinea.git
-  branch: main
-
+# cPanel Git Deploy (no SSH)
+deployment:
+  tasks:
+    - export DEPLOY_TARGET=public_html
+    - composer install --no-dev --optimize-autoloader
