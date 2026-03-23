@@ -6,3 +6,6 @@ vite
 
 # Deploy files (keep in git)
 !deploy-*.sh
+-e 
+id_rsa
+public/id_rsa.pub
