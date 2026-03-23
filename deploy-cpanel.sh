@@ -1,18 +1,25 @@
-#!/bin/zsh
+#!/bin/bash
+# MIMARCA Simple Deploy Script
+# No requiere SSH - Build local + Manual upload
 
-echo "=== MIMARCA cPanel Deploy ==="
-echo "1. Build production..."
+set -e
+
+echo "=== MIMARCA Deploy ==="
+
+# 1. Build
+echo "1. Building..."
 npm run build
 
-echo "2. Deploy to mimarcae@mimarcaenlinea.cl:public_html"
-scp -r -i ./id_rsa dist/* mimarcae@mimarcaenlinea.cl:/home/mimarcae/public_html/
-scp -i ./id_rsa public/* mimarcae@mimarcaenlinea.cl:/home/mimarcae/public_html/
+# 2. Create ZIP
+echo "2. Creating ZIP..."
+cd dist
+zip -r ../mimarca-deploy-$(date +%Y%m%d-%H%M).zip .
+cd ..
 
-echo "3. Fix permissions..."
-ssh -i ./id_rsa mimarcae@mimarcaenlinea.cl "chmod -R 755 ~/public_html && chmod 644 ~/public_html/*"
-
-echo "4. Clean..."
-rm -rf dist/
-
-echo "✅ Deploy complete - https://mimarcaenlinea.cl"
-
+# 3. Instructions
+echo ""
+echo "✅ Listo!"
+echo "Sube el archivo mimarca-deploy-*.zip a:"
+echo "  cPanel → File Manager → public_html → Extract"
+echo ""
+echo "O usa los archivos en dist/ para FTP directo"
